@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>暗号資産（仮想通貨）の税金はいくら？年収と利益でかんたん計算【2026年】｜せいどラガ</title>
+<meta name="description" content="年収と暗号資産の1年の利益を入れると、今の制度（総合課税）でふえる所得税・住民税の目安と、確定申告が要るかがわかります。分離課税への改正が当てはまった場合の仮の計算も出します。">
+<link rel="canonical" href="https://seidoraga.jp/kasou-zeikin/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="暗号資産の税金はいくら？かんたん計算">
+<meta property="og:description" content="年収と暗号資産の1年の利益を入れると、今の制度（総合課税）でふえる所得税・住民税の目安と、確定申告が要るかがわかります。分離課税への改正が当てはまった場合の仮の計算も出します。">
+<meta property="og:url" content="https://seidoraga.jp/kasou-zeikin/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js"></script>
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトには広告（PR）が含まれます。紹介料の額で 順番や説明は変えていません。</p>
+<main>
+<span class="badge">2026年の利益の計算</span>
+<h1>暗号資産（仮想通貨）の税金はいくら？<br>年収と利益でかんたん計算</h1>
+<p class="lead">暗号資産の利益は、今は「雑所得」として給与などと合計して税金を計算します（総合課税）。年収と1年の利益を入れると、ふえる税金の目安と確定申告が要るかがわかります。分離課税への改正が予定どおり当てはまった場合の仮の計算もいっしょに出します。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="inc">給与の年収（会社員・勤め先1か所）</label>
+  <div class="row"><input type="range" id="inc" min="0" max="20000000" step="100000" value="5000000"><output id="incOut" for="inc"></output></div>
+  <label for="pf">2026年の暗号資産の利益（売った・使った・交換した分から取得価額と手数料を引いたあと）</label>
+  <div class="row"><input type="range" id="pf" min="0" max="30000000" step="10000" value="1000000"><output id="pfOut" for="pf"></output></div>
+  <label for="ot">暗号資産以外の副業やFXなどの所得（確定申告が要るかの判定に使う）</label>
+  <div class="row"><input type="range" id="ot" min="0" max="1000000" step="10000" value="0"><output id="otOut" for="ot"></output></div>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>A　今の制度（総合課税）でふえる税金</span><b id="nt">-</b><small id="ntNote"></small></div>
+    <div><span>所得税（復興特別所得税を含む）</span><b id="nit">-</b><small></small></div>
+    <div><span>住民税</span><b id="njt">-</b><small>利益のおよそ10%</small></div>
+    <div><span>B　改正が当てはまった場合（仮の計算）</span><b id="st">-</b><small id="stNote"></small></div>
+  </div>
+  <div class="hint" id="sinkoku" style="margin-top:10px"></div>
+  <p class="note">※Bは、分離課税（所得税15%・住民税5%・復興特別所得税）への改正がその利益に当てはまったと仮定した計算です。改正が始まる年はまだ決まっていません。対象も、国内の登録業者を通じて売った一定の暗号資産に限られる予定です。Bは税金だけを比べたもので、値動き・手数料・売る時期は入っていません。売る時期をすすめるものではありません。社会保険料は年収の約15%とした目安です。</p>
+</section>
+<h2>早見表A：今の制度でふえる税金</h2>
+<table><thead><tr><th scope="col">年収＼暗号資産の利益</th><th scope="col">20万円</th><th scope="col">100万円</th><th scope="col">300万円</th><th scope="col">1,000万円</th></tr></thead><tbody><tr><th scope="row">300万円</th><td>30,200円<br><small>15.1%</small></td><td>151,100円<br><small>15.1%</small></td><td>632,900円<br><small>21.1%</small></td><td>3,094,100円<br><small>30.9%</small></td></tr><tr><th scope="row">500万円</th><td>31,200円<br><small>15.6%</small></td><td>192,900円<br><small>19.3%</small></td><td>833,000円<br><small>27.8%</small></td><td>3,448,600円<br><small>34.5%</small></td></tr><tr><th scope="row">700万円</th><td>60,800円<br><small>30.4%</small></td><td>304,200円<br><small>30.4%</small></td><td>922,800円<br><small>30.8%</small></td><td>3,716,300円<br><small>37.2%</small></td></tr><tr><th scope="row">1,000万円</th><td>60,800円<br><small>30.4%</small></td><td>304,200円<br><small>30.4%</small></td><td>973,200円<br><small>32.4%</small></td><td>4,024,600円<br><small>40.2%</small></td></tr></tbody></table>
+<p class="note">下の数字は、利益に対するふえた税金の割合です。総合課税なので、年収が高いほど・利益が大きいほど割合が上がります。</p>
+<h2>早見表B：改正が当てはまった場合の仮の計算</h2>
+<table><thead><tr><th scope="col">年収＼暗号資産の利益</th><th scope="col">20万円</th><th scope="col">100万円</th><th scope="col">300万円</th><th scope="col">1,000万円</th></tr></thead><tbody><tr><th scope="row">300万円</th><td>40,600円<br><small>今の制度より+10,400円</small></td><td>203,100円<br><small>今の制度より+52,000円</small></td><td>628,300円<br><small>今の制度より-4,600円</small></td><td>2,052,800円<br><small>今の制度より-1,041,300円</small></td></tr><tr><th scope="row">500万円</th><td>40,600円<br><small>今の制度より+9,400円</small></td><td>203,100円<br><small>今の制度より+10,200円</small></td><td>643,100円<br><small>今の制度より-189,900円</small></td><td>2,065,100円<br><small>今の制度より-1,383,500円</small></td></tr><tr><th scope="row">700万円</th><td>40,600円<br><small>今の制度より-20,200円</small></td><td>203,100円<br><small>今の制度より-101,100円</small></td><td>619,600円<br><small>今の制度より-303,200円</small></td><td>2,041,600円<br><small>今の制度より-1,674,700円</small></td></tr><tr><th scope="row">1,000万円</th><td>40,600円<br><small>今の制度より-20,200円</small></td><td>203,100円<br><small>今の制度より-101,100円</small></td><td>609,400円<br><small>今の制度より-363,800円</small></td><td>2,031,400円<br><small>今の制度より-1,993,200円</small></td></tr></tbody></table>
+<p class="note">分離課税は年収にかかわらず約20%です。今の制度で税率が20%より低い人（年収や利益が小さい人）は、改正後のほうが税金が多くなることがあります。どちらが少ないかは人によってちがいます。</p>
+<h2>今の制度と予定されている改正</h2>
+<table><thead><tr><th scope="col"></th><th scope="col">今（2026年分）</th><th scope="col">改正後（予定）</th></tr></thead><tbody>
+<tr><th scope="row">課税のしかた</th><td>雑所得・総合課税（給与などと合計）</td><td>申告分離課税（給与などと分ける）</td></tr>
+<tr><th scope="row">税率</th><td>所得に応じて約15〜55%</td><td>約20%（20.315%）</td></tr>
+<tr><th scope="row">損失のくり越し</th><td>できない</td><td>3年間できる（毎年の確定申告が必要）</td></tr>
+<tr><th scope="row">始まる時期</th><td>－</td><td>金融商品取引法の改正が施行された年の翌年1月1日以後の取引から。2028年1月からと見込まれていますが、確定していません</td></tr>
+<tr><th scope="row">対象</th><td>すべての暗号資産</td><td>国内の登録業者を通じて売る一定の暗号資産（特定暗号資産）。海外の取引所などは総合課税のまま</td></tr>
+</tbody></table>
+<h2 id="faq">よくある質問</h2>
+<h3>暗号資産の利益が20万円以下なら確定申告はいりませんか？</h3>
+<p>会社員で勤め先が1か所・年末調整を受けている人は、給与以外の所得の合計が20万円以下なら所得税の確定申告はいりません。暗号資産だけでなく副業やFXなども合わせて判定します。医療費控除やふるさと納税で確定申告をするときは、20万円以下でも利益を入れて申告します。住民税にはこのルールがないので、お住まいの市区町村に住民税の申告が要ります。</p>
+<h3>暗号資産どうしを交換したときも税金はかかりますか？</h3>
+<p>かかります。暗号資産を売って円にしたときだけでなく、ほかの暗号資産と交換したときや、買い物に使ったときも、そのときの時価と取得価額の差が利益になります。</p>
+<h3>暗号資産の損失はほかの所得と相殺できますか？</h3>
+<p>今の制度では、暗号資産の損失は同じ雑所得（副業の雑所得など）の利益とだけ相殺できます。給与やFX・株とは相殺できず、翌年へのくり越しもできません。</p>
+<h3>分離課税はいつから始まりますか？</h3>
+<p>暗号資産を金融商品として扱う金融商品取引法の改正が施行された年の翌年1月1日以後の取引から、と予定されています。2028年1月からと見込まれていますが、確定していません。始まるまでは今の総合課税で計算します。</p>
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1524.htm" rel="noopener">国税庁 No.1524 暗号資産を使用することにより利益が生じた場合の課税関係</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" rel="noopener">国税庁 No.1900 給与所得者で確定申告が必要な人</a></li>
+  <li><a href="https://www.dir.co.jp/report/research/law-research/tax/20260206_025575.html" rel="noopener">大和総研「2026年度税制改正大綱解説（2）暗号資産取引課税」</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：せいどラガ 編集部（A&amp;T Works）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const inc=+$('inc').value, pf=+$('pf').value, ot=+$('ot').value;
+  $('incOut').textContent=man(inc); $('pfOut').textContent=man(pf); $('otOut').textContent=man(ot);
+  const r=SEIDO.crypto(inc,pf);
+  $('nt').textContent=yen(r.now.total); $('ntNote').textContent=pf?'利益の約'+(r.now.total/pf*100).toFixed(1)+'%':'利益がないので、税金はふえません';
+  $('nit').textContent=yen(r.now.it); $('njt').textContent=yen(r.now.jt);
+  $('st').textContent=yen(r.sep.total);
+  const d=r.sep.total-r.now.total;
+  $('stNote').textContent=pf?(d<0?'Aより '+yen(-d)+' 少ない':d>0?'Aより '+yen(d)+' 多い':'Aと同じ')+'（仮の計算・始まる年は未定）':'';
+  const sum=pf+ot;
+  let m;
+  if(inc>0&&sum<=200000) m='<b>所得税の確定申告はいらない見込みです</b>（給与以外の所得の合計 '+man(sum)+' が20万円以下）。ただし住民税の申告はお住まいの市区町村に必要です。医療費控除などで確定申告をするときは、暗号資産の利益も入れて申告します。';
+  else m='<b>確定申告が要ります。</b>'+(inc>0?'給与以外の所得の合計が '+man(sum)+' で、20万円をこえています。':'給与がないので、所得の合計によっては確定申告が要ります。');
+  $('sinkoku').innerHTML=m;
+}
+['inc','pf','ot'].forEach(id=>$(id).addEventListener('input',update)); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "暗号資産の利益が20万円以下なら確定申告はいりませんか？", "acceptedAnswer": {"@type": "Answer", "text": "会社員で勤め先が1か所・年末調整を受けている人は、給与以外の所得の合計が20万円以下なら所得税の確定申告はいりません。暗号資産だけでなく副業やFXなども合わせて判定します。医療費控除やふるさと納税で確定申告をするときは、20万円以下でも利益を入れて申告します。住民税にはこのルールがないので、お住まいの市区町村に住民税の申告が要ります。"}}, {"@type": "Question", "name": "暗号資産どうしを交換したときも税金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "かかります。暗号資産を売って円にしたときだけでなく、ほかの暗号資産と交換したときや、買い物に使ったときも、そのときの時価と取得価額の差が利益になります。"}}, {"@type": "Question", "name": "暗号資産の損失はほかの所得と相殺できますか？", "acceptedAnswer": {"@type": "Answer", "text": "今の制度では、暗号資産の損失は同じ雑所得（副業の雑所得など）の利益とだけ相殺できます。給与やFX・株とは相殺できず、翌年へのくり越しもできません。"}}, {"@type": "Question", "name": "分離課税はいつから始まりますか？", "acceptedAnswer": {"@type": "Answer", "text": "暗号資産を金融商品として扱う金融商品取引法の改正が施行された年の翌年1月1日以後の取引から、と予定されています。2028年1月からと見込まれていますが、確定していません。始まるまでは今の総合課税で計算します。"}}]}</script>
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>

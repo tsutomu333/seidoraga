@@ -144,7 +144,38 @@ function evaluate(inp,mods){
   return r;
 }
 
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE};
+/* ===== 投資の利益の税金（会社員・給与1か所・社会保険料は年収の約15%） ===== */
+// 総合課税の部分の所得税と住民税所得割（均等割は変わらないので入れない）
+function sogo(inc,extra,kisoG){
+  const g=Math.max(0,inc-kyuyo(inc)), sh=inc*0.15, G=g+extra;
+  const it=incomeTax(G-sh-kisoI(kisoG));
+  const jb=fl1000(G-sh-430000);
+  const jt=Math.max(0,Math.floor((jb*0.10-chosei(jb,50000))/100)*100);
+  return {g,it,jt};
+}
+const sepIt=b=>Math.floor(fl1000(b)*0.15*1.021/100)*100, sepJt=b=>Math.floor(fl1000(b)*0.05/100)*100;
+/* FX（先物取引に係る雑所得等）：申告分離課税。profit＝その年の損益、carry＝前の年からくり越した損失 */
+function fx(inc,profit,carry){
+  carry=Math.max(0,carry||0);
+  const g=Math.max(0,inc-kyuyo(inc));
+  const base=Math.max(0,profit-carry);                  // 繰越控除のあとの課税される利益
+  const used=profit>0?Math.min(profit,carry):0;         // 今年使う繰越損失
+  const left=profit>=0?carry-used:carry+(-profit);      // 来年にくり越せる損失（3年の期限は別）
+  const s0=sogo(inc,0,g), s1=sogo(inc,0,g+Math.max(0,profit)); // 合計所得がふえると基礎控除が減ることがある
+  const it=sepIt(base), jt=sepJt(base), kiso=(s1.it-s0.it)+(s1.jt-s0.jt);
+  return {base,used,left,it,jt,kiso,total:it+jt+kiso};
+}
+/* 暗号資産：①今の制度（雑所得・総合課税） ②改正が当てはまった場合の仮の計算（申告分離課税20.315%） */
+function crypto(inc,profit){
+  const p=Math.max(0,profit), g=Math.max(0,inc-kyuyo(inc));
+  const s0=sogo(inc,0,g), s1=sogo(inc,p,g+p);
+  const now={it:s1.it-s0.it,jt:s1.jt-s0.jt}; now.total=now.it+now.jt;
+  const s2=sogo(inc,0,g+p);
+  const sep={it:sepIt(p)+(s2.it-s0.it),jt:sepJt(p)+(s2.jt-s0.jt)}; sep.total=sep.it+sep.jt;
+  return {now,sep};
+}
+
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;

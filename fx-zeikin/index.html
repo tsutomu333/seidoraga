@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>FXの税金はいくら？利益と繰越損失でかんたん計算【2026年】｜せいどラガ</title>
+<meta name="description" content="FXの1年の損益と、前の年からくり越した損失を入れると、所得税・住民税の目安と確定申告が要るかがわかります。合計所得がふえて基礎控除が減る分も計算します。">
+<link rel="canonical" href="https://seidoraga.jp/fx-zeikin/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="FXの税金はいくら？かんたん計算">
+<meta property="og:description" content="FXの1年の損益と、前の年からくり越した損失を入れると、所得税・住民税の目安と確定申告が要るかがわかります。合計所得がふえて基礎控除が減る分も計算します。">
+<meta property="og:url" content="https://seidoraga.jp/fx-zeikin/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js"></script>
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトには広告（PR）が含まれます。紹介料の額で 順番や説明は変えていません。</p>
+<main>
+<span class="badge">2026年の利益の計算</span>
+<h1>FXの税金はいくら？<br>利益と繰越損失でかんたん計算</h1>
+<p class="lead">国内のFX会社でのFXの利益は「先物取引に係る雑所得等」になり、給与とは分けて約20%の税金がかかります。1年の損益と前の年からくり越した損失を入れると、税金の目安と確定申告が要るかがわかります。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="inc">給与の年収（会社員・勤め先1か所）</label>
+  <div class="row"><input type="range" id="inc" min="0" max="20000000" step="100000" value="5000000"><output id="incOut" for="inc"></output></div>
+  <label for="pf">2026年のFXの損益（決済した分とスワップポイント・手数料を引いたあと）</label>
+  <div class="row"><input type="range" id="pf" min="-3000000" max="10000000" step="10000" value="500000"><output id="pfOut" for="pf"></output></div>
+  <label for="cy">前の年からくり越した損失（過去3年分・確定申告していたもの）</label>
+  <div class="row"><input type="range" id="cy" min="0" max="5000000" step="10000" value="0"><output id="cyOut" for="cy"></output></div>
+  <label for="ot">FX以外の副業や暗号資産などの所得（確定申告が要るかの判定に使う）</label>
+  <div class="row"><input type="range" id="ot" min="0" max="1000000" step="10000" value="0"><output id="otOut" for="ot"></output></div>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>FXの利益にかかる税金（目安）</span><b id="tot">-</b><small id="totNote"></small></div>
+    <div><span>所得税（復興特別所得税を含む）</span><b id="it">-</b><small>課税される利益×15.315%</small></div>
+    <div><span>住民税</span><b id="jt">-</b><small>課税される利益×5%</small></div>
+    <div><span>基礎控除が減ることでふえる税金</span><b id="ks">-</b><small id="ksNote"></small></div>
+    <div><span>来年にくり越せる損失</span><b id="lf">-</b><small id="lfNote"></small></div>
+  </div>
+  <div class="hint" id="sinkoku" style="margin-top:10px"></div>
+  <p class="note">※国内の登録業者（第一種金融商品取引業者・登録金融機関）との取引として計算しています。海外のFX業者との取引は扱いがちがいます（下の質問を見てください）。社会保険料は年収の約15%とした目安です。</p>
+</section>
+<h2>早見表：FXの利益にかかる税金</h2>
+<table><thead><tr><th scope="col">FXの利益（1年）</th><th scope="col">年収400万円の人</th><th scope="col">年収600万円の人</th></tr></thead><tbody><tr><th scope="row">10万円</th><td>20,300円</td><td>20,300円</td></tr><tr><th scope="row">20万円</th><td>40,600円</td><td>40,600円</td></tr><tr><th scope="row">50万円</th><td>101,500円</td><td>101,500円</td></tr><tr><th scope="row">100万円</th><td>203,100円</td><td>240,900円（基礎控除が減る分を含む）</td></tr><tr><th scope="row">300万円</th><td>628,300円（基礎控除が減る分を含む）</td><td>652,300円（基礎控除が減る分を含む）</td></tr></tbody></table>
+<p class="note">くり越した損失なし・FX以外の所得なしの場合です。FXの利益がふえて合計所得が489万円や655万円をこえると、所得税の基礎控除が減ります（2026・2027年分のルール）。そのぶん給与にかかる税金もふえるので、表にはその額も入れています。</p>
+<h2>FXの税金の3つのポイント</h2>
+<table><thead><tr><th scope="col">ポイント</th><th scope="col">中身</th></tr></thead><tbody>
+<tr><th scope="row">税率は一律</th><td>給与とは分けて計算し、所得税15%・住民税5%・復興特別所得税（所得税の2.1%）で合計20.315%です。年収が高くても低くても同じです。</td></tr>
+<tr><th scope="row">相殺できる相手</th><td>ほかの「先物取引に係る雑所得等」（くりっく365・CFD・日経225先物など）の損益とは相殺できます。株・投資信託・暗号資産・給与とは相殺できません。</td></tr>
+<tr><th scope="row">損失のくり越し</th><td>相殺しきれない損失は、翌年から3年間くり越せます。そのためには損失が出た年も確定申告をして、その後も毎年続けて申告します。</td></tr>
+</tbody></table>
+<h2 id="faq">よくある質問</h2>
+<h3>FXの利益が20万円以下なら確定申告はいりませんか？</h3>
+<p>会社員で勤め先が1か所・年末調整を受けている人は、給与以外の所得の合計が20万円以下なら所得税の確定申告はいりません。FXだけでなく副業や暗号資産なども合わせて判定します。ただし医療費控除やふるさと納税で確定申告をするときは、20万円以下でもFXの利益を入れて申告します。住民税にはこのルールがないので、お住まいの市区町村に住民税の申告が要ります。</p>
+<h3>FXで損をしたときも確定申告をしたほうがいいですか？</h3>
+<p>損失を翌年以降の利益と相殺したいときは、損失が出た年に確定申告をします。申告をしないと、くり越すことができません。くり越しは3年までで、その間は利益が出なくても毎年続けて申告します。</p>
+<h3>海外のFX業者で得た利益はどうなりますか？</h3>
+<p>国内の登録業者との取引でないFXの利益は、ふつう雑所得として給与などと合計して計算する総合課税になります。税率は所得に応じて5〜45%（住民税10%は別）で、国内FXの損益と相殺することもできません。このページの計算は国内の登録業者との取引だけを対象にしています。</p>
+<h3>FXの利益は配偶者控除やふるさと納税の上限に影響しますか？</h3>
+<p>影響します。FXの利益は分けて課税されますが、「合計所得金額」には入ります。そのため、基礎控除や配偶者控除の判定、ふるさと納税の上限、国民健康保険料などが変わることがあります。</p>
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1521.htm" rel="noopener">国税庁 No.1521 外国為替証拠金取引（FX）の課税関係</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" rel="noopener">国税庁 No.1900 給与所得者で確定申告が必要な人</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1199.htm" rel="noopener">国税庁 No.1199 基礎控除</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：せいどラガ 編集部（A&amp;T Works）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const inc=+$('inc').value, pf=+$('pf').value, cy=+$('cy').value, ot=+$('ot').value;
+  $('incOut').textContent=man(inc); $('pfOut').textContent=(pf<0?'損失 ':'')+man(Math.abs(pf)); $('cyOut').textContent=man(cy); $('otOut').textContent=man(ot);
+  const r=SEIDO.fx(inc,pf,cy);
+  $('tot').textContent=yen(r.total);
+  $('totNote').textContent=pf<=0?'今年は利益がないので、FXの税金はかかりません':r.used?'くり越した損失 '+man(r.used)+' を引いた '+man(r.base)+' に税金がかかります':'課税される利益 '+man(r.base);
+  $('it').textContent=yen(r.it); $('jt').textContent=yen(r.jt);
+  $('ks').textContent=yen(r.kiso); $('ksNote').textContent=r.kiso?'合計所得がふえて所得税の基礎控除が減るため、給与の税金がふえます':'今回の条件では変わりません';
+  $('lf').textContent=man(r.left); $('lfNote').textContent=r.left?'確定申告をすると、最長3年くり越せます（古い年の分から使います）':'くり越す損失はありません';
+  const fxInc=Math.max(0,pf-cy), sum=Math.max(0,pf)+ot;
+  let m;
+  if(pf<0) m='<b>損失をくり越すには確定申告が要ります。</b>申告しないと、来年以降の利益と相殺できません。';
+  else if(cy>0) m='<b>くり越した損失を使うには確定申告が要ります。</b>'+(fxInc===0?'今年の利益が損失で消えても、申告を続けないと残りの損失をくり越せません。':'');
+  else if(inc>0&&sum<=200000) m='<b>所得税の確定申告はいらない見込みです</b>（給与以外の所得の合計 '+man(sum)+' が20万円以下）。ただし住民税の申告はお住まいの市区町村に必要です。医療費控除などで確定申告をするときは、FXの利益も入れて申告します。';
+  else m='<b>確定申告が要ります。</b>'+(inc>0?'給与以外の所得の合計が '+man(sum)+' で、20万円をこえています。':'給与がないので、利益が出たら確定申告をします。');
+  $('sinkoku').innerHTML=m;
+}
+['inc','pf','cy','ot'].forEach(id=>$(id).addEventListener('input',update)); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "FXの利益が20万円以下なら確定申告はいりませんか？", "acceptedAnswer": {"@type": "Answer", "text": "会社員で勤め先が1か所・年末調整を受けている人は、給与以外の所得の合計が20万円以下なら所得税の確定申告はいりません。FXだけでなく副業や暗号資産なども合わせて判定します。ただし医療費控除やふるさと納税で確定申告をするときは、20万円以下でもFXの利益を入れて申告します。住民税にはこのルールがないので、お住まいの市区町村に住民税の申告が要ります。"}}, {"@type": "Question", "name": "FXで損をしたときも確定申告をしたほうがいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "損失を翌年以降の利益と相殺したいときは、損失が出た年に確定申告をします。申告をしないと、くり越すことができません。くり越しは3年までで、その間は利益が出なくても毎年続けて申告します。"}}, {"@type": "Question", "name": "海外のFX業者で得た利益はどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "国内の登録業者との取引でないFXの利益は、ふつう雑所得として給与などと合計して計算する総合課税になります。税率は所得に応じて5〜45%（住民税10%は別）で、国内FXの損益と相殺することもできません。このページの計算は国内の登録業者との取引だけを対象にしています。"}}, {"@type": "Question", "name": "FXの利益は配偶者控除やふるさと納税の上限に影響しますか？", "acceptedAnswer": {"@type": "Answer", "text": "影響します。FXの利益は分けて課税されますが、「合計所得金額」には入ります。そのため、基礎控除や配偶者控除の判定、ふるさと納税の上限、国民健康保険料などが変わることがあります。"}}]}</script>
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>
