@@ -146,10 +146,11 @@ function evaluate(inp,mods){
 
 /* ===== 投資の利益の税金（会社員・給与1か所・社会保険料は年収の約15%） ===== */
 // 総合課税の部分の所得税と住民税所得割（均等割は変わらないので入れない）
-function sogo(inc,extra,kisoG){
+function sogo(inc,extra,kisoG,ded){
+  ded=ded||0;
   const g=Math.max(0,inc-kyuyo(inc)), sh=inc*0.15, G=g+extra;
-  const it=incomeTax(G-sh-kisoI(kisoG));
-  const jb=fl1000(G-sh-430000);
+  const it=incomeTax(G-sh-kisoI(kisoG)-ded);
+  const jb=fl1000(G-sh-430000-ded);
   const jt=Math.max(0,Math.floor((jb*0.10-chosei(jb,50000))/100)*100);
   return {g,it,jt};
 }
@@ -175,7 +176,23 @@ function crypto(inc,profit){
   return {now,sep};
 }
 
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto};
+/* 医療費控除：med＝1年の医療費（保険金などで戻る分を引いたあと）、otc＝そのうちセルフメディケーション税制の対象の市販薬、side＝給与以外の所得 */
+function iryo(inc,med,otc,side){
+  side=Math.max(0,side||0);
+  const g=Math.max(0,inc-kyuyo(inc)), G=g+side;
+  const th=G<2000000?Math.floor(G*0.05):100000;
+  const dA=Math.min(2000000,Math.max(0,med-th)), dB=Math.min(88000,Math.max(0,(otc||0)-12000));
+  const b=sogo(inc,side,G,0), cut=d=>{const x=sogo(inc,side,G,d);return {ded:d,it:b.it-x.it,jt:b.jt-x.jt,total:(b.it-x.it)+(b.jt-x.jt)};};
+  return {th,A:cut(dA),B:cut(dB)};
+}
+/* 副業（雑所得・事業所得）：side＝副業の所得（収入−経費）。総合課税でふえる税金 */
+function fukugyo(inc,side){
+  const p=Math.max(0,side), g=Math.max(0,inc-kyuyo(inc));
+  const s0=sogo(inc,0,g), s1=sogo(inc,p,g+p);
+  return {it:s1.it-s0.it,jt:s1.jt-s0.jt,total:(s1.it-s0.it)+(s1.jt-s0.jt)};
+}
+
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
