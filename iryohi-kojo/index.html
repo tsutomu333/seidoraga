@@ -84,8 +84,9 @@ footer a{color:var(--sub);margin-right:12px}
 <p class="lead">1年の医療費が10万円（所得が200万円未満の人は所得の5%）をこえると、確定申告で税金が戻ります。年収と医療費を入れると、戻る所得税と翌年の住民税の目安がわかります。市販薬の「セルフメディケーション税制」とどちらが多いかも比べます。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
-  <label for="inc">医療費を払った人の給与の年収</label>
+  <label for="inc">医療費を払った人の年収（手取りではなく、税金や保険料が引かれる前の額）</label>
   <div class="row"><input type="range" id="inc" min="0" max="20000000" step="100000" value="5000000"><output id="incOut" for="inc"></output></div>
+  <div class="hint">源泉徴収票の「支払金額」です。ないときは「毎月の総支給額×12＋ボーナス」で入れてください。会社員（勤め先1か所・年末調整あり）として計算します。</div>
   <label for="med">2026年に払った医療費（家族の分も合わせて・保険金などで戻る分を引いたあと）</label>
   <div class="row"><input type="range" id="med" min="0" max="2000000" step="5000" value="200000"><output id="medOut" for="med"></output></div>
   <label for="otc">そのうち、セルフメディケーション税制の対象の市販薬</label>

@@ -84,8 +84,9 @@ footer a{color:var(--sub);margin-right:12px}
 <p class="lead">住民税は前の年の収入で決まるので、退職して給料がなくなっても請求が届きます。退職する月と年収を入れると、退職後に払う住民税の合計と、いつ払うかの目安がわかります。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
-  <label for="prev">去年（2025年）の年収</label>
+  <label for="prev">去年（2025年）の年収（手取りではなく、税金や保険料が引かれる前の額）</label>
   <div class="row"><input type="range" id="prev" min="2000000" max="15000000" step="100000" value="5000000"><output id="prevOut" for="prev"></output></div>
+  <div class="hint">2025年分の源泉徴収票の「支払金額」です。ないときは「毎月の総支給額×12＋ボーナス」で入れてください。</div>
   <label for="mon">今年の月給（額面）</label>
   <div class="row"><input type="range" id="mon" min="150000" max="1000000" step="10000" value="350000"><output id="monOut" for="mon"></output></div>
   <label for="bonus">今年もらった（もらう）賞与の合計</label>

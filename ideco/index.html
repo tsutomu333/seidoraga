@@ -100,8 +100,9 @@ footer a{color:var(--sub);margin-right:12px}
     <label id="fukaRow" hidden><input type="checkbox" id="fuka"> 付加保険料（月400円）を払っている</label>
   </div>
 
-  <label for="income" id="incomeLbl">年収（額面）</label>
+  <label for="income" id="incomeLbl">年収（手取りではなく、税金や保険料が引かれる前の額）</label>
   <div class="row"><input type="range" id="income" min="1000000" max="15000000" step="100000" value="5000000"><output id="incomeOut" for="income"></output></div>
+  <div class="hint">源泉徴収票の「支払金額」です。ないときは「毎月の総支給額×12＋ボーナス」で入れてください。</div>
   <div class="hint" id="incomeHint">ボーナス込みの1年の給料（税金などが引かれる前）です。</div>
 
   <label for="cur">いまのiDeCoの掛金（月額）</label>
@@ -242,7 +243,7 @@ footer a{color:var(--sub);margin-right:12px}
     $('fukaRow').hidden = type!=='self';
     $('otherLbl').textContent = type==='self'?'国民年金基金の掛金（月額・入っていなければ0）':'会社の企業年金の掛金（月額）';
     $('otherHint').textContent = type==='self'?'自営業の上限7.5万円は、国民年金基金・付加保険料と合わせた額です。':'企業型DCの会社掛金と、DBなどの掛金相当額の合計です。正確な額は会社の担当や年金の案内で確かめてください。';
-    $('incomeLbl').textContent = type==='self'?'1年の所得（売上−経費）':(type==='home'?'本人の年収（パートなど）':'年収（額面）');
+    $('incomeLbl').textContent = type==='self'?'1年の所得（売上−経費）':(type==='home'?'本人の年収（パートなど・手取りではなく、税金や保険料が引かれる前の額）':'年収（手取りではなく、税金や保険料が引かれる前の額）');
     $('incomeHint').textContent = type==='self'?'売上から経費を引いた額です（青色申告特別控除を引いたあとの目安）。':(type==='home'?'本人の収入がなければ0のままにしてください。':'ボーナス込みの1年の給料（税金などが引かれる前）です。');
     $('income').min = type==='home'?0:1000000;
     if(type==='home' && !window._homeSet){ $('income').value=0; inc=0; window._homeSet=true; }

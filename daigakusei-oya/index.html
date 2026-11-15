@@ -88,8 +88,9 @@ footer a{color:var(--sub);margin-right:12px}
   <label for="baito">子のバイト代（1年・額面）</label>
   <div class="row"><input type="range" id="baito" min="0" max="2500000" step="10000" value="1500000"><output id="baitoOut" for="baito"></output></div>
   <div class="hint">2026年1月から12月の合計です。子の年齢は2026年12月31日時点で19〜22歳とします。</div>
-  <label for="oya">親（子を扶養している人）の年収</label>
+  <label for="oya">親（子を扶養している人）の年収（手取りではなく、税金や保険料が引かれる前の額）</label>
   <div class="row"><input type="range" id="oya" min="3000000" max="15000000" step="100000" value="7000000"><output id="oyaOut" for="oya"></output></div>
+  <div class="hint">源泉徴収票の「支払金額」です。ないときは「毎月の総支給額×12＋ボーナス」で入れてください。</div>
   <label for="sp">親の配偶者</label>
   <select id="sp"><option value="0">配偶者控除なし（共働きなど）</option><option value="1">配偶者控除を受けている</option></select>
 

@@ -84,8 +84,9 @@ footer a{color:var(--sub);margin-right:12px}
 <p class="lead">国内の登録業者（第一種金融商品取引業者・登録金融機関）を相手にする店頭FXと、取引所のFX（くりっく365）の利益は「先物取引に係る雑所得等」になり、給与とは分けて約20%の税金がかかります。1年の損益と前の年からくり越した損失を入れると、税金の目安と確定申告が要るかがわかります。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
-  <label for="inc">給与の年収（会社員・勤め先1か所）</label>
+  <label for="inc">給与の年収（手取りではなく、税金や保険料が引かれる前の額）</label>
   <div class="row"><input type="range" id="inc" min="0" max="20000000" step="100000" value="5000000"><output id="incOut" for="inc"></output></div>
+  <div class="hint">源泉徴収票の「支払金額」です。ないときは「毎月の総支給額×12＋ボーナス」で入れてください。会社員（勤め先1か所・年末調整あり）として計算します。</div>
   <label for="pf">2026年のFXの損益（決済した分とスワップポイント・手数料を引いたあと）</label>
   <div class="row"><input type="range" id="pf" min="-3000000" max="10000000" step="10000" value="500000"><output id="pfOut" for="pf"></output></div>
   <label for="cy">前の年からくり越した損失（過去3年分・確定申告していたもの）</label>

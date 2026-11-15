@@ -84,8 +84,9 @@ footer a{color:var(--sub);margin-right:12px}
 <p class="lead">暗号資産の利益は、今は原則として「雑所得」になり、給与などと合計して税金を計算します（総合課税）。年収と1年の利益を入れると、ふえる税金の目安と確定申告が要るかがわかります。分離課税への改正が予定どおり当てはまった場合の仮の計算もいっしょに出します。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
-  <label for="inc">給与の年収（会社員・勤め先1か所）</label>
+  <label for="inc">給与の年収（手取りではなく、税金や保険料が引かれる前の額）</label>
   <div class="row"><input type="range" id="inc" min="0" max="20000000" step="100000" value="5000000"><output id="incOut" for="inc"></output></div>
+  <div class="hint">源泉徴収票の「支払金額」です。ないときは「毎月の総支給額×12＋ボーナス」で入れてください。会社員（勤め先1か所・年末調整あり）として計算します。</div>
   <label for="pf">2026年の暗号資産の利益（売った・使った・交換した分から取得価額と手数料を引いたあと）</label>
   <div class="row"><input type="range" id="pf" min="0" max="30000000" step="10000" value="1000000"><output id="pfOut" for="pf"></output></div>
   <label for="ot">暗号資産以外の副業やFXなどの所得（確定申告が要るかの判定に使う）</label>
