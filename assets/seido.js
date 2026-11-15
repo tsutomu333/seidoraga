@@ -192,7 +192,24 @@ function fukugyo(inc,side){
   return {it:s1.it-s0.it,jt:s1.jt-s0.jt,total:(s1.it-s0.it)+(s1.jt-s0.jt)};
 }
 
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo};
+/* 年末調整：生命保険料控除（新制度）・地震保険料控除・iDeCo（小規模企業共済等掛金控除）で減る税金 */
+function lifeDed(ip,kg,nk,u23){
+  // 一般生命保険料：23歳未満の扶養親族がいる場合は2026・2027年分の所得税で上限6万円（合計12万円は同じ）
+  const fu=x=>x<=0?0:x<=30000?x:x<=60000?Math.ceil(x/2+15000):x<=120000?Math.ceil(x/4+30000):60000;
+  const fi=x=>x<=0?0:x<=20000?x:x<=40000?Math.ceil(x/2+10000):x<=80000?Math.ceil(x/4+20000):40000;
+  const fj=x=>x<=0?0:x<=12000?x:x<=32000?Math.ceil(x/2+6000):x<=56000?Math.ceil(x/4+14000):28000;
+  return {it:Math.min(120000,(u23?fu(ip):fi(ip))+fi(kg)+fi(nk)), jt:Math.min(70000,fj(ip)+fj(kg)+fj(nk))};
+}
+function nencho(inc,ip,kg,nk,ji,ide,u23){
+  const L=lifeDed(ip||0,kg||0,nk||0,u23), jI=Math.min(50000,ji||0), jJ=Math.min(25000,Math.floor((ji||0)/2)), d=ide||0;
+  const g=Math.max(0,inc-kyuyo(inc)), sh=inc*0.15;
+  const it=x=>incomeTax(g-sh-kisoI(g)-x);
+  const jt=x=>{const b=fl1000(g-sh-430000-x);return Math.max(0,Math.floor((b*0.10-chosei(b,50000))/100)*100);};
+  const dI=L.it+jI+d, dJ=L.jt+jJ+d;
+  return {life:L, jishin:{it:jI,jt:jJ}, dI, dJ, itCut:it(0)-it(dI), jtCut:jt(0)-jt(dJ)};
+}
+
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
