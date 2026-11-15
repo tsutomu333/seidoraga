@@ -84,7 +84,7 @@ footer a{color:var(--sub);margin-right:12px}
 <p class="lead">1年の医療費が10万円（所得が200万円未満の人は所得の5%）をこえると、確定申告で税金が戻ります。年収と医療費を入れると、戻る所得税と翌年の住民税の目安がわかります。市販薬の「セルフメディケーション税制」とどちらが多いかも比べます。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
-  <label for="inc">給与の年収（家族の中で所得のいちばん多い人で申告すると戻りやすい）</label>
+  <label for="inc">医療費を払った人の給与の年収</label>
   <div class="row"><input type="range" id="inc" min="0" max="20000000" step="100000" value="5000000"><output id="incOut" for="inc"></output></div>
   <label for="med">2026年に払った医療費（家族の分も合わせて・保険金などで戻る分を引いたあと）</label>
   <div class="row"><input type="range" id="med" min="0" max="2000000" step="5000" value="200000"><output id="medOut" for="med"></output></div>
@@ -97,7 +97,7 @@ footer a{color:var(--sub);margin-right:12px}
     <div><span>セルフメディケーション税制を選んだ場合</span><b id="bT">-</b><small id="bN"></small></div>
   </div>
   <div class="hint" id="next" style="margin-top:10px"></div>
-  <p class="note">※会社員・勤め先1か所・社会保険料は年収の約15%とした目安です。医療費控除とセルフメディケーション税制は、どちらか一方しか使えません。</p>
+  <p class="note">※会社員・勤め先1か所・社会保険料は年収の約15%とした目安です。医療費控除とセルフメディケーション税制は、どちらか一方しか使えません。セルフメディケーション税制は、健康診断や予防接種などを受けていることが条件です。</p>
 </section>
 <h2>早見表：医療費控除で戻る・減る税金</h2>
 <table><thead><tr><th scope="col">年収＼1年の医療費</th><th scope="col">15万円</th><th scope="col">20万円</th><th scope="col">30万円</th><th scope="col">50万円</th></tr></thead><tbody><tr><th scope="row">300万円</th><td>7,500円</td><td>15,100円</td><td>30,200円</td><td>60,400円</td></tr><tr><th scope="row">500万円</th><td>7,500円</td><td>15,100円</td><td>30,200円</td><td>60,400円</td></tr><tr><th scope="row">700万円</th><td>15,200円</td><td>30,400円</td><td>58,800円</td><td>99,200円</td></tr><tr><th scope="row">1,000万円</th><td>15,200円</td><td>30,400円</td><td>60,900円</td><td>121,700円</td></tr></tbody></table>
@@ -116,13 +116,13 @@ footer a{color:var(--sub);margin-right:12px}
 <a class="card rel" href="/furusato/"><b>ふるさと納税はいくらまで？</b><br><small>確定申告をする年の上限</small></a>
 <h2 id="faq">よくある質問</h2>
 <h3>医療費控除は家族の分も合わせられますか？</h3>
-<p>生計を一にする配偶者や親族の分も合わせられます。家族の中で所得税の税率がいちばん高い人がまとめて申告すると、戻る額が多くなりやすいです。</p>
+<p>生計を一にする配偶者や親族のために払った医療費は、実際に払った人がまとめて控除を受けられます。払っていない人の申告には入れられません。所得税の税率が高い人が払っている場合は、戻る額が多くなります。</p>
 <h3>医療費控除とセルフメディケーション税制は両方使えますか？</h3>
 <p>使えません。どちらか一方を選びます。セルフメディケーション税制は、対象の市販薬の購入費のうち1万2,000円をこえる部分（上限8万8,000円）が控除になり、健康診断や予防接種などを受けていることが条件です。</p>
 <h3>ふるさと納税をしていても医療費控除は受けられますか？</h3>
 <p>受けられます。ただし確定申告をするとワンストップ特例は使えなくなるので、ふるさと納税の寄付も確定申告書に書きます。書かないと、ふるさと納税の分の控除が受けられません。</p>
 <h3>領収書は提出しますか？</h3>
-<p>提出はいりません。「医療費控除の明細書」を作って確定申告書に付けます。領収書は自宅で5年間保存します。健康保険の医療費通知を使うと、明細書の記入を省けます。</p>
+<p>提出はいりません。「医療費控除の明細書」を作って確定申告書に付けます。領収書は原則として自宅で5年間保存します。健康保険の医療費通知（必要な項目が書かれたもの）を付けると、その分は明細書の記入と領収書の保存がいらなくなります。</p>
 <h2>このページの出典</h2>
 <ul class="src">
   <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" rel="noopener">国税庁 No.1120 医療費を支払ったとき（医療費控除）</a></li>
@@ -144,12 +144,12 @@ function update(){
   $('bT').textContent=yen(r.B.total);
   $('bN').textContent=otc>12000?(r.B.total>r.A.total?'医療費控除より '+yen(r.B.total-r.A.total)+' 多い':r.B.total<r.A.total?'医療費控除より '+yen(r.A.total-r.B.total)+' 少ない':'医療費控除と同じ'):'対象の市販薬が1万2,000円をこえていないので、使えません';
   const best=Math.max(r.A.total,r.B.total);
-  $('next').innerHTML=best?'<b>受けるには確定申告が要ります</b>（2027年2月16日〜3月15日。還付だけなら2027年1月から出せます）。ふるさと納税をしている人は、ワンストップ特例が使えなくなるので寄付も申告書に書きます。':'<b>今の条件では、確定申告をしても税金は戻りません。</b>';
+  $('next').innerHTML=best?'<b>受けるには確定申告が要ります</b>（2027年2月16日〜3月15日。還付だけなら2027年1月から出せます）。ふるさと納税をしている人は、ワンストップ特例が使えなくなるので寄付も申告書に書きます。領収書は原則5年保存します。':'<b>今の条件では、確定申告をしても税金は戻りません。</b>';
 }
 ['inc','med','otc'].forEach(id=>$(id).addEventListener('input',update)); update();
 })();
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "医療費控除は家族の分も合わせられますか？", "acceptedAnswer": {"@type": "Answer", "text": "生計を一にする配偶者や親族の分も合わせられます。家族の中で所得税の税率がいちばん高い人がまとめて申告すると、戻る額が多くなりやすいです。"}}, {"@type": "Question", "name": "医療費控除とセルフメディケーション税制は両方使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "使えません。どちらか一方を選びます。セルフメディケーション税制は、対象の市販薬の購入費のうち1万2,000円をこえる部分（上限8万8,000円）が控除になり、健康診断や予防接種などを受けていることが条件です。"}}, {"@type": "Question", "name": "ふるさと納税をしていても医療費控除は受けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "受けられます。ただし確定申告をするとワンストップ特例は使えなくなるので、ふるさと納税の寄付も確定申告書に書きます。書かないと、ふるさと納税の分の控除が受けられません。"}}, {"@type": "Question", "name": "領収書は提出しますか？", "acceptedAnswer": {"@type": "Answer", "text": "提出はいりません。「医療費控除の明細書」を作って確定申告書に付けます。領収書は自宅で5年間保存します。健康保険の医療費通知を使うと、明細書の記入を省けます。"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "医療費控除は家族の分も合わせられますか？", "acceptedAnswer": {"@type": "Answer", "text": "生計を一にする配偶者や親族のために払った医療費は、実際に払った人がまとめて控除を受けられます。払っていない人の申告には入れられません。所得税の税率が高い人が払っている場合は、戻る額が多くなります。"}}, {"@type": "Question", "name": "医療費控除とセルフメディケーション税制は両方使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "使えません。どちらか一方を選びます。セルフメディケーション税制は、対象の市販薬の購入費のうち1万2,000円をこえる部分（上限8万8,000円）が控除になり、健康診断や予防接種などを受けていることが条件です。"}}, {"@type": "Question", "name": "ふるさと納税をしていても医療費控除は受けられますか？", "acceptedAnswer": {"@type": "Answer", "text": "受けられます。ただし確定申告をするとワンストップ特例は使えなくなるので、ふるさと納税の寄付も確定申告書に書きます。書かないと、ふるさと納税の分の控除が受けられません。"}}, {"@type": "Question", "name": "領収書は提出しますか？", "acceptedAnswer": {"@type": "Answer", "text": "提出はいりません。「医療費控除の明細書」を作って確定申告書に付けます。領収書は原則として自宅で5年間保存します。健康保険の医療費通知（必要な項目が書かれたもの）を付けると、その分は明細書の記入と領収書の保存がいらなくなります。"}}]}</script>
 </main>
 <footer><div class="in">
   <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
