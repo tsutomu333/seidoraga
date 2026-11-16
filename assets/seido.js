@@ -334,7 +334,26 @@ function fudosan(p){
   const cash=(p.rent||0)-cashExp-(p.repay||0);
   return {life,rate:r,depr,exp,income,landInt,cut,tsusan,it0:s0.it,jt0:s0.jt,it1:s1.it,jt1:s1.jt,itDiff:s1.it-s0.it,jtDiff:s1.jt-s0.jt,taxDiff,cash,cashAfter:cash-taxDiff};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate};
+
+// 転職と手取り
+function tenKokuho(prevInc,a40,family){ // 国保の年額の目安（1人分の均等割＋家族の人数分）
+  const g=Math.max(0,prevInc-kyuyo(prevInc)), n=Math.max(1,family||1);
+  const v=Math.max(0,g-430000)*(0.0751+0.0280+0.0027+(a40?0.0243:0))+(47600+17600+1873+(a40?17800:0))*n;
+  return Math.min(Math.round(v),1130000); // 渋谷区の2026年度の料率（子ども・子育て支援金分をふくむ）
+}
+function tenshoku(p){
+  const base={kou:p.kou||0,dai:p.dai||0,gw:p.gw==null?null:p.gw,gs:null,ideco:0,bal:0,capB:0,fmode:'one'};
+  const A=Object.assign({},base,{inc:p.incA}), B=Object.assign({},base,{inc:p.incB});
+  const cA=core(A,0), cB=core(B,0);
+  const netA=net(A), netB=net(B);
+  const mA=Math.round((p.incA-cA.sh-cA.IT)/12-(cA.JT+5000)/12), mB=Math.round((p.incB-cB.sh-cB.IT)/12-(cB.JT+5000)/12);
+  const mB1=Math.round((p.incB-cB.sh-cB.IT)/12-(cA.JT+5000)/12); // 転職後しばらくは住民税が前の年収のまま
+  const gap=Math.max(0,p.gap||0);
+  const gt=p.gapType||'kokuho', nk=(p.age60||gt==='fuyou')?0:gap*17920;
+  const nenkin=nk, kokuho=gt==='kokuho'?Math.round(tenKokuho(p.incA,p.a40,p.family)*gap/12):0;
+  return {netA,netB,diff:netB-netA,mA,mB,mB1,shA:cA.sh,shB:cB.sh,itA:cA.IT,itB:cB.IT,jtA:cA.JT,jtB:cB.JT,gap,nenkin,kokuho,gapCost:nenkin+kokuho,lostPay:Math.round(p.incA/12*gap)};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
