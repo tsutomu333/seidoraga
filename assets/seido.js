@@ -287,7 +287,33 @@ function izoku(p){ // p={dead:'husband'|'wife', mw, bonus, bonusTimes, months, p
   return {kosei, periods:per, gap, pensionSum:pens, assets, after:assets-gap, months:M, chukoOK, koseiEnd};
 }
 
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd};
+
+// 相続した家を売ったときの税金（譲渡所得・分離課税）
+const SZ={RATE:{wood:0.031, mortar:0.034, rc:0.015, m3:0.036, m4:0.025, steel:0.020}};
+function sozokuDepr(price,kind,years){ if(!price) return 0; const r=SZ.RATE[kind]||0.031; return Math.min(Math.round(price*0.95), Math.round(price*0.9*r*Math.max(0,years))); }
+function sozokuChukai(price,low){ if(price<=0) return 0; if(low&&price<=8000000) return 330000; const b=price<=2000000?price*0.05:price<=4000000?price*0.04+20000:price*0.03+60000; return Math.round(b*1.1); }
+function sozokuTax(gain,long){ const b=Math.floor(Math.max(0,gain)/1000)*1000; const ri=long?0.15:0.30, rj=long?0.05:0.09;
+  const it=Math.floor(b*ri), fk=Math.floor(it*0.021), nat=Math.floor((it+fk)/100)*100, jm=Math.floor(b*rj/100)*100; return {base:b,nat,jm,total:nat+jm}; }
+function sozokuUri(p){
+  const price=p.price||0, saleY=p.saleYear||2026;
+  const chukai=p.chukai==='none'?0:sozokuChukai(price,p.chukai==='low'), costs=chukai+(p.otherCost||0);
+  let shutoku, depr=0, gaisan=false;
+  const known=(p.land||0)+(p.bld||0);
+  const depY=saleY-(p.buyYear||saleY);
+  if(p.mode==='known'){ depr=sozokuDepr(p.bld||0,p.kind,depY); shutoku=(p.land||0)+(p.bld||0)-depr+(p.touki||0); }
+  else { shutoku=Math.round(price*0.05); gaisan=true; }
+  if(p.mode==='known' && shutoku<Math.round(price*0.05)){ shutoku=Math.round(price*0.05); gaisan=true; depr=0; }
+  const long=(saleY-(p.buyYear||saleY))>=6;
+  const gain0=Math.max(0,price-shutoku-costs);
+  const none=sozokuTax(gain0,long);
+  let akiya=null; if(p.akiya && price<=100000000){ const ded=Math.min(gain0,(p.heirs>=3?20000000:30000000)); akiya={ded, gain:gain0-ded, tax:sozokuTax(gain0-ded,long)}; }
+  let kasan=null; if(p.souzokuTax>0 && p.kasanOK && p.taxBase>0){ const add=Math.min(gain0,Math.round(p.souzokuTax*(p.evalHouse||0)/p.taxBase)); kasan={add, gain:gain0-add, tax:sozokuTax(gain0-add,long)}; }
+  let best={name:'none',tax:none};
+  if(akiya && akiya.tax.total<best.tax.total) best={name:'akiya',tax:akiya.tax};
+  if(kasan && kasan.tax.total<best.tax.total) best={name:'kasan',tax:kasan.tax};
+  return {price,chukai,costs,shutoku,depr,gaisan,long,gain0,none,akiya,kasan,best,net:price-costs-best.tax.total};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
