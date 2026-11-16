@@ -209,7 +209,38 @@ function nencho(inc,ip,kg,nk,ji,ide,u23){
   return {life:L, jishin:{it:jI,jt:jJ}, dI, dJ, itCut:it(0)-it(dI), jtCut:jt(0)-jt(dJ)};
 }
 
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho};
+
+/* 出産・育児でもらえるお金（2026年11月時点のルール。休業開始時賃金日額の上限16,540円・下限3,203円は2027年7月31日まで） */
+function shussanWd(w){ return Math.min(16540,Math.max(3203,Math.floor(w/30))); } // 休業開始時賃金日額 ≒ 月給×6か月÷180日
+function shussanNetM(w){ return w>0? Math.floor(net({inc:w*12,kou:0,dai:0,gw:null,gs:0,ideco:0,bal:0,capB:0,fmode:'one'})/12):0; }
+function shussan(p){ // p={mtype:'kaisha'|'koumuin'|'jiei'|'fuyou', mw, ikukyu:'1'|'1.5'|'2', ftype:'kaisha'|'koumuin'|'jiei'|'nashi', fw, fdays}
+  const r={ninpu:100000, ichiji:500000, teate:0, m67:0, m50:0, mShien:0, f67:0, fShien:0, mMenjo:0, fMenjo:0, nenkin:0};
+  const days={'1':309,'1.5':492,'2':674}[p.ikukyu]||309; // 産後休業（56日）のあと、子が1歳・1歳6か月・2歳になるまで
+  const RATE=0.141;   // 本人が払う健康保険料＋厚生年金保険料のおよその割合（目安）
+  const KOKUNEN=17920; // 国民年金保険料（2026年度・月額）
+  if(p.mtype==='kaisha'){
+    const d10=Math.round(p.mw/30/10)*10; r.teate=Math.round(d10*2/3)*98;           // 出産手当金：標準報酬日額の2/3×98日
+    const w=shussanWd(p.mw), d1=Math.min(days,180);
+    r.m67=Math.floor(w*d1*0.67); r.m50=Math.floor(w*(days-d1)*0.5);               // 育児休業給付金
+    const fOK=(p.ftype==='jiei'||p.ftype==='nashi')||p.fdays>=14;                   // 配偶者が14日以上育休をとる、または雇用される人ではない
+    if(fOK) r.mShien=Math.floor(w*28*0.13);                                         // 出生後休業支援給付金（最大28日）
+    r.mMenjo=Math.round(p.mw*RATE)*Math.round((98+days)/30.4);                      // 産休・育休中の社会保険料の免除（本人分の目安）
+  }
+  if(p.mtype==='jiei') r.nenkin=KOKUNEN*13;                                         // 産前産後免除4か月＋育児期間免除9か月
+  if(p.ftype==='kaisha' && p.fdays>0){
+    const w=shussanWd(p.fw), d=Math.min(28,p.fdays);
+    r.f67=Math.floor(w*d*0.67);                                                     // 出生時育児休業給付金（産後パパ育休）
+    if(d>=14){ r.fShien=Math.floor(w*d*0.13); r.fMenjo=Math.round(p.fw*RATE); }     // 出生後休業支援給付金・1か月分の免除（目安）
+  }
+  if(p.ftype==='jiei') r.nenkin+=KOKUNEN*12;                                        // 配偶者の育児期間免除（最大12か月）
+  r.days=days;
+  r.cash=r.ninpu+r.ichiji+r.teate+r.m67+r.m50+r.mShien+r.f67+r.fShien;
+  r.total=r.cash+r.mMenjo+r.fMenjo+r.nenkin;
+  r.mMonth67=p.mtype==='kaisha'? Math.floor(shussanWd(p.mw)*30*0.67):0;
+  r.mNetM=p.mtype==='kaisha'? shussanNetM(p.mw):0;
+  return r;
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
