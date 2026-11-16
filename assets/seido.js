@@ -313,7 +313,28 @@ function sozokuUri(p){
   if(kasan && kasan.tax.total<best.tax.total) best={name:'kasan',tax:kasan.tax};
   return {price,chukai,costs,shutoku,depr,gaisan,long,gain0,none,akiya,kasan,best,net:price-costs-best.tax.total};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai};
+
+// 不動産投資の損益通算（会社員・1年分）
+const FD={LIFE:{rc:47, src:47, wood:22, mortar:20, m3:19, m4:27, steel:34}};
+function fdRate(n){ return Math.ceil(1000/n-1e-9)/1000; }
+function fdLife(kind,age){ const L=FD.LIFE[kind]||47; if(!age||age<=0) return L; const n=age>=L? Math.floor(L*0.2) : Math.floor((L-age)+age*0.2); return Math.max(2,n); }
+function fudosan(p){
+  const life=fdLife(p.kind,p.age||0), r=fdRate(life), mon=Math.min(12,Math.max(1,p.months||12));
+  const depr=Math.min(Math.round((p.bld||0)*r*mon/12), Math.max(0,(p.bld||0)-(p.booked||0)-1));
+  const cashExp=(p.kanri||0)+(p.kotei||0)+(p.hoken||0)+(p.other||0)+(p.once||0);
+  const exp=cashExp+(p.interest||0)+depr;
+  const income=(p.rent||0)-exp;
+  const landDebt=Math.max(0,(p.loan||0)-(p.bld||0));
+  const landInt=(p.loan||0)>0? Math.round((p.interest||0)*Math.min(1,landDebt/(p.loan))) : 0;
+  const cut=income<0? Math.min(-income,landInt) : 0;
+  const tsusan=income<0? income+cut : income;
+  const inc=p.inc||0, g=Math.max(0,inc-kyuyo(inc));
+  const s0=sogo(inc,0,g), s1=sogo(inc,tsusan,Math.max(0,g+tsusan));
+  const taxDiff=(s1.it+s1.jt)-(s0.it+s0.jt);
+  const cash=(p.rent||0)-cashExp-(p.repay||0);
+  return {life,rate:r,depr,exp,income,landInt,cut,tsusan,it0:s0.it,jt0:s0.jt,it1:s1.it,jt1:s1.jt,itDiff:s1.it-s0.it,jtDiff:s1.jt-s0.jt,taxDiff,cash,cashAfter:cash-taxDiff};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;

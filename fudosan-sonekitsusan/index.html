@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>不動産投資の赤字で税金はいくら戻る？損益通算と手元のお金をかんたん計算【会社員・2026年】｜せいどラガ</title>
+<meta name="description" content="会社員が投資用マンション・アパートを持ったとき、不動産所得の赤字を給与と損益通算して所得税・住民税がいくら減るかを計算します。減価償却・土地の利息の制限・元金返済をふくめた手元のお金も表示。">
+<link rel="canonical" href="https://seidoraga.jp/fudosan-sonekitsusan/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="不動産投資の赤字で税金はいくら戻る？">
+<meta property="og:description" content="会社員が投資用マンション・アパートを持ったとき、不動産所得の赤字を給与と損益通算して所得税・住民税がいくら減るかを計算します。減価償却・土地の利息の制限・元金返済をふくめた手元のお金も表示。">
+<meta property="og:url" content="https://seidoraga.jp/fudosan-sonekitsusan/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js"></script>
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<span class="badge">2026年分の税率</span>
+<h1>不動産投資の赤字で税金はいくら戻る？<br>損益通算と手元のお金をかんたん計算</h1>
+<p class="lead">会社員が投資用のマンションやアパートを1つ持ったとき、不動産の赤字を給料と合わせる（損益通算）と所得税と住民税がいくら減るかを計算します。あわせて、その年に手元のお金がいくら増えたか減ったかも出します。「節税になる」と言われたときに、数字で確かめるためのページです。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="inc">あなたの年収（給与・手取りではなく、税金や保険料が引かれる前の額）</label>
+  <div class="row"><input type="range" id="inc" min="3000000" max="20000000" step="100000" value="7000000"><output id="incOut" for="inc"></output></div>
+  <h3>1年間の家賃と費用</h3>
+  <label for="rent">家賃などの収入（1年分。共益費・礼金・更新料・返さなくてよい敷金もふくむ）</label>
+  <div class="row"><input type="range" id="rent" min="0" max="5000000" step="10000" value="960000"><output id="rentOut" for="rent"></output></div>
+  <label for="kanri">管理費・修繕積立金・管理会社への手数料（1年分）</label>
+  <div class="hint">マンションの修繕積立金は、管理組合に払う義務があり返してもらえないものなど、条件に合えば払った年の経費になります。</div>
+  <div class="row"><input type="range" id="kanri" min="0" max="1500000" step="10000" value="240000"><output id="kanriOut" for="kanri"></output></div>
+  <label for="kotei">固定資産税・都市計画税（1年分）</label>
+  <div class="row"><input type="range" id="kotei" min="0" max="500000" step="5000" value="80000"><output id="koteiOut" for="kotei"></output></div>
+  <label for="oth">火災保険・修繕・税理士費用などそのほかの費用（1年分）</label>
+  <div class="hint">設備の入れかえや大きな改修は、その年の経費ではなく減価償却になることがあります。ここには入れないでください。</div>
+  <div class="row"><input type="range" id="oth" min="0" max="1000000" step="5000" value="20000"><output id="othOut" for="oth"></output></div>
+  <label for="once">買った年だけの経費（不動産取得税・登録免許税など、経費にすると選んだもの）</label>
+  <div class="row"><input type="range" id="once" min="0" max="2000000" step="10000" value="0"><output id="onceOut" for="once"></output></div>
+  <h3>ローン</h3>
+  <label for="loan">借りた額</label>
+  <div class="row"><input type="range" id="loan" min="0" max="100000000" step="500000" value="25000000"><output id="loanOut" for="loan"></output></div>
+  <label for="intr">その年に払った利息（返済予定表の利息の合計）</label>
+  <div class="hint">買ってから貸し始めるまでの利息は、その年の経費ではなく建物などの取得費になります。貸し始めてからの利息を入れてください。</div>
+  <div class="row"><input type="range" id="intr" min="0" max="3000000" step="10000" value="400000"><output id="intrOut" for="intr"></output></div>
+  <label for="rep">その年に返した額（元金＋利息）</label>
+  <div class="row"><input type="range" id="rep" min="0" max="6000000" step="10000" value="1100000"><output id="repOut" for="rep"></output></div>
+  <h3>建物（減価償却）</h3>
+  <label for="bld">建物の値段（売買契約書の建物の価格・消費税をふくむ）</label>
+  <div class="row"><input type="range" id="bld" min="0" max="100000000" step="500000" value="20000000"><output id="bldOut" for="bld"></output></div>
+  <div class="hint">土地は古くならないので減価償却できません。契約書で土地と建物がわかれていないときは、消費税の額などから建物の値段を出します。</div>
+  <label for="kd">建物のつくり</label>
+  <select id="kd"><option value="rc">鉄筋コンクリート（マンションなど）</option><option value="wood">木造</option><option value="mortar">木骨モルタル</option><option value="m3">軽量鉄骨（骨格材の厚さ3mm以下）</option><option value="m4">軽量鉄骨（3mmこえ4mm以下）</option><option value="steel">鉄骨（4mmこえ）</option></select>
+  <label for="age">買ったときの築年数（新築は0）</label>
+  <div class="row"><input type="range" id="age" min="0" max="60" step="1" value="0"><output id="ageOut" for="age"></output></div>
+  <label for="mon">その年に貸せる状態にしていた月数（空室で入居者を募集している月もふくむ。買った年は貸し始めた月から12月まで）</label>
+  <div class="row"><input type="range" id="mon" min="1" max="12" step="1" value="12"><output id="monOut" for="mon"></output></div>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>損益通算で減る税金（2026年分の所得税＋2027年度の住民税）</span><b id="tx">-</b><small id="txN"></small></div>
+    <div><span>不動産所得</span><b id="fi">-</b><small id="fiN"></small></div>
+    <div><span>1年間の手元のお金（税金が減った分を入れたあと。頭金などは入れていない）</span><b id="ca">-</b><small id="caN"></small></div>
+    <div><span>減価償却費</span><b id="dp">-</b><small id="dpN"></small></div>
+  </div>
+  <div class="hint" id="warn" style="margin-top:10px"></div>
+  <p class="note">※2026年分の税率で計算した概算です。給与のほかに所得はなく、社会保険料は年収の15%、扶養などの控除はないものとしています。住民税は翌年度に減ります。減価償却は定額法（個人の建物）で、中古は簡便法の耐用年数です。土地を買うために借りた分の利息は、借りた額をまず建物の代金にあてたとして計算しています。国外の中古建物は計算方法がちがうので、このページでは計算できません。1つの物件だけを持っている場合です（複数持っているときは全部を合わせた不動産所得で通算します）。頭金や買うときの諸費用は、手元のお金に入れていません。会社員が損益通算するには確定申告が必要です。</p>
+</section>
+<h2 id="hayami">早見表：不動産の赤字で減る税金（所得税＋住民税・1年分）</h2>
+<table><thead><tr><th scope="col">会社員の年収</th><th scope="col">不動産の赤字 50万円</th><th scope="col">100万円</th><th scope="col">200万円</th></tr></thead><tbody><tr><th scope="row">500万円</th><td>75,500円<br><small>赤字の15%</small></td><td>151,000円<br><small>15%</small></td><td>290,300円<br><small>15%</small></td></tr><tr><th scope="row">700万円</th><td>157,200円<br><small>赤字の31%</small></td><td>258,300円<br><small>26%</small></td><td>417,500円<br><small>21%</small></td></tr><tr><th scope="row">1,000万円</th><td>152,100円<br><small>赤字の30%</small></td><td>304,200円<br><small>30%</small></td><td>618,600円<br><small>31%</small></td></tr><tr><th scope="row">1,500万円</th><td>218,400円<br><small>赤字の44%</small></td><td>436,900円<br><small>44%</small></td><td>790,100円<br><small>40%</small></td></tr></tbody></table>
+<p class="note">給与だけの会社員（社会保険料は年収の15%、扶養などの控除なし）が、土地の利息をふくまない赤字を損益通算した場合の概算です。税金は損益通算する前とした後の差で計算しています。年収700万円前後で戻る割合が高いのは、赤字で合計所得が655万円以下や489万円以下に下がると、2026年分の所得税の基礎控除が増えるためです。</p>
+<h2>しくみ：赤字のぶん給料の税金が減る</h2>
+<ol>
+<li><b>不動産所得</b> ＝ 家賃収入 −（管理費・固定資産税・保険・修繕・ローンの利息・減価償却費など）</li>
+<li><b>損益通算</b>：不動産所得が赤字なら、給料の所得から差し引けます（土地を買うために借りた分の利息にあたる赤字は差し引けません）</li>
+<li><b>減る税金</b> ＝ 差し引いた赤字 ×（所得税の税率×1.021 ＋ 住民税10%）がおよその目安</li>
+</ol>
+<p>税率の高い人ほど戻る割合は大きくなりますが、戻るのは赤字の一部です。赤字100万円で戻る税金は、年収700万円でおよそ26万円です。残りの約74万円は、自分のお金で負担しています。</p>
+<h2>「節税になる」と言われたときに見るところ</h2>
+<ul>
+<li><b>赤字の中身</b>：減価償却費はお金が出ていかない経費です（その分、建物の価値は帳簿の上で減っています）。赤字が減価償却費でできているなら、手元のお金は減っていないこともあります。逆に、ローンの元金の返済は経費になりませんが、お金は出ていきます。上の「その年の手元のお金」で両方を確かめてください。</li>
+<li><b>元金の返済は経費にならない</b>：経費になるのは利息だけです。返済が進むと利息が減り、赤字が小さくなって、税金が減る効果も小さくなります。</li>
+<li><b>売るときに税金が増える方向に働く</b>：建物の取得費は、持っていた間の減価償却費の分だけ減ります。売る値段などが同じなら、売るときのもうけ（譲渡所得）が大きくなります。売る年の1月1日の時点で持っていた期間が5年以下なら、税率は39.63%です。</li>
+<li><b>空室と家賃の下がり</b>：家賃は満室・今の家賃のままとは限りません。家賃を下げた場合でも計算してみてください。</li>
+<li><b>2年目以降</b>：買った年だけの費用がなくなるので、同じ条件なら赤字は小さくなります。ただし、修繕・空室・管理費の値上げなどで変わります。</li>
+</ul>
+<h2>このページで計算していないこと</h2>
+<ul>
+<li>青色申告特別控除（事業的規模でなくても条件を満たせば10万円。55万円・65万円は事業的規模などが条件）</li>
+<li>赤字が給料などの所得より大きいとき（青色申告などの条件を満たせば、残りを翌年以降に繰り越せる場合があります）</li>
+<li>別荘など趣味や保養のための貸し付け（赤字は損益通算できません）、自宅の一部を貸しているとき</li>
+<li>国外の中古建物（減価償却費にあたる赤字は、給料などと損益通算できない決まりがあります）</li>
+<li>ふるさと納税の上限や、住宅ローン控除との関係（不動産の赤字で所得が下がると、ほかの控除が使い切れなくなることがあります）</li>
+<li>売ったときの譲渡所得の税金（<a href="/souzoku-ie-uru/">相続した家を売るときの計算</a>は別のページです）</li>
+</ul>
+<h2>関連する計算</h2>
+<a class="card rel" href="/souzoku-ie-uru/"><b>相続した家を売ると税金はいくら？</b><br><small>譲渡所得・空き家の特例</small></a>
+<a class="card rel" href="/fukugyo-zeikin/"><b>副業の税金はいくら？</b><br><small>確定申告が必要なとき</small></a>
+<a class="card rel" href="/furusato/"><b>ふるさと納税の上限はいくら？</b><br><small>不動産の赤字で上限が下がることも</small></a>
+<a class="card rel" href="/jutaku-loan/"><b>住宅ローン控除でいくら戻る？</b><br><small>自分が住む家のとき</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>不動産投資の赤字で、払った税金は全部戻りますか？</h3>
+<p>戻りません。戻るのは、赤字の額に税率をかけた分だけです。年収700万円の人なら、赤字100万円でおよそ26万円です。残りは自分のお金での負担です。</p>
+<h3>会社員でも確定申告が必要ですか？</h3>
+<p>必要です。損益通算は確定申告をしてはじめて反映されます。所得税は還付され、住民税は翌年度の分が下がります。</p>
+<h3>ローンの返済額は全部経費になりますか？</h3>
+<p>なりません。経費になるのは利息だけで、元金の返済は経費になりません。また、土地を買うために借りた分の利息にあたる赤字は、給料と損益通算できません。</p>
+<h3>減価償却費とは何ですか？</h3>
+<p>建物の値段を、耐用年数にわけて少しずつ経費にするものです。お金は出ていかないのに経費になるので、赤字の大きな理由になります。鉄筋コンクリートの新築なら47年、木造の新築なら22年にわけます。</p>
+<h3>赤字の不動産を持つほど得ですか？</h3>
+<p>赤字は、税金が減る額より大きくお金が出ていっている状態です。減る税金だけでなく、手元のお金、売るときの税金、家賃や空室の変化をあわせて判断してください。</p>
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1391.htm" rel="noopener">国税庁 No.1391 不動産所得が赤字のときの他の所得との通算</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1370.htm" rel="noopener">国税庁 No.1370 不動産収入を受け取ったとき（不動産所得）</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2100.htm" rel="noopener">国税庁 No.2100 減価償却のあらまし</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5404.htm" rel="noopener">国税庁 No.5404 中古資産の耐用年数</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const v=id=>+$(id).value;
+  ['inc','rent','kanri','kotei','oth','once','loan','intr','rep','bld'].forEach(id=>$(id+'Out').textContent=man(v(id)));
+  $('ageOut').textContent=v('age')?v('age')+'年':'新築'; $('monOut').textContent=v('mon')+'か月';
+  const r=SEIDO.fudosan({inc:v('inc'),rent:v('rent'),kanri:v('kanri'),kotei:v('kotei'),other:v('oth'),once:v('once'),loan:v('loan'),interest:v('intr'),repay:v('rep'),bld:v('bld'),kind:$('kd').value,age:v('age'),months:v('mon')});
+  const d=-r.taxDiff;
+  $('tx').textContent=d>=0?yen(d):'増える '+yen(-d);
+  $('txN').textContent='所得税 '+yen(-r.itDiff)+'（確定申告で精算）、住民税 '+yen(-r.jtDiff)+'（2027年度）';
+  $('fi').textContent=(r.income<0?'赤字 ':'黒字 ')+yen(Math.abs(r.income));
+  $('fiN').textContent='家賃 '+yen(v('rent'))+' − 経費 '+yen(r.exp)+(r.cut?'。土地の利息にあたる '+yen(r.cut)+' は損益通算できない':'');
+  $('ca').textContent=(r.cashAfter>=0?'プラス ':'マイナス ')+yen(Math.abs(r.cashAfter));
+  $('caN').textContent='収入 − 現金で払った費用（利息はのぞく） − ローンの返済（元金＋利息） '+yen(v('rep'))+' ＋ 減った税金 '+yen(d);
+  $('dp').textContent=yen(r.depr); $('dpN').textContent='耐用年数 '+r.life+'年・償却率 '+r.rate.toFixed(3)+'（お金は出ていかない経費）';
+  const w=[];
+  if(r.income<0 && r.cashAfter<0) w.push('税金が減っても、その年の手元のお金はマイナスです。減った税金より多くのお金を負担しています。');
+  if(v('rep')<v('intr')) w.push('返した額が利息より少なくなっています。返済予定表の数字を確かめてください。');
+  if(v('loan')>v('bld') && r.income<0) w.push('借りた額が建物の値段より多いので、その分は土地のための借入として、利息の一部を損益通算から外しています。');
+  if(v('once')>0) w.push('買った年だけの経費は次の年からなくなるので、同じ条件なら2年目は赤字が小さくなります。');
+  w.push('建物の取得費は減価償却した分だけ減るので、売るときのもうけ（譲渡所得）が大きくなる方向に働きます。');
+  $('warn').innerHTML=w.map(x=>'・'+x).join('<br>');
+}
+['inc','rent','kanri','kotei','oth','once','loan','intr','rep','bld','kd','age','mon'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "不動産投資の赤字で、払った税金は全部戻りますか？", "acceptedAnswer": {"@type": "Answer", "text": "戻りません。戻るのは、赤字の額に税率をかけた分だけです。年収700万円の人なら、赤字100万円でおよそ26万円です。残りは自分のお金での負担です。"}}, {"@type": "Question", "name": "会社員でも確定申告が必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "必要です。損益通算は確定申告をしてはじめて反映されます。所得税は還付され、住民税は翌年度の分が下がります。"}}, {"@type": "Question", "name": "ローンの返済額は全部経費になりますか？", "acceptedAnswer": {"@type": "Answer", "text": "なりません。経費になるのは利息だけで、元金の返済は経費になりません。また、土地を買うために借りた分の利息にあたる赤字は、給料と損益通算できません。"}}, {"@type": "Question", "name": "減価償却費とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "建物の値段を、耐用年数にわけて少しずつ経費にするものです。お金は出ていかないのに経費になるので、赤字の大きな理由になります。鉄筋コンクリートの新築なら47年、木造の新築なら22年にわけます。"}}, {"@type": "Question", "name": "赤字の不動産を持つほど得ですか？", "acceptedAnswer": {"@type": "Answer", "text": "赤字は、税金が減る額より大きくお金が出ていっている状態です。減る税金だけでなく、手元のお金、売るときの税金、家賃や空室の変化をあわせて判断してください。"}}]}</script>
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>
