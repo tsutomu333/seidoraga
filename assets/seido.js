@@ -240,7 +240,54 @@ function shussan(p){ // p={mtype:'kaisha'|'koumuin'|'jiei'|'fuyou', mw, ikukyu:'
   r.mNetM=p.mtype==='kaisha'? shussanNetM(p.mw):0;
   return r;
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd};
+
+/* 遺族年金（2026年度の額・会社員が在職中に亡くなった場合＝短期要件・300月みなし。65歳以降は計算しない） */
+const IZ={KISO:847300, KA12:243800, KA3:81300, CHUKO:635500, SMAX:650000, BMAX:3000000};
+function izokuKosei(p){ // 遺族厚生年金の年額（推計）：今の給与・賞与が加入期間中ずっと同じとして出す（再評価はしない）
+  const sm=Math.min(IZ.SMAX,p.mw), times=Math.max(1,p.bonusTimes||2);
+  const bn=Math.min(1500000,(p.bonus||0)/times)*times;                 // 標準賞与額は1回150万円まで
+  const m=Math.max(1,p.months), pre=Math.min(p.preMonths||0,m), post=m-pre, sc=m<300?300/m:1;
+  const hirei=(sm*7.125/1000*pre + (sm*12+bn)/12*5.481/1000*post)*sc;
+  return Math.round(hirei*3/4);
+}
+function izokuKidEnd(by,bm){ // 18歳に達した日以後の最初の3月31日（その月をふくむ年月を 年*12+月 で返す）
+  const y=by+18; const fyEndY = bm>=4? y+1 : y; return fyEndY*12+3;
+}
+function izoku(p){ // p={dead:'husband'|'wife', mw, bonus, bonusTimes, months, preMonths, spAge, spNetM, kids:[[生まれ年,月]], living, loanOff, loanYears, savings, insurance, retire, choi, now:[年,月]}
+  const kosei=izokuKosei(p), wife=p.dead==='husband';
+  const now=p.now||[2026,11], start=now[0]*12+now[1]+1;           // 亡くなった月の翌月分から
+  const ends=(p.kids||[]).map(k=>izokuKidEnd(k[0],k[1])).filter(e=>e>=start);
+  const had=ends.length>0, M=(65-p.spAge)*12;
+  const kisoEnd=had? Math.max(...ends):null;                         // 遺族基礎年金が出る最後の月
+  const m40=start+(40-p.spAge)*12, m60=start+(60-p.spAge)*12;
+  const chukoOK = wife && (p.spAge>=40 || (had && kisoEnd>=m40));  // 死亡時40歳以上、または40歳になったとき遺族基礎年金を受けていた
+  let koseiEnd=Infinity;                                            // 30歳未満の妻の5年
+  if(wife && !had && p.spAge<30) koseiEnd=start+60-1;
+  if(wife && had && start+(30-p.spAge)*12>kisoEnd) koseiEnd=kisoEnd+60;
+  const rows=[];
+  for(let i=0;i<M;i++){
+    const ym=start+i, n=ends.filter(e=>ym<=e).length;
+    const kiso=n? IZ.KISO+IZ.KA12*Math.min(2,n)+IZ.KA3*Math.max(0,n-2):0;
+    let ks=0, who='';
+    if(wife){ if(ym<=koseiEnd){ ks=kosei; who='妻'; } }
+    else if(n){ ks=kosei; who=p.spAge>=55?'夫':'子'; }
+    else if(p.spAge>=55 && ym>=m60){ ks=kosei; who='夫'; }
+    const ch=(chukoOK && !n && ym>=m40)? IZ.CHUKO:0;
+    const off=(i<(p.loanYears||0)*12)? (p.loanOff||0):0;
+    const cost=(p.living-off)*12, inc=(p.spNetM||0)*12, pen=kiso+ks+ch;
+    rows.push({ym,age:p.spAge+Math.floor(i/12),kids:n,kiso,kosei:ks,who,chuko:ch,pension:pen,cost,gap:cost-pen-inc});
+  }
+  const per=[];
+  for(const r of rows){ const l=per[per.length-1];
+    if(l && l.kiso===r.kiso && l.kosei===r.kosei && l.who===r.who && l.chuko===r.chuko && l.cost===r.cost){ l.toYm=r.ym; l.toAge=r.age; l.months++; l.gapSum+=r.gap/12; l.penSum+=r.pension/12; }
+    else per.push(Object.assign({fromYm:r.ym,toYm:r.ym,fromAge:r.age,toAge:r.age,months:1,gapSum:r.gap/12,penSum:r.pension/12},r)); }
+  per.forEach(x=>{x.gapSum=Math.round(x.gapSum); x.penSum=Math.round(x.penSum);});
+  const gap=Math.round(rows.reduce((a,r)=>a+r.gap/12,0)), pens=Math.round(rows.reduce((a,r)=>a+r.pension/12,0));
+  const assets=(p.savings||0)+(p.insurance||0)+(p.retire||0)+(p.choi||0);
+  return {kosei, periods:per, gap, pensionSum:pens, assets, after:assets-gap, months:M, chukoOK, koseiEnd};
+}
+
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
