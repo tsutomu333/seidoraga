@@ -402,7 +402,40 @@ function kogaku(p){ // p:{k, total(1か月の総医療費=10割), months(同じ�
   const cap=KG[k][3], yearBack=Math.max(0,sum-cap);
   return {self,lim1:rows[0].lim,back1:rows[0].back,pay1:rows[0].pay,rows,sumSelf:self*n,sum,back,cap,yearBack,final:sum-yearBack};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit};
+
+// 退職金・iDeCo一時金の税金（退職所得・2026年分以後）
+const tkRaw=n=>n<=0?0:n<=20?400000*n:8000000+700000*(n-20); // 年数ぶんの控除額（80万円の下限なし）
+function tkKojo(months,dis){ const y=Math.max(1,Math.ceil(months/12)); return Math.max(tkRaw(y),800000)+(dis?1000000:0); }
+const tkYears=amt=>amt<=8000000?Math.floor(amt/400000):20+Math.floor((amt-8000000)/700000); // 前の収入から逆算した年数（使わなかった枠の調整）
+function tkTax(inc,ko,o){ // 退職所得の税金
+  o=o||{}; const rest=Math.max(0,inc-ko);
+  let so; if(o.yakuin) so=rest; else if(o.tanki) so=rest<=3000000?rest/2:1500000+(rest-3000000); else so=rest/2;
+  so=fl1000(so);
+  const it=incomeTax(so), jt=Math.floor(so*0.10/100)*100;
+  return {inc,ko,so,it,jt,tax:it+jt,net:inc-it-jt};
+}
+function taishoku(p){ // p:{inc,km(勤続月数),dis,yakuin,ideco,im(iDeCo加入月数),order:'same'|'ideco'|'tai',gap(年)}
+  const inc=p.inc||0, km=Math.max(1,p.km||1), id=p.ideco||0, im=Math.max(0,Math.min(p.im||0,km));
+  const tanki=Math.ceil(km/12)<=5, o={yakuin:!!p.yakuin&&tanki,tanki:tanki&&!p.yakuin};
+  const kKo=tkKojo(km,p.dis), iKo=im?tkKojo(im,false):0, ov=Math.floor(im/12);
+  const sc={};
+  // 同じ年に受け取る（勤続期間が長いほうで1回の控除）
+  sc.same=(()=>{ const r=tkTax(inc+id,kKo,o); return {tai:r,ide:null,tax:r.tax,net:r.net}; })();
+  // iDeCoを先に受け取る：9年内は退職金の控除を調整
+  const iAlone=id?tkTax(id,iKo,{}):null;
+  const adjT=kKo-tkRaw(Math.min(ov,tkYears(id)));
+  sc.ideco_in=(()=>{ const t=tkTax(inc,Math.max(0,adjT),o); return {tai:t,ide:iAlone,tax:t.tax+(iAlone?iAlone.tax:0),net:t.net+(iAlone?iAlone.net:0),ko:Math.max(0,adjT)}; })();
+  sc.ideco_out=(()=>{ const t=tkTax(inc,kKo,o); return {tai:t,ide:iAlone,tax:t.tax+(iAlone?iAlone.tax:0),net:t.net+(iAlone?iAlone.net:0)}; })();
+  // 退職金を先に受け取る：19年内はiDeCoの控除を調整
+  const tAlone=tkTax(inc,kKo,o);
+  const adjI=iKo-tkRaw(Math.min(ov,tkYears(inc)));
+  sc.tai_in=(()=>{ const i=id?tkTax(id,Math.max(0,adjI),{}):null; return {tai:tAlone,ide:i,tax:tAlone.tax+(i?i.tax:0),net:tAlone.net+(i?i.net:0),ko:Math.max(0,adjI)}; })();
+  sc.tai_out=(()=>{ const i=id?tkTax(id,iKo,{}):null; return {tai:tAlone,ide:i,tax:tAlone.tax+(i?i.tax:0),net:tAlone.net+(i?i.net:0)}; })();
+  const ord=p.order||'same', g=p.gap||0;
+  const key=ord==='same'?'same':ord==='ideco'?(g<=9?'ideco_in':'ideco_out'):(g<=19?'tai_in':'tai_out');
+  return {kKo,iKo,tanki,sc,key,cur:sc[key]};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;

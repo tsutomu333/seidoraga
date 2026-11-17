@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>退職金の税金と手取りはいくら？iDeCoの一時金と受け取る順番もかんたん計算【2026年】｜せいどラガ</title>
+<meta name="description" content="退職金の額と勤続年数から、退職所得控除・所得税・住民税・手取りを計算します。iDeCoや企業型DCの一時金を同じ年に受け取るか、間をあけるか（2026年からの10年ルール・20年ルール）で税金がどう変わるかも比べられます。">
+<link rel="canonical" href="https://seidoraga.jp/taishokukin-zeikin/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="退職金の税金と手取りはいくら？iDeCoの一時金と受け取る順番も計算">
+<meta property="og:description" content="退職金の額と勤続年数から、退職所得控除・所得税・住民税・手取りを計算します。iDeCoや企業型DCの一時金を同じ年に受け取るか、間をあけるか（2026年からの10年ルール・20年ルール）で税金がどう変わるかも比べられます。">
+<meta property="og:url" content="https://seidoraga.jp/taishokukin-zeikin/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js"></script>
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<span class="badge">2026年分以後のルール</span>
+<h1>退職金の税金と手取りはいくら？<br>iDeCoの一時金と受け取る順番もかんたん計算</h1>
+<p class="lead">退職金は、勤続年数で決まる退職所得控除を引いて、残りの2分の1にだけ税金がかかります。退職金の額と勤続年数を入れると、所得税・住民税と手取りがわかります。iDeCo（個人型確定拠出年金）や企業型DCを一時金で受け取るときは、退職金と同じ年に受け取るか、間をあけるかで税金が変わります。2026年1月からルールが変わったので、受け取り方ごとに比べられるようにしました。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="inc">退職金の額（税金が引かれる前の額）</label>
+  <div class="row"><input type="range" id="inc" min="0" max="50000000" step="100000" value="20000000"><output id="incOut" for="inc"></output></div>
+  <label for="ky">勤続年数（その会社に入った日から退職する日まで）</label>
+  <div class="row"><select id="ky"><option value="0">0年</option><option value="1">1年</option><option value="2">2年</option><option value="3">3年</option><option value="4">4年</option><option value="5">5年</option><option value="6">6年</option><option value="7">7年</option><option value="8">8年</option><option value="9">9年</option><option value="10">10年</option><option value="11">11年</option><option value="12">12年</option><option value="13">13年</option><option value="14">14年</option><option value="15">15年</option><option value="16">16年</option><option value="17">17年</option><option value="18">18年</option><option value="19">19年</option><option value="20">20年</option><option value="21">21年</option><option value="22">22年</option><option value="23">23年</option><option value="24">24年</option><option value="25">25年</option><option value="26">26年</option><option value="27">27年</option><option value="28">28年</option><option value="29">29年</option><option value="30">30年</option><option value="31">31年</option><option value="32">32年</option><option value="33">33年</option><option value="34">34年</option><option value="35">35年</option><option value="36">36年</option><option value="37">37年</option><option value="38" selected>38年</option><option value="39">39年</option><option value="40">40年</option><option value="41">41年</option><option value="42">42年</option><option value="43">43年</option><option value="44">44年</option><option value="45">45年</option><option value="46">46年</option><option value="47">47年</option><option value="48">48年</option><option value="49">49年</option><option value="50">50年</option></select> <select id="kmo"><option value="0">0か月</option><option value="1">1か月</option><option value="2">2か月</option><option value="3">3か月</option><option value="4">4か月</option><option value="5">5か月</option><option value="6">6か月</option><option value="7">7か月</option><option value="8">8か月</option><option value="9">9か月</option><option value="10">10か月</option><option value="11">11か月</option></select></div>
+  <label for="dis">障害者になったことが直接の原因の退職</label>
+  <select id="dis"><option value="0">いいえ</option><option value="1">はい（控除に100万円を足す）</option></select>
+  <label for="yk">役員（取締役など）や公務員として勤めた期間が5年以下</label>
+  <select id="yk"><option value="0">いいえ（会社員）</option><option value="1">はい（勤続期間がすべて役員の期間）</option></select>
+  <h3>iDeCo・企業型DCを一時金で受け取るとき</h3>
+  <label for="id">iDeCo・企業型DCの一時金の額（ないときは0）</label>
+  <div class="row"><input type="range" id="id" min="0" max="20000000" step="100000" value="5000000"><output id="idOut" for="id"></output></div>
+  <label for="iy">iDeCo・企業型DCの加入期間（掛金を出していた期間など）</label>
+  <div class="row"><select id="iy"><option value="0">0年</option><option value="1">1年</option><option value="2">2年</option><option value="3">3年</option><option value="4">4年</option><option value="5">5年</option><option value="6">6年</option><option value="7">7年</option><option value="8">8年</option><option value="9">9年</option><option value="10">10年</option><option value="11">11年</option><option value="12">12年</option><option value="13">13年</option><option value="14">14年</option><option value="15">15年</option><option value="16">16年</option><option value="17">17年</option><option value="18">18年</option><option value="19">19年</option><option value="20" selected>20年</option><option value="21">21年</option><option value="22">22年</option><option value="23">23年</option><option value="24">24年</option><option value="25">25年</option><option value="26">26年</option><option value="27">27年</option><option value="28">28年</option><option value="29">29年</option><option value="30">30年</option><option value="31">31年</option><option value="32">32年</option><option value="33">33年</option><option value="34">34年</option><option value="35">35年</option><option value="36">36年</option><option value="37">37年</option><option value="38">38年</option><option value="39">39年</option><option value="40">40年</option><option value="41">41年</option><option value="42">42年</option><option value="43">43年</option><option value="44">44年</option><option value="45">45年</option><option value="46">46年</option><option value="47">47年</option><option value="48">48年</option><option value="49">49年</option><option value="50">50年</option></select> <select id="imo"><option value="0">0か月</option><option value="1">1か月</option><option value="2">2か月</option><option value="3">3か月</option><option value="4">4か月</option><option value="5">5か月</option><option value="6">6か月</option><option value="7">7か月</option><option value="8">8か月</option><option value="9">9か月</option><option value="10">10か月</option><option value="11">11か月</option></select></div>
+  <div id="ordRow"><label for="ord">受け取る順番</label>
+  <select id="ord"><option value="same">退職金と同じ年に受け取る</option><option value="ideco">iDeCoを先に受け取る</option><option value="tai">退職金を先に受け取る</option></select></div>
+  <div id="gapRow"><label for="gap">先に受け取った年から、あとで受け取る年までの年数</label>
+  <div class="row"><input type="range" id="gap" min="1" max="20" step="1" value="5"><output id="gapOut" for="gap"></output></div></div>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>手取りの合計</span><b id="nt">-</b><small id="ntN"></small></div>
+    <div><span>税金の合計</span><b id="tx">-</b><small id="txN"></small></div>
+    <div><span>退職金の退職所得控除</span><b id="ko">-</b><small id="koN"></small></div>
+  </div>
+  <h3>受け取り方ごとの比較</h3>
+  <div id="cmp"></div>
+  <div class="hint" id="warn" style="margin-top:10px"></div>
+  <p class="note">※2026年分以後のルールで計算した目安です。iDeCo・企業型DCの加入期間は、すべて会社の勤続期間と重なっているものとしています。あとで受け取るほうの控除は、重なる期間（1年未満は切り捨て）の分を引いて計算し、先に受け取った額が控除より少ないときは、使わなかった分を考えて重なる期間を短くしています。調整のあとの控除が80万円に満たないときの扱いなど、細かいところは退職金を払う会社やiDeCoの金融機関に確かめてください。税金は「退職所得の受給に関する申告書」を出した場合の額で、出さないと20.42%が引かれ、確定申告で精算します。住民税は10%（市区町村民税6%・道府県民税4%）です。ほかの年の退職金や、企業年金（DB）の一時金は入れていません。</p>
+</section>
+<h2 id="hayami">早見表：退職金だけのときの税金と手取り</h2>
+<table><thead><tr><th scope="col">勤続年数</th><th scope="col">退職金</th><th scope="col">退職所得控除</th><th scope="col">税金</th><th scope="col">手取り</th></tr></thead><tbody><tr><th scope="row">5年</th><td>300万円</td><td>200万円</td><td>75,500円</td><td>2,924,500円</td></tr><tr><th scope="row">10年</th><td>500万円</td><td>400万円</td><td>75,500円</td><td>4,924,500円</td></tr><tr><th scope="row">20年</th><td>800万円</td><td>800万円</td><td>0円</td><td>8,000,000円</td></tr><tr><th scope="row">20年</th><td>1,200万円</td><td>800万円</td><td>304,600円</td><td>11,695,400円</td></tr><tr><th scope="row">30年</th><td>1,500万円</td><td>1,500万円</td><td>0円</td><td>15,000,000円</td></tr><tr><th scope="row">30年</th><td>2,000万円</td><td>1,500万円</td><td>405,700円</td><td>19,594,300円</td></tr><tr><th scope="row">38年</th><td>2,000万円</td><td>2,060万円</td><td>0円</td><td>20,000,000円</td></tr><tr><th scope="row">40年</th><td>2,500万円</td><td>2,200万円</td><td>226,500円</td><td>24,773,500円</td></tr></tbody></table>
+<p class="note">会社員（役員ではない）・障害による退職ではない場合です。勤続5年の行は、短期退職手当等の計算です。</p>
+<h2>退職金の税金のしくみ</h2>
+<ul>
+<li><b>退職所得控除</b>：勤続20年以下は1年40万円（最低80万円）、20年をこえると800万円＋20年をこえた1年ごとに70万円です。1年未満は1年に切り上げます。</li>
+<li><b>2分の1にだけ税金がかかる</b>：退職金から控除を引いた残りの2分の1が、課税される退職所得です。給料などとは分けて税金を計算します。</li>
+<li><b>勤続5年以下のとき</b>：役員などは2分の1になりません（特定役員退職手当等）。会社員でも、控除を引いた残りのうち300万円をこえる部分は2分の1になりません（短期退職手当等）。</li>
+<li><b>申告書を出せばふつうは確定申告はいらない</b>：会社に「退職所得の受給に関する申告書」を出すと、正しい税金が引かれて終わります。</li>
+</ul>
+<h2>iDeCoの一時金と退職金の受け取り方</h2>
+<ul>
+<li><b>同じ年に受け取る</b>：2つを合わせた額から、長いほうの期間で計算した控除を1回だけ引きます。期間は足しません。</li>
+<li><b>iDeCoを先に受け取る</b>：2026年1月1日以後に受け取った一時金は、そのあと9年以内に受け取る退職金の控除が、重なる期間の分だけ減ります（「10年ルール」）。2025年までは4年以内（「5年ルール」）でした。</li>
+<li><b>退職金を先に受け取る</b>：そのあと19年以内に受け取るiDeCoの一時金の控除が、重なる期間の分だけ減ります（「20年ルール」）。</li>
+<li><b>年金で受け取る方法もある</b>：iDeCoは年金で受け取ることもでき、その場合は公的年金等の雑所得になります。年金と合わせた税金や国民健康保険料が増えることがあるので、別に考えます。</li>
+</ul>
+<h2>退職したあとのお金</h2>
+<p>退職金にかかる税金とは別に、退職した次の年の住民税や、健康保険・国民年金の保険料がかかります（<a href="/taishoku-juminzei/">退職後の住民税の計算</a>・<a href="/tenshoku-tedori/">会社と会社のあいだの保険料の目安</a>）。運営者の体験も読めます（<a href="/shitsugyo-taiken/">退職してから失業保険をもらうまでに知ったこと</a>）。</p>
+<h2>関連する計算</h2>
+<a class="card rel" href="/taishoku-juminzei/"><b>退職後の住民税はいくら？</b><br><small>退職する月で払う額と時期がわかる</small></a>
+<a class="card rel" href="/ideco/"><b>iDeCoでいくら税金が減る？</b><br><small>掛金と年収から</small></a>
+<a class="card rel" href="/taishoku-furusato/"><b>退職した年のふるさと納税はいくらまで？</b><br><small>退職する月で上限がどう変わるか</small></a>
+<a class="card rel" href="/shitsugyo-taiken/"><b>退職してから失業保険をもらうまでに知ったこと</b><br><small>運営者の手続きの記録</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>退職金に税金はかかりますか？</h3>
+<p>退職所得控除をこえた部分の2分の1にだけかかります。たとえば勤続38年なら控除は2,060万円で、退職金がそれ以下なら税金はかかりません。</p>
+<h3>iDeCoと退職金は、同じ年に受け取るのと分けるのとどちらがいいですか？</h3>
+<p>金額と期間によります。同じ年に受け取ると控除は1回だけです。分けるときは、iDeCoが先なら10年以上、退職金が先なら20年以上あけると、それぞれ控除をすべて使えます。それより短いと、重なる期間の分だけ控除が減ります。このページの比較の表で確かめてください。</p>
+<h3>「退職所得の受給に関する申告書」を出さないとどうなりますか？</h3>
+<p>退職金から20.42%が所得税として引かれます。払いすぎた分は確定申告で戻ります。</p>
+<h3>退職金をもらうと国民健康保険料は上がりますか？</h3>
+<p>退職所得は分けて課税されるので、ふつうは国民健康保険料の計算にはふくまれません。iDeCoを年金で受け取ると、雑所得として保険料の計算にふくまれます。</p>
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1420.htm" rel="noopener">国税庁 No.1420 退職金を受け取ったとき（退職所得）</a></li>
+  <li><a href="https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2027/data/17-18.pdf" rel="noopener">国税庁 源泉徴収のための退職所得控除額の表（令和9年分）</a></li>
+  <li><a href="https://www.ideco-koushiki.jp/" rel="noopener">iDeCo公式サイト（国民年金基金連合会）</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+const SCN=[['same','同じ年に受け取る'],['ideco_in','iDeCoを先に受け取り、9年以内に退職金'],['ideco_out','iDeCoを先に受け取り、10年以上あけて退職金'],['tai_in','退職金を先に受け取り、19年以内にiDeCo'],['tai_out','退職金を先に受け取り、20年以上あけてiDeCo']];
+function mon(y,m){return (+$(y).value)*12+(+$(m).value);}
+function update(){
+  const inc=+$('inc').value, id=+$('id').value;
+  $('incOut').textContent=man(inc); $('idOut').textContent=man(id);
+  const km=Math.max(1,mon('ky','kmo')), im=Math.min(mon('iy','imo'),km);
+  const ord=$('ord').value, gap=+$('gap').value; $('gapOut').textContent=gap+'年';
+  $('gapRow').hidden=ord==='same'||!id; $('ordRow').hidden=!id;
+  const r=SEIDO.taishoku({inc,km,dis:$('dis').value==='1',yakuin:$('yk').value==='1',ideco:id,im,order:id?ord:'same',gap});
+  const c=r.cur;
+  $('nt').textContent=yen(c.net); $('tx').textContent=yen(c.tax);
+  $('ntN').textContent='受け取る合計 '+man(inc+id)+' から、所得税（復興特別所得税をふくむ）と住民税を引いた額';
+  const parts=[];
+  if(r.key==='same'){ parts.push('退職金とiDeCoを合わせて '+man(inc+id)+'、退職所得控除 '+man(r.kKo)+'、課税される退職所得 '+man(c.tai.so)); }
+  else { parts.push('退職金：控除 '+man(c.tai.ko)+'・課税 '+man(c.tai.so)+'・税金 '+yen(c.tai.tax)); if(c.ide) parts.push('iDeCo：控除 '+man(c.ide.ko)+'・課税 '+man(c.ide.so)+'・税金 '+yen(c.ide.tax)); }
+  $('txN').innerHTML=parts.join('<br>')+'<br>所得税 '+yen((c.tai?c.tai.it:0)+(c.ide?c.ide.it:0))+'・住民税 '+yen((c.tai?c.tai.jt:0)+(c.ide?c.ide.jt:0));
+  $('ko').textContent=man(r.kKo); $('koN').textContent='勤続 '+Math.ceil(km/12)+'年として計算（1年未満は切り上げ）'+(r.tanki?'。勤続5年以下なので、短期退職手当等（または特定役員退職手当等）の計算です':'');
+  let t='<table><thead><tr><th scope="col">受け取り方</th><th scope="col">税金の合計</th><th scope="col">手取りの合計</th></tr></thead><tbody>';
+  for(const [k,n] of SCN){ const s=r.sc[k]; t+='<tr'+(k===r.key?' style="font-weight:700"':'')+'><th scope="row">'+n+(k===r.key?'（いまの入力）':'')+'</th><td>'+yen(s.tax)+'</td><td>'+yen(s.net)+'</td></tr>'; }
+  t+='</tbody></table>';
+  $('cmp').innerHTML=id?t:'<p class="note">iDeCo（または企業型DC）の一時金を入れると、受け取る順番と間隔のちがいを比べられます。</p>';
+  const w=[];
+  if(id&&im===0) w.push('iDeCoの加入期間を入れてください。');
+  if(id&&mon('iy','imo')>km) w.push('このページでは、iDeCoの加入期間が会社の勤続期間の中に入っているものとして計算します。');
+  if(r.key==='ideco_in') w.push('2026年1月1日以後に受け取ったiDeCoなどの一時金は、そのあと9年以内（受け取った年の翌年から数えて）に受け取る退職金の控除が調整されます。2025年までに受け取った一時金は、前の4年以内のルールのままです。');
+  if(r.key==='tai_in') w.push('退職金を受け取った年の翌年から19年以内にiDeCoの一時金を受け取ると、重なる期間の分だけiDeCoの控除が減ります。');
+  if($('yk').value==='1'&&!r.tanki) w.push('役員として勤めた期間が5年をこえるときは、ふつうの計算（2分の1）になります。役員の期間と勤続期間がちがうときは計算が変わります。');
+  $('warn').innerHTML=w.map(x=>'・'+x).join('<br>');
+}
+['inc','ky','kmo','dis','yk','id','iy','imo','ord','gap'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "退職金に税金はかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "退職所得控除をこえた部分の2分の1にだけかかります。たとえば勤続38年なら控除は2,060万円で、退職金がそれ以下なら税金はかかりません。"}}, {"@type": "Question", "name": "iDeCoと退職金は、同じ年に受け取るのと分けるのとどちらがいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "金額と期間によります。同じ年に受け取ると控除は1回だけです。分けるときは、iDeCoが先なら10年以上、退職金が先なら20年以上あけると、それぞれ控除をすべて使えます。それより短いと、重なる期間の分だけ控除が減ります。このページの比較の表で確かめてください。"}}, {"@type": "Question", "name": "「退職所得の受給に関する申告書」を出さないとどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "退職金から20.42%が所得税として引かれます。払いすぎた分は確定申告で戻ります。"}}, {"@type": "Question", "name": "退職金をもらうと国民健康保険料は上がりますか？", "acceptedAnswer": {"@type": "Answer", "text": "退職所得は分けて課税されるので、ふつうは国民健康保険料の計算にはふくまれません。iDeCoを年金で受け取ると、雑所得として保険料の計算にふくまれます。"}}]}</script>
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>
