@@ -95,10 +95,11 @@ footer a{color:var(--sub);margin-right:12px}
   <div class="row"><select id="sy"><option value="60">60歳</option><option value="61">61歳</option><option value="62">62歳</option><option value="63">63歳</option><option value="64">64歳</option><option value="65">65歳</option><option value="66">66歳</option><option value="67">67歳</option><option value="68">68歳</option><option value="69">69歳</option><option value="70" selected>70歳</option><option value="71">71歳</option><option value="72">72歳</option><option value="73">73歳</option><option value="74">74歳</option><option value="75">75歳</option></select> <select id="sm"><option value="0">0か月</option><option value="1">1か月</option><option value="2">2か月</option><option value="3">3か月</option><option value="4">4か月</option><option value="5">5か月</option><option value="6">6か月</option><option value="7">7か月</option><option value="8">8か月</option><option value="9">9か月</option><option value="10">10か月</option><option value="11">11か月</option></select></div>
   <h3>年金を受け取る年齢のころに会社員として働くとき（60歳から）</h3>
   <label for="wage">月給（賞与の1年分を12で割った額を足す）</label>
+  <div class="hint">実際は標準報酬月額と、直近1年の標準賞与額の12分の1を足した額（総報酬月額相当額）で決まります。ここでは額面の月給で近い額を入れてください。同じ月給が続くものとして計算します。</div>
   <div class="row"><input type="range" id="wage" min="0" max="1500000" step="10000" value="0"><output id="wageOut" for="wage"></output></div>
   <div id="weRow"><label for="we">働くのは</label><select id="we"><option value="61">61歳まで</option><option value="62">62歳まで</option><option value="63">63歳まで</option><option value="64">64歳まで</option><option value="65">65歳まで</option><option value="66">66歳まで</option><option value="67">67歳まで</option><option value="68">68歳まで</option><option value="69">69歳まで</option><option value="70" selected>70歳まで</option><option value="71">71歳まで</option><option value="72">72歳まで</option><option value="73">73歳まで</option><option value="74">74歳まで</option><option value="75">75歳まで</option></select></div>
   <div class="res" aria-live="polite">
-    <div class="big"><span>受け取る年金（税金・保険料が引かれる前）</span><b id="yr">-</b><small id="yrN"></small></div>
+    <div class="big"><span>受け取る年金（税金・保険料が引かれる前・老齢基礎年金と老齢厚生年金を同じ年齢から受け取る場合）</span><b id="yr">-</b><small id="yrN"></small></div>
     <div><span>65歳からと合計が並ぶ年齢</span><b id="cr">-</b><small id="crN"></small></div>
     <div><span>働きながら受け取ると止まる年金</span><b id="st65">-</b><small id="st65N"></small></div>
   </div>
@@ -117,7 +118,7 @@ footer a{color:var(--sub);margin-right:12px}
 <li><b>合計が並ぶ年齢</b>：65歳から受け取った場合と比べると、60歳からはおよそ81歳、70歳からはおよそ82歳で合計が並びます（税金・保険料を引く前）。それより長く生きると、遅く受け取ったほうが合計は多くなります。</li>
 </ul>
 <h2>働きながら受け取るとき（在職老齢年金）</h2>
-<p>会社員として厚生年金に入りながら老齢厚生年金を受け取ると、老齢厚生年金の月額と月給（賞与の1年分の12分の1を足す）の合計が65万円をこえた分の半分が止まります。基準は2026年4月から、51万円から65万円に引き上げられました。老齢基礎年金は止まりません。止まる分は、繰り下げても増えません。</p>
+<p>会社員として厚生年金に入りながら老齢厚生年金を受け取ると、老齢厚生年金の月額と月給（賞与の1年分の12分の1を足す）の合計が65万円をこえた分の半分が止まります。止まる額は老齢厚生年金の月額が上限なので、月給が高いと老齢厚生年金が全部止まることもあります。基準は2026年4月から、51万円から65万円に引き上げられました。老齢基礎年金は止まりません。止まる分は、繰り下げても増えません。</p>
 <h2>繰り下げで気をつけること</h2>
 <ul>
 <li>待っているあいだは、加給年金や振替加算を受け取れません。加給年金は繰り下げても増えません。</li>
@@ -135,7 +136,7 @@ footer a{color:var(--sub);margin-right:12px}
 <h3>老齢基礎年金だけ繰り下げることはできますか？</h3>
 <p>繰り下げは、老齢基礎年金と老齢厚生年金を別々に選べます。繰り上げは、2つをいっしょに行います。</p>
 <h3>70歳をこえてから請求するとどうなりますか？</h3>
-<p>70歳をこえてから請求して、繰り下げずに受け取ることを選ぶと、請求した日の5年前に繰り下げたとみなして増やした年金の5年分を、まとめて受け取れます（特例的な繰下げみなし増額制度）。</p>
+<p>70歳をこえてから請求して、繰り下げずに受け取ることを選ぶと、請求した日の5年前に繰り下げたとみなして増やした年金の5年分を、まとめて受け取れます（特例的な繰下げみなし増額制度）。80歳以後に請求したときや、65歳以後に障害年金や遺族年金を受け取る権利がある人などは、この扱いになりません。</p>
 <h3>働いていると年金が止まるのはいくらからですか？</h3>
 <p>2026年4月からは、老齢厚生年金の月額と月給（賞与の1年分の12分の1を足す）の合計が65万円をこえたときです。こえた分の半分が止まります。老齢基礎年金は止まりません。</p>
 <h2>このページの出典</h2>
@@ -175,13 +176,13 @@ function update(){
   if(!ok) w.push('65歳0か月〜65歳11か月から受け取り始める繰り下げはできません（66歳から）。65歳で計算しています。');
   if(st<780) w.push('繰り上げると、あとで取り消せません。寡婦年金が受け取れなくなる、事後重症などによる障害年金を請求できなくなる、国民年金に任意加入できなくなるなどの制限があります。');
   if(st>780) w.push('繰り下げて待っているあいだは、加給年金や振替加算を受け取れません。加給年金は繰り下げても増えません。');
-  if(st>=852) w.push('70歳をこえてから受け取りを始めずに請求すると、5年前に繰り下げたとみなして、5年分をまとめて受け取る方法（特例的な繰下げみなし増額制度）もあります。');
+  if(st>=852) w.push('70歳をこえてから受け取りを始めずに請求すると、5年前に繰り下げたとみなして、5年分をまとめて受け取る方法（特例的な繰下げみなし増額制度）もあります。80歳以後の請求や、障害年金・遺族年金を受け取る権利がある人などは対象外です。');
   $('warn').innerHTML=w.map(x=>'・'+x).join('<br>');
 }
 ['kiso','kosei','sy','sm','old','wage','we'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
 })();
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "繰り上げと繰り下げ、どちらが得ですか？", "acceptedAnswer": {"@type": "Answer", "text": "何歳まで生きるかで変わるので、どちらが得とは決められません。このページでは、65歳から受け取った場合と合計が並ぶ年齢を出しています。健康や働き方、ほかの収入、家族のことも合わせて考えてください。"}}, {"@type": "Question", "name": "老齢基礎年金だけ繰り下げることはできますか？", "acceptedAnswer": {"@type": "Answer", "text": "繰り下げは、老齢基礎年金と老齢厚生年金を別々に選べます。繰り上げは、2つをいっしょに行います。"}}, {"@type": "Question", "name": "70歳をこえてから請求するとどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "70歳をこえてから請求して、繰り下げずに受け取ることを選ぶと、請求した日の5年前に繰り下げたとみなして増やした年金の5年分を、まとめて受け取れます（特例的な繰下げみなし増額制度）。"}}, {"@type": "Question", "name": "働いていると年金が止まるのはいくらからですか？", "acceptedAnswer": {"@type": "Answer", "text": "2026年4月からは、老齢厚生年金の月額と月給（賞与の1年分の12分の1を足す）の合計が65万円をこえたときです。こえた分の半分が止まります。老齢基礎年金は止まりません。"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "繰り上げと繰り下げ、どちらが得ですか？", "acceptedAnswer": {"@type": "Answer", "text": "何歳まで生きるかで変わるので、どちらが得とは決められません。このページでは、65歳から受け取った場合と合計が並ぶ年齢を出しています。健康や働き方、ほかの収入、家族のことも合わせて考えてください。"}}, {"@type": "Question", "name": "老齢基礎年金だけ繰り下げることはできますか？", "acceptedAnswer": {"@type": "Answer", "text": "繰り下げは、老齢基礎年金と老齢厚生年金を別々に選べます。繰り上げは、2つをいっしょに行います。"}}, {"@type": "Question", "name": "70歳をこえてから請求するとどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "70歳をこえてから請求して、繰り下げずに受け取ることを選ぶと、請求した日の5年前に繰り下げたとみなして増やした年金の5年分を、まとめて受け取れます（特例的な繰下げみなし増額制度）。80歳以後に請求したときや、65歳以後に障害年金や遺族年金を受け取る権利がある人などは、この扱いになりません。"}}, {"@type": "Question", "name": "働いていると年金が止まるのはいくらからですか？", "acceptedAnswer": {"@type": "Answer", "text": "2026年4月からは、老齢厚生年金の月額と月給（賞与の1年分の12分の1を足す）の合計が65万円をこえたときです。こえた分の半分が止まります。老齢基礎年金は止まりません。"}}]}</script>
 </main>
 <footer><div class="in">
   <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
