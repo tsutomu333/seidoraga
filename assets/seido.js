@@ -336,10 +336,14 @@ function fudosan(p){
 }
 
 // 転職と手取り
-function tenKokuho(prevInc,a40,family){ // 国保の年額の目安（1人分の均等割＋家族の人数分）
-  const g=Math.max(0,prevInc-kyuyo(prevInc)), n=Math.max(1,family||1);
+function kokuhoG(g,a40,n){ // 国保の年額の目安（所得から。渋谷区の2026年度の料率・子ども・子育て支援金分をふくむ）
+  n=Math.max(1,n||1);
   const v=Math.max(0,g-430000)*(0.0751+0.0280+0.0027+(a40?0.0243:0))+(47600+17600+1873+(a40?17800:0))*n;
-  return Math.min(Math.round(v),1130000); // 渋谷区の2026年度の料率（子ども・子育て支援金分をふくむ）
+  return Math.min(Math.round(v),a40?1130000:960000); // 上限：40〜64歳は113万円、それ以外は介護分17万円を引いた96万円
+}
+function tenKokuho(prevInc,a40,family){ // 国保の年額の目安（1人分の均等割＋家族の人数分）
+  const g=Math.max(0,prevInc-kyuyo(prevInc));
+  return kokuhoG(g,a40,family);
 }
 function tenshoku(p){
   const base={kou:p.kou||0,dai:p.dai||0,gw:p.gw==null?null:p.gw,gs:null,ideco:0,bal:0,capB:0,fmode:'one'};
@@ -435,7 +439,18 @@ function taishoku(p){ // p:{inc,km(勤続月数),dis,yakuin,ideco,im(iDeCo加入
   const key=ord==='same'?'same':ord==='ideco'?(g<=9?'ideco_in':'ideco_out'):(g<=19?'tai_in':'tai_out');
   return {kKo,iKo,tanki,sc,key,cur:sc[key]};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw};
+
+// 退職後の健康保険（任意継続・国保・家族の扶養）
+function taiKenpo(p){ // p:{m(退職時の月給),inc(退職した前の年の給与収入),hiji(会社都合などで国保の軽減),a40,n(国保に入る人数)}
+  const hy=hyojunK(p.m||0), hn=Math.min(hy,320000);
+  const rate=0.0985+(p.a40?0.0162:0)+0.0023; // 協会けんぽ東京支部・2026年度（介護は40〜64歳・子ども・子育て支援金0.23%）
+  const niniM=Math.floor(hn*rate), nini=niniM*12;
+  const inc=p.inc||0, g=Math.max(0,inc-kyuyo(inc)), gk=p.hiji?Math.floor(g*0.3):g;
+  const kokuho=kokuhoG(gk,p.a40,p.n||1), kokuho0=kokuhoG(g,p.a40,p.n||1);
+  const zai=Math.floor(hy*rate/2)*12; // 在職中の本人負担（同じ料率・折半）
+  return {hy,hn,rate,niniM,nini,kokuho,kokuhoM:Math.round(kokuho/12),kokuho0,g,gk,zai};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
