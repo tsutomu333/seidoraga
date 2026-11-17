@@ -353,7 +353,35 @@ function tenshoku(p){
   const nenkin=nk, kokuho=gt==='kokuho'?Math.round(tenKokuho(p.incA,p.a40,p.family)*gap/12):0;
   return {netA,netB,diff:netB-netA,mA,mB,mB1,shA:cA.sh,shB:cB.sh,itA:cA.IT,itB:cB.IT,jtA:cA.JT,jtB:cB.JT,gap,nenkin,kokuho,gapCost:nenkin+kokuho,lostPay:Math.round(p.incA/12*gap)};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho};
+
+// 看護師・薬剤師の働き方（常勤・パート・派遣・夜勤）
+function iryoWork(p){
+  const kind=p.kind||'jokin', n=Math.max(0,p.n||0), na=Math.max(0,p.na||0);
+  let monthly, bo=0, hrs;
+  if(kind==='jokin'){ monthly=(p.m||0)+n*na; bo=Math.max(0,p.bo||0); hrs=40; }
+  else { monthly=(p.w||0)*(p.h||0)*52/12+n*na; hrs=(p.h||0)+n*(p.nl||16)*12/52; }
+  monthly=Math.round(monthly);
+  const inc=monthly*12+bo;
+  let sk; // 社会保険：emp=勤め先で入る dep=家族の扶養 kokuho=国保と国民年金
+  if(kind==='jokin'||hrs>=30||(hrs>=20&&p.sz!=='small')) sk='emp';
+  else if(inc<1300000&&p.fuyou) sk='dep';
+  else sk='kokuho';
+  const kr=0.04925+(p.a40?0.0081:0)+0.00115; // 健康保険（介護・子ども子育て支援金分をふくむ）の本人負担の目安
+  let sh=0, kenpo=0, kosei=0, koyo=0, kokuho=0, nenkin=0;
+  if(sk==='emp'){
+    kenpo=12*Math.min(monthly,1390000)*kr+bo*kr;
+    kosei=12*Math.min(Math.max(monthly,88000),650000)*0.0915+Math.min(bo,3000000)*0.0915;
+    koyo=inc*0.005; sh=kenpo+kosei+koyo;
+  } else if(sk==='kokuho'){
+    kokuho=tenKokuho(inc,p.a40,1); nenkin=p.age60?0:17920*12; sh=kokuho+nenkin;
+  }
+  sh=Math.round(sh);
+  const g=Math.max(0,inc-kyuyo(inc));
+  const it=incomeTax(g-sh-kisoI(g)), jt=juminSimple(g,sh,0,50000);
+  const nt=inc-sh-it-jt;
+  return {kind,inc,monthly,bo,hrs:Math.round(hrs*10)/10,sk,sh,kenpo:Math.round(kenpo),kosei:Math.round(kosei),koyo:Math.round(koyo),kokuho,nenkin,it,jt,net:nt,mNet:Math.round(nt/12),pension:sk==='emp'?Math.round((12*Math.min(Math.max(monthly,88000),650000)+Math.min(bo,3000000))*5.481/1000):0};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
