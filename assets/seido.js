@@ -411,7 +411,7 @@ function tkTax(inc,ko,o){ // 退職所得の税金
   o=o||{}; const rest=Math.max(0,inc-ko);
   let so; if(o.yakuin) so=rest; else if(o.tanki) so=rest<=3000000?rest/2:1500000+(rest-3000000); else so=rest/2;
   so=fl1000(so);
-  const it=incomeTax(so), jt=Math.floor(so*0.10/100)*100;
+  const it=Math.floor(baseTax(so)*1.021), jt=Math.floor(so*0.06/100)*100+Math.floor(so*0.04/100)*100; // 所得税は1円未満切り捨て・住民税は市町村6%と道府県4%をそれぞれ100円未満切り捨て
   return {inc,ko,so,it,jt,tax:it+jt,net:inc-it-jt};
 }
 function taishoku(p){ // p:{inc,km(勤続月数),dis,yakuin,ideco,im(iDeCo加入月数),order:'same'|'ideco'|'tai',gap(年)}
@@ -423,12 +423,12 @@ function taishoku(p){ // p:{inc,km(勤続月数),dis,yakuin,ideco,im(iDeCo加入
   sc.same=(()=>{ const r=tkTax(inc+id,kKo,o); return {tai:r,ide:null,tax:r.tax,net:r.net}; })();
   // iDeCoを先に受け取る：9年内は退職金の控除を調整
   const iAlone=id?tkTax(id,iKo,{}):null;
-  const adjT=kKo-tkRaw(Math.min(ov,tkYears(id)));
+  const adjT=Math.max(tkKojo(km,false)-tkRaw(Math.min(ov,tkYears(id))),800000)+(p.dis?1000000:0); // 調整のあとも80万円が下限
   sc.ideco_in=(()=>{ const t=tkTax(inc,Math.max(0,adjT),o); return {tai:t,ide:iAlone,tax:t.tax+(iAlone?iAlone.tax:0),net:t.net+(iAlone?iAlone.net:0),ko:Math.max(0,adjT)}; })();
   sc.ideco_out=(()=>{ const t=tkTax(inc,kKo,o); return {tai:t,ide:iAlone,tax:t.tax+(iAlone?iAlone.tax:0),net:t.net+(iAlone?iAlone.net:0)}; })();
   // 退職金を先に受け取る：19年内はiDeCoの控除を調整
   const tAlone=tkTax(inc,kKo,o);
-  const adjI=iKo-tkRaw(Math.min(ov,tkYears(inc)));
+  const adjI=Math.max(iKo-tkRaw(Math.min(ov,tkYears(inc))),800000);
   sc.tai_in=(()=>{ const i=id?tkTax(id,Math.max(0,adjI),{}):null; return {tai:tAlone,ide:i,tax:tAlone.tax+(i?i.tax:0),net:tAlone.net+(i?i.net:0),ko:Math.max(0,adjI)}; })();
   sc.tai_out=(()=>{ const i=id?tkTax(id,iKo,{}):null; return {tai:tAlone,ide:i,tax:tAlone.tax+(i?i.tax:0),net:tAlone.net+(i?i.net:0)}; })();
   const ord=p.order||'same', g=p.gap||0;
