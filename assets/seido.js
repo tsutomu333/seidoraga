@@ -369,7 +369,7 @@ function iryoWork(p){
   if(kind==='jokin'||hrs>=30||(hrs>=20&&p.sz!=='small')) sk='emp';
   else if(inc<1300000&&p.fuyou) sk='dep';
   else sk='kokuho';
-  const kr=0.04925+(p.a40?0.0081:0)+0.00115; // 健康保険（介護・子ども子育て支援金分をふくむ）の本人負担の目安
+  const kr=0.0495+(p.a40?0.0081:0)+0.00115; // 協会けんぽ2026年度の全国平均9.90%の半分＋介護＋子ども・子育て支援金（本人負担）
   let sh=0, kenpo=0, kosei=0, koyo=0, kokuho=0, nenkin=0, hy=0;
   if(sk==='emp'){
     hy=hyojunK(monthly); const hn=Math.min(Math.max(hy,88000),650000);
