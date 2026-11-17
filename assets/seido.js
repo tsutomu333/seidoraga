@@ -354,12 +354,15 @@ function tenshoku(p){
   return {netA,netB,diff:netB-netA,mA,mB,mB1,shA:cA.sh,shB:cB.sh,itA:cA.IT,itB:cB.IT,jtA:cA.JT,jtB:cB.JT,gap,nenkin,kokuho,gapCost:nenkin+kokuho,lostPay:Math.round(p.incA/12*gap)};
 }
 
+// 健康保険の標準報酬月額（全50等級）。32万円までは GR と同じ
+const GRK=GR.slice(0,-1).concat([[330000,320000],[350000,340000],[370000,360000],[395000,380000],[425000,410000],[455000,440000],[485000,470000],[515000,500000],[545000,530000],[575000,560000],[605000,590000],[635000,620000],[665000,650000],[695000,680000],[730000,710000],[770000,750000],[810000,790000],[855000,830000],[905000,880000],[955000,930000],[1005000,980000],[1055000,1030000],[1115000,1090000],[1175000,1150000],[1235000,1210000],[1295000,1270000],[1355000,1330000],[Infinity,1390000]]);
+const hyojunK=p=>{for(const [l,g] of GRK){ if(p<l) return g; }};
 // 看護師・薬剤師の働き方（常勤・パート・派遣・夜勤）
 function iryoWork(p){
   const kind=p.kind||'jokin', n=Math.max(0,p.n||0), na=Math.max(0,p.na||0);
   let monthly, bo=0, hrs;
   if(kind==='jokin'){ monthly=(p.m||0)+n*na; bo=Math.max(0,p.bo||0); hrs=40; }
-  else { monthly=(p.w||0)*(p.h||0)*52/12+n*na; hrs=(p.h||0)+n*(p.nl||16)*12/52; }
+  else { monthly=(p.w||0)*(p.h||0)*52/12+n*na; hrs=(p.h||0)+n*(p.nl||14)*12/52; }
   monthly=Math.round(monthly);
   const inc=monthly*12+bo;
   let sk; // 社会保険：emp=勤め先で入る dep=家族の扶養 kokuho=国保と国民年金
@@ -367,11 +370,13 @@ function iryoWork(p){
   else if(inc<1300000&&p.fuyou) sk='dep';
   else sk='kokuho';
   const kr=0.04925+(p.a40?0.0081:0)+0.00115; // 健康保険（介護・子ども子育て支援金分をふくむ）の本人負担の目安
-  let sh=0, kenpo=0, kosei=0, koyo=0, kokuho=0, nenkin=0;
+  let sh=0, kenpo=0, kosei=0, koyo=0, kokuho=0, nenkin=0, hy=0;
   if(sk==='emp'){
-    kenpo=12*Math.min(monthly,1390000)*kr+bo*kr;
-    kosei=12*Math.min(Math.max(monthly,88000),650000)*0.0915+Math.min(bo,3000000)*0.0915;
-    koyo=inc*0.005; sh=kenpo+kosei+koyo;
+    hy=hyojunK(monthly); const hn=Math.min(Math.max(hy,88000),650000);
+    const b1=Math.floor(bo/2/1000)*1000; // 賞与は年2回・1回の額を千円未満切り捨て
+    kenpo=Math.round(12*hy*kr+Math.min(b1*2,5730000)*kr);
+    kosei=Math.round(12*hn*0.0915+Math.min(b1,1500000)*2*0.0915);
+    koyo=Math.round(inc*0.005); sh=kenpo+kosei+koyo;
   } else if(sk==='kokuho'){
     kokuho=tenKokuho(inc,p.a40,1); nenkin=p.age60?0:17920*12; sh=kokuho+nenkin;
   }
@@ -379,9 +384,9 @@ function iryoWork(p){
   const g=Math.max(0,inc-kyuyo(inc));
   const it=incomeTax(g-sh-kisoI(g)), jt=juminSimple(g,sh,0,50000);
   const nt=inc-sh-it-jt;
-  return {kind,inc,monthly,bo,hrs:Math.round(hrs*10)/10,sk,sh,kenpo:Math.round(kenpo),kosei:Math.round(kosei),koyo:Math.round(koyo),kokuho,nenkin,it,jt,net:nt,mNet:Math.round(nt/12),pension:sk==='emp'?Math.round((12*Math.min(Math.max(monthly,88000),650000)+Math.min(bo,3000000))*5.481/1000):0};
+  return {kind,inc,monthly,bo,hrs:Math.round(hrs*10)/10,sk,sh,kenpo,kosei,koyo,hy,kokuho,nenkin,it,jt,net:nt,mNet:Math.round(nt/12),pension:sk==='emp'?Math.round((12*Math.min(Math.max(hy,88000),650000)+Math.min(Math.floor(bo/2/1000)*1000,1500000)*2)*5.481/1000):0};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork};
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
