@@ -450,7 +450,33 @@ function taiKenpo(p){ // p:{m(退職時の月給),inc(退職した前の年の�
   const zai=Math.floor(hy*rate/2)*12; // 在職中の本人負担（同じ料率・折半）
   return {hy,hn,rate,niniM,nini,kokuho,kokuhoM:Math.round(kokuho/12),kokuho0,g,gk,zai};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG};
+
+// 年金の繰り上げ・繰り下げ（老齢基礎年金と老齢厚生年金を同じ時期に受け取る場合）
+function nkRate(st,old){ // st: 受け取り始める年齢（月）。65歳＝780
+  if(st<780) return -(780-st)*(old?0.005:0.004);
+  if(st<792) return 0; // 66歳になるまでは繰り下げできない
+  return Math.min(st-780,120)*0.007;
+}
+function nenkin(p){ // p:{kiso,kosei(65歳からの年額),st(開始・月),old(1962年4月1日以前生まれ),wage(総報酬月額相当額),wEnd(働く終わりの年齢・月)}
+  const kiso=p.kiso||0, kosei=p.kosei||0, st=p.st||780, wage=p.wage||0, wEnd=p.wEnd||0;
+  const r=nkRate(st,p.old);
+  const stopB=(m,base)=>(wage>0&&m<wEnd)?Math.min(base,Math.max(0,(base+wage-650000)/2)):0; // 在職老齢年金の月の停止額（基本月額＋総報酬月額相当額が65万円をこえた分の半分・2026年度）
+  const stop=m=>stopB(m,kosei/12);
+  let avg=1;
+  if(st>780&&kosei>0){ let s=0,n=0; for(let m=780;m<st;m++){ s+=(kosei/12-stop(m))/(kosei/12); n++; } avg=n?s/n:1; }
+  const kisoY=Math.round(kiso*(1+r)), koseiBase=kosei*(r<0?1+r:1), koseiAdd=r>0?kosei*avg*r:0;
+  const monthAt=m=>{ if(m<st) return 0; const k=koseiBase/12-stopB(m,koseiBase/12); return kisoY/12+Math.max(0,k)+koseiAdd/12; };
+  const cum=age=>{ let s=0; for(let m=Math.min(st,age*12);m<age*12;m++) s+=monthAt(m); return Math.round(s); };
+  return {r,kisoY,koseiY:Math.round(koseiBase+koseiAdd),year:Math.round(kisoY+koseiBase+koseiAdd),avg,stop65:Math.round(stop(780)),cum,monthAt};
+}
+function nkCross(p,st0){ // 65歳（またはst0）で受け取り始めた場合と、合計が並ぶ年齢（歳・月）
+  const a=nenkin(p), b=nenkin(Object.assign({},p,{st:st0||780}));
+  let sa=0,sb=0;
+  for(let m=Math.min(p.st,st0||780);m<1300;m++){ sa+=a.monthAt(m); sb+=b.monthAt(m);
+    if(m>=Math.max(p.st,st0||780)&&((p.st>(st0||780)&&sa>=sb)||(p.st<(st0||780)&&sa<=sb))) return m+1; }
+  return null;
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
