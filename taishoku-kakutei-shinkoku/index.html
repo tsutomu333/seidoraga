@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>年の途中で退職した人の確定申告でいくら戻る？源泉徴収票と退職後の保険料からかんたん計算【2026年分】｜せいどラガ</title>
+<meta name="description" content="年の途中で退職して年末調整を受けていない人が、確定申告でいくら所得税が戻るかを計算します。源泉徴収票の数字と、退職後に払った国民健康保険料・国民年金保険料、医療費、ふるさと納税などから目安を出します。">
+<link rel="canonical" href="https://seidoraga.jp/taishoku-kakutei-shinkoku/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="年の途中で退職した人の確定申告でいくら戻る？">
+<meta property="og:description" content="年の途中で退職して年末調整を受けていない人が、確定申告でいくら所得税が戻るかを計算します。源泉徴収票の数字と、退職後に払った国民健康保険料・国民年金保険料、医療費、ふるさと納税などから目安を出します。">
+<meta property="og:url" content="https://seidoraga.jp/taishoku-kakutei-shinkoku/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=4acec28b"></script>
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<span class="badge">2026年分の確定申告（2027年2〜3月）</span>
+<h1>年の途中で退職した人の確定申告でいくら戻る？<br>源泉徴収票と退職後の保険料からかんたん計算</h1>
+<p class="lead">年の途中で会社をやめて、その年のうちに次の会社に入っていない人は、年末調整を受けていません。給料から引かれた所得税は1年働く前提の多めの額なので、確定申告をすると戻ることが多いです。退職したあとに自分で払った国民健康保険料や国民年金保険料も、確定申告で控除にできます。源泉徴収票の数字を入れると、戻る所得税がわかります。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <h3>前の会社の源泉徴収票から</h3>
+  <label for="inc">支払金額（その年に受け取った給与・賞与）</label>
+  <div class="row"><input type="range" id="inc" min="0" max="10000000" step="10000" value="3000000"><output id="incOut" for="inc"></output></div>
+
+  <label for="wh">源泉徴収税額</label>
+  <div class="row"><input type="range" id="wh" min="0" max="1000000" step="1000" value="60000"><output id="whOut" for="wh"></output></div>
+  <div class="hint">源泉徴収票の「源泉徴収税額」です。年の途中でやめた人の源泉徴収票は、年末調整をしていないので、ここが多めになっています。</div>
+
+  <label for="sha">社会保険料等の金額</label>
+  <div class="row"><input type="range" id="sha" min="0" max="3000000" step="10000" value="450000"><output id="shaOut" for="sha"></output></div>
+  <div class="hint">在職中に給料から引かれた健康保険・厚生年金・雇用保険の合計です。</div>
+
+  <h3>退職したあとに自分で払ったもの（その年の1月〜12月に払った分）</h3>
+  <label for="sa">国民健康保険料・国民年金保険料・任意継続の保険料</label>
+  <div class="row"><input type="range" id="sa" min="0" max="1500000" step="10000" value="120000"><output id="saOut" for="sa"></output></div>
+  <div class="hint">家族の分を払ったときもふくめられます。国民年金は控除証明書、国民健康保険は領収書や納付額のお知らせで確かめられます。</div>
+
+  <label for="ip">生命保険料（一般の生命保険・新しい契約）</label>
+  <div class="row"><input type="range" id="ip" min="0" max="300000" step="1000" value="0"><output id="ipOut" for="ip"></output></div>
+  <div class="hint">在職中に会社で控除していた分も、年末調整をしていないので確定申告で入れます。</div>
+
+  <label for="iryo">医療費（自分と家族の分）</label>
+  <div class="row"><input type="range" id="iryo" min="0" max="3000000" step="10000" value="0"><output id="iryoOut" for="iryo"></output></div>
+
+  <label for="hoten">医療費のうち、保険金や高額療養費で補てんされた額</label>
+  <div class="row"><input type="range" id="hoten" min="0" max="3000000" step="10000" value="0"><output id="hotenOut" for="hoten"></output></div>
+
+  <label for="kifu">ふるさと納税などの寄附</label>
+  <div class="row"><input type="range" id="kifu" min="0" max="1000000" step="1000" value="0"><output id="kifuOut" for="kifu"></output></div>
+
+  <label for="ideco">iDeCoの掛金（1年分）</label>
+  <div class="row"><input type="range" id="ideco" min="0" max="816000" step="1000" value="0"><output id="idecoOut" for="ideco"></output></div>
+
+  <label for="sp">配偶者</label>
+  <select id="sp"><option value="none">いない・配偶者控除の対象ではない</option><option value="0">配偶者の所得が0円（収入なし）</option><option value="580000">配偶者の所得が58万円（給与収入なら132万円くらい）</option><option value="950000">配偶者の所得が95万円（給与収入なら169万円くらい）</option></select>
+  <label for="u23">23歳未満の扶養親族</label>
+  <select id="u23"><option value="0">いない</option><option value="1">いる（生命保険料控除の上限が変わる）</option></select>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>確定申告で戻る所得税（目安）</span><b id="rf">-</b><small id="rfN"></small></div>
+    <div><span>1年分の所得税</span><b id="tx">-</b><small id="txN"></small></div>
+    <div><span>退職後の保険料などで増える還付</span><b id="ad">-</b><small id="adN"></small></div>
+    <div><span>使った所得控除</span><small id="dd"></small></div>
+  </div>
+  <div class="hint" id="warn" style="margin-top:10px"></div>
+  <p class="note">※2026年分の所得税のルール（給与所得控除・基礎控除）で計算した目安です。その年の収入は前の会社の給与だけで、次の会社には入っていない人を前提にしています。雇用保険の基本手当（失業手当）は非課税なので入れません。退職金は「退職所得の受給に関する申告書」を出していれば別に精算されているので入れません。扶養控除・障害者控除・寡婦控除・住宅ローン控除などは入れていません。所得税には復興特別所得税（2.1%）をふくみます。</p>
+</section>
+<h2 id="hayami">早見表：退職後の保険料で戻る額はどう変わる？</h2>
+<table><thead><tr><th scope="col">退職後に自分で払った保険料</th><th scope="col">1年分の所得税</th><th scope="col">戻る額</th></tr></thead><tbody><tr><th scope="row">0円</th><td>27,000円</td><td>33,000円</td></tr><tr><th scope="row">120,000円</th><td>20,900円</td><td>39,100円</td></tr><tr><th scope="row">240,000円</th><td>14,800円</td><td>45,200円</td></tr><tr><th scope="row">360,000円</th><td>8,600円</td><td>51,400円</td></tr></tbody></table>
+<p class="note">その年の給与300万円・源泉徴収税額6万円・在職中の社会保険料45万円・独身の場合の目安です。</p>
+<h2>なぜ戻ることが多いのか</h2>
+<ul>
+<li><b>源泉徴収は1年働く前提</b>：毎月の給料から引く所得税は、その月の給料が1年続くとして計算した額です。年の途中でやめると1年の収入は少なくなるので、引かれすぎになります。</li>
+<li><b>年末調整を受けていない</b>：ふつうは12月の年末調整で精算しますが、年の途中でやめて次の会社に入っていない人は、自分で確定申告をして精算します。</li>
+<li><b>退職後の保険料も控除になる</b>：退職したあとに払った国民健康保険料・国民年金保険料・任意継続の保険料は、社会保険料控除として全額を所得から引けます。</li>
+</ul>
+<h2>確定申告のしかた</h2>
+<ul>
+<li><b>いつから</b>：所得税が戻るだけの申告（還付申告）は、翌年1月1日から出せます（2026年分は2027年1月1日から）。2月16日からの確定申告の期間を待たなくてかまいません。出せるのは5年間です。</li>
+<li><b>用意するもの</b>：前の会社の源泉徴収票、国民年金の控除証明書、国民健康保険料の納付額がわかるもの、医療費の明細、ふるさと納税の受領証明書など、マイナンバーカード。</li>
+<li><b>どこで</b>：国税庁の「確定申告書等作成コーナー」で、スマホやパソコンから無料で作って出せます。</li>
+<li><b>住民税にも反映される</b>：確定申告の内容は市区町村に送られ、翌年度の住民税も控除を入れて計算されます。</li>
+</ul>
+<h2>あわせて確かめたいこと</h2>
+<p>退職した次の年の住民税（<a href="/taishoku-juminzei/">退職後の住民税の計算</a>）、退職後の健康保険の選び方（<a href="/taishoku-kenpo/">任意継続・国保・家族の扶養の比較</a>）、医療費控除（<a href="/iryohi-kojo/">医療費控除でいくら戻る？</a>）も確かめてください。</p>
+<h2 id="shinkoku">確定申告の準備</h2>
+<p>確定申告書は、国税庁の「確定申告書等作成コーナー」で無料で作れます。売上や経費が多くて記録をつけるのがたいへんなときは、会計ソフトを使う方法もあります。ソフトを選ぶときは、次の点を各社の公式サイトで比べられます。</p>
+<ul><li>料金（無料で使える範囲と、有料プランの年額）</li><li>白色申告と青色申告のどちらに対応しているか</li><li>銀行口座やクレジットカードの明細を取りこめるか</li><li>スマホだけで申告まで終えられるか</li></ul>
+<p><a href="https://www.keisan.nta.go.jp/" rel="noopener" target="_blank">国税庁 確定申告書等作成コーナー（無料）</a></p>
+<div class="pr" id="pr-soft">
+  <p><span class="tag">PR</span>会計ソフトは、売上や経費の記録から確定申告書づくりまでを手伝ってくれます。入力した内容の正しさは自分で確かめます。</p>
+  <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGLSB+7N2A9E+4JGQ+BWVTE" target="_blank" rel="nofollow sponsored noopener"><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGLSB+7N2A9E+4JGQ+BWVTE" alt="">マネーフォワード クラウド確定申告を見る</a></p>
+  <p class="note">対応する銀行口座やクレジットカードなどの明細を取りこみ、帳簿づけや確定申告書づくりを手伝います。</p>
+  <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGLSB+7U7HIQ+35XE+6DZBM" target="_blank" rel="nofollow sponsored noopener"><img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BGLSB+7U7HIQ+35XE+6DZBM" alt="">やよいの白色申告・青色申告 オンラインを見る</a></p>
+  <p class="note">白色申告・青色申告に対応したサービスがあります。申告のしかたや必要な機能に合わせて選べます。</p>
+  <p class="note">並び順は五十音順です。紹介料の高さで順番は変えていません。</p>
+</div>
+
+<h2>関連する計算</h2>
+<a class="card rel" href="/taishoku-juminzei/"><b>退職後の住民税はいくら？</b><br><small>退職する月で払う額と時期がわかる</small></a>
+<a class="card rel" href="/taishoku-kenpo/"><b>退職後の健康保険はどれが安い？</b><br><small>任意継続・国保・家族の扶養を比較</small></a>
+<a class="card rel" href="/iryohi-kojo/"><b>医療費控除でいくら戻る？</b><br><small>年収と医療費から</small></a>
+<a class="card rel" href="/shitsugyo-taiken/"><b>退職してから失業保険をもらうまでに知ったこと</b><br><small>運営者の手続きの記録</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>失業手当（基本手当）も申告しますか？</h3>
+<p>いいえ。雇用保険の基本手当は非課税なので、確定申告には入れません。</p>
+<h3>源泉徴収票をもらっていないときは？</h3>
+<p>退職した会社は、退職した日から1か月以内に源泉徴収票を出すことになっています。届いていないときは、前の会社に連絡して出してもらってください。</p>
+<h3>年内に次の会社に入ったときは？</h3>
+<p>前の会社の源泉徴収票を次の会社に出すと、次の会社の年末調整で精算されます。ふつうは自分で確定申告をする必要はありません。</p>
+<h3>確定申告をしないとどうなりますか？</h3>
+<p>給与のほかに所得がなければ、確定申告は義務ではありません。ただ、引かれすぎた所得税は戻りません。還付申告は5年以内なら出せます。</p>
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" rel="noopener">国税庁 No.1900 給与所得者で確定申告が必要な人</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2030.htm" rel="noopener">国税庁 No.2030 還付申告</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1130.htm" rel="noopener">国税庁 No.1130 社会保険料控除</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm" rel="noopener">国税庁 No.1410 給与所得控除</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const v=id=>+$(id).value;
+  ['inc','wh','sha','sa','ip','iryo','hoten','kifu','ideco'].forEach(id=>{ if($(id+'Out')) $(id+'Out').textContent=yen(v(id)); });
+  const sp=$('sp').value;
+  const r=SEIDO.taiShinkoku({inc:v('inc'),wh:v('wh'),sha:v('sha'),shAfter:v('sa'),ip:v('ip'),iryo:v('iryo'),hoten:v('hoten'),kifu:v('kifu'),ideco:v('ideco'),gw:sp==='none'?null:+sp,u23:$('u23').value==='1'});
+  $('rf').textContent=r.refund>=0?yen(r.refund):'−'+yen(-r.refund);
+  $('rfN').textContent=r.refund>=0?'源泉徴収された '+yen(r.wh)+' から、1年分の所得税 '+yen(r.tax)+' を引いた額が戻ります':'源泉徴収された額より1年分の所得税が多いので、'+yen(-r.refund)+' を納めます';
+  $('tx').textContent=yen(r.tax); $('txN').textContent='課税される所得 '+yen(r.TI)+'（給与所得 '+yen(r.g)+' から所得控除を引いた額）';
+  const d=r.ded, L=[['社会保険料控除',d.sh],['基礎控除',d.kiso],['配偶者控除・配偶者特別控除',d.sp],['生命保険料控除',d.life],['医療費控除',d.iryo],['寄附金控除（ふるさと納税など）',d.kifu],['iDeCoなど（小規模企業共済等掛金控除）',d.ideco]].filter(x=>x[1]>0);
+  $('dd').innerHTML=L.map(x=>x[0]+' '+yen(x[1])).join('<br>');
+  $('ad').textContent=yen(Math.max(0,r.noAdd-r.tax));
+  $('adN').textContent='源泉徴収票の社会保険料と基礎控除だけで計算した還付 '+yen(Math.max(0,r.wh-r.noAdd))+' に、退職後の保険料などを足したことで増える額';
+  const w=[];
+  if(v('sa')===0) w.push('退職したあとに自分で払った国民健康保険料・国民年金保険料・任意継続の保険料は、社会保険料控除になります。払った月の領収書や控除証明書で確かめて入れてください。');
+  if(v('kifu')>0) w.push('ふるさと納税は、所得税のほかに翌年の住民税からも引かれます。ワンストップ特例を出していても、確定申告をすると特例は使えなくなるので、確定申告で寄附金控除を入れてください。');
+  if(r.refund<0) w.push('源泉徴収された額が少ないときは納める額が出ます。年末調整を受けていない人がほかに所得がないときは、確定申告は義務ではありませんが、医療費控除などを使うと減ることがあります。');
+  $('warn').innerHTML=w.map(x=>'・'+x).join('<br>');
+}
+['inc','wh','sha','sa','ip','iryo','hoten','kifu','ideco','sp','u23'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "失業手当（基本手当）も申告しますか？", "acceptedAnswer": {"@type": "Answer", "text": "いいえ。雇用保険の基本手当は非課税なので、確定申告には入れません。"}}, {"@type": "Question", "name": "源泉徴収票をもらっていないときは？", "acceptedAnswer": {"@type": "Answer", "text": "退職した会社は、退職した日から1か月以内に源泉徴収票を出すことになっています。届いていないときは、前の会社に連絡して出してもらってください。"}}, {"@type": "Question", "name": "年内に次の会社に入ったときは？", "acceptedAnswer": {"@type": "Answer", "text": "前の会社の源泉徴収票を次の会社に出すと、次の会社の年末調整で精算されます。ふつうは自分で確定申告をする必要はありません。"}}, {"@type": "Question", "name": "確定申告をしないとどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "給与のほかに所得がなければ、確定申告は義務ではありません。ただ、引かれすぎた所得税は戻りません。還付申告は5年以内なら出せます。"}}]}</script>
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>

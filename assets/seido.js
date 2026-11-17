@@ -476,7 +476,23 @@ function nkCross(p,st0){ // 65歳（またはst0）で受け取り始めた場�
     if(m>=Math.max(p.st,st0||780)&&((p.st>(st0||780)&&sa>=sb)||(p.st<(st0||780)&&sa<=sb))) return m+1; }
   return null;
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross};
+
+// 年の途中で退職した人の確定申告（所得税の還付）
+function taiShinkoku(p){
+  const inc=p.inc||0, g=Math.max(0,inc-kyuyo(inc));
+  const sh=(p.sha||0)+(p.shAfter||0);
+  const L=lifeDed(p.ip||0,0,0,!!p.u23).it;
+  const iryoD=Math.min(2000000,Math.max(0,(p.iryo||0)-(p.hoten||0)-Math.min(100000,Math.floor(g*0.05))));
+  const kifuD=Math.max(0,Math.min((p.kifu||0),Math.floor(g*0.4))-2000);
+  const spI=p.gw==null?0:spDed(SPI,g,p.gw);
+  const ide=p.ideco||0;
+  const ded={sh,kiso:kisoI(g),sp:spI,life:L,iryo:iryoD,kifu:kifuD,ideco:ide};
+  const TI=fl1000(g-sh-ded.kiso-spI-L-iryoD-kifuD-ide);
+  const tax=incomeTax(TI), wh=p.wh||0;
+  const noAdd=incomeTax(fl1000(g-(p.sha||0)-ded.kiso-spI)); // 退職後の保険料などを入れない場合（源泉徴収票の分だけ）
+  return {g,ded,TI:Math.max(0,TI),tax,wh,refund:wh-tax,noAdd};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross,taiShinkoku};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
