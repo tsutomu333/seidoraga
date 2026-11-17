@@ -386,7 +386,23 @@ function iryoWork(p){
   const nt=inc-sh-it-jt;
   return {kind,inc,monthly,bo,hrs:Math.round(hrs*10)/10,sk,sh,kenpo,kosei,koyo,hy,kokuho,nenkin,it,jt,net:nt,mNet:Math.round(nt/12),pension:sk==='emp'?Math.round((12*Math.min(Math.max(hy,88000),650000)+Math.min(Math.floor(bo/2/1000)*1000,1500000)*2)*5.481/1000):0};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK};
+
+// 高額療養費（70歳未満・2026年8月〜2027年7月診療分）
+const KG={a:[270300,901000,140100,1680000],i:[179100,597000,93000,1110000],u:[85800,286000,44400,530000],e:[61500,0,44400,530000],o:[36900,0,24600,290000]};
+function kgLimit(k,total,tasu){ const t=KG[k]; if(tasu) return t[2]; return t[1]?t[0]+Math.round(Math.max(0,total-t[1])*0.01):t[0]; }
+function kogaku(p){ // p:{k, total(1か月の総医療費=10割), months(同じ医療費が続く月数), tasu(すでに多数回該当), rate}
+  const k=p.k||'u', total=Math.max(0,p.total||0), n=Math.max(1,Math.min(12,p.months||1)), rate=p.rate||0.3;
+  const self=Math.round(total*rate/10)*10; // 窓口負担（10円単位）
+  const rows=[]; let sum=0, back=0, cnt=0;
+  for(let i=1;i<=n;i++){
+    const tasu=!!p.tasu||cnt>=3; const lim=kgLimit(k,total,tasu);
+    const pay=Math.min(self,lim), b=self-pay; if(b>0) cnt++;
+    rows.push({i,tasu,lim,pay,back:b}); sum+=pay; back+=b;
+  }
+  const cap=KG[k][3], yearBack=Math.max(0,sum-cap);
+  return {self,lim1:rows[0].lim,back1:rows[0].back,pay1:rows[0].pay,rows,sumSelf:self*n,sum,back,cap,yearBack,final:sum-yearBack};
+}
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;
