@@ -13,7 +13,11 @@ jobs:
       - name: 変わったページをIndexNowに送る
         run: |
           KEY=777bd60a41a615f6c043b26e894eff5e
-          URLS=$(git diff --name-only HEAD~1 HEAD -- '*index.html' | sed -e 's#index.html$##' -e 's#^#https://seidoraga.jp/#' | head -1000)
+          if git log -1 --pretty=%B | grep -q 'indexnow-all'; then
+            URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's#<loc>##' -e 's#</loc>##')
+          else
+            URLS=$(git diff --name-only HEAD~1 HEAD -- '*index.html' | sed -e 's#index.html$##' -e 's#^#https://seidoraga.jp/#' | head -1000)
+          fi
           [ -z "$URLS" ] && { echo "変わったページなし"; exit 0; }
           LIST=$(printf '%s\n' $URLS | jq -R . | jq -s -c .)
           echo "$LIST"
