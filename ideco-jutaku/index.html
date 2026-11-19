@@ -5,11 +5,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
 <script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}})();
 </script>
 
 <link rel="icon" href="/favicon.ico" sizes="48x48">

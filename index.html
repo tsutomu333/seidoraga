@@ -1,11 +1,13 @@
 <!doctype html><html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <!-- Google tag -->
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
 <script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}})();
 </script>
 <meta name="google-site-verification" content="N7EV53hkqCEeGRKvkschReni3isAldSi2h0nVEKJ_BQ" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "せいどラガ", "alternateName": ["暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所ラガシュ", "seidoraga"], "url": "https://seidoraga.jp/"}</script>
