@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>計算の確かめ方と照らし合わせの結果（全件公開）｜せいどラガ</title>
+<meta name="description" content="せいどラガの計算機の答えを、国税庁・総務省・日本年金機構などの計算式・計算例と照らし合わせた結果を全件（202件）公開しています。">
+<link rel="canonical" href="https://seidoraga.jp/kakunin/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="計算の確かめ方と照らし合わせの結果">
+<meta property="og:description" content="せいどラガの計算機の答えを、国税庁・総務省・日本年金機構などの計算式・計算例と照らし合わせた結果を全件（202件）公開しています。">
+<meta property="og:url" content="https://seidoraga.jp/kakunin/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=4acec28b"></script>
+<!--seo--><meta property="og:image" content="https://seidoraga.jp/assets/og/kakunin.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://seidoraga.jp/assets/og/kakunin.png">
+<!--/seo-->
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › 計算の確かめ方と照らし合わせの結果</nav><!--/seo-->
+<span class="badge">202件・公開のたびに自動で確かめています</span>
+<h1>計算の確かめ方と<br>照らし合わせの結果</h1>
+<p class="lead">せいどラガの計算は、国税庁・総務省・厚生労働省・日本年金機構などが公表している計算式や計算例、ページに載せている早見表の数字と、公開する前に毎回照らし合わせています。いまは202件で、202件が一致しています。1件でもずれると、ページを公開できないしくみです。このページは、その結果をそのまま載せています。</p>
+<h2>どうやって確かめているか</h2>
+<ol>
+<li>国の資料にある計算式・計算例・表から、「この入力なら答えはこうなるはず」という値（基準）を決めます。</li>
+<li>サイトの計算機に同じ入力を入れて、答えを出します。</li>
+<li>2つが1円でもちがえば「ずれ」として、公開を止めます。</li>
+<li>ページに載せている早見表の数字も、計算機の答えと同じかを確かめます（計算を直したのに表が古いまま、を防ぐため）。</li>
+</ol>
+<p class="note">「計算機の答え」が空いている行は、金額ではなく条件（例：上限まで寄付すると自己負担が2,500円以内におさまる）を確かめているものです。年収などの入力は、その行の「確かめたこと」に書いています。</p>
+<h2>照らし合わせの結果</h2>
+<p class="note">最後に確かめた日：2026年11月19日</p>
+<nav class="cats" style="display:flex;flex-wrap:wrap;gap:6px;font-size:14px"><a href="#k0">給与所得控除（国税庁 No.1410）</a><a href="#k1">所得税の基礎控除（国税庁）</a><a href="#k2">所得税の速算表（国税庁 No.2260）</a><a href="#k3">iDeCoの掛金の上限</a><a href="#k4">住宅ローン控除</a><a href="#k5">ふるさと納税（総務省）</a><a href="#k6">ページに載せている早見表・計算例</a><a href="#k7">FXの税金（国税庁 No.1521）</a><a href="#k8">暗号資産の税金（国税庁 No.1524）</a><a href="#k9">医療費控除・セルフメディケーション税制（国税庁 No.1120・No.1129）</a><a href="#k10">生命保険料控除・地震保険料控除（国税庁 No.1140・No.1145）</a><a href="#k11">出産・育児でもらえるお金（厚生労働省・協会けんぽ）</a><a href="#k12">遺族年金（日本年金機構）</a><a href="#k13">相続した家を売るときの税金（国税庁）</a><a href="#k14">不動産投資の損益通算・減価償却（国税庁）</a><a href="#k15">転職と手取り</a><a href="#k16">看護師・薬剤師の働き方と手取り</a><a href="#k17">高額療養費（厚生労働省）</a><a href="#k18">退職金の税金（国税庁 No.1420）</a><a href="#k19">退職後の健康保険・国民年金</a><a href="#k20">年金の繰り上げ・繰り下げ（日本年金機構）</a><a href="#k21">退職した年の確定申告（国税庁）</a></nav>
+<h3 id="k0">給与所得控除（国税庁 No.1410）（8件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>給与所得控除 年収1000000</td><td class="n">740,000</td><td class="n">740,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収1900000</td><td class="n">740,000</td><td class="n">740,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収2200000</td><td class="n">740,000</td><td class="n">740,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収3600000</td><td class="n">1,160,000</td><td class="n">1,160,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収5000000</td><td class="n">1,440,000</td><td class="n">1,440,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収6600000</td><td class="n">1,760,000</td><td class="n">1,760,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収8500000</td><td class="n">1,950,000</td><td class="n">1,950,000</td><td>○ 一致</td></tr>
+<tr><td>給与所得控除 年収12000000</td><td class="n">1,950,000</td><td class="n">1,950,000</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k1">所得税の基礎控除（国税庁）（2件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>課税所得 年収500万</td><td class="n">1,770,000</td><td class="n">1,770,000</td><td>○ 一致</td></tr>
+<tr><td>課税所得 年収700万</td><td class="n">3,480,000</td><td class="n">3,480,000</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k2">所得税の速算表（国税庁 No.2260）（1件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>所得税 年収1,000万</td><td class="n">774,400</td><td class="n">774,400</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k3">iDeCoの掛金の上限（3件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>iDeCo上限 2026 会社員（企業年金なし）</td><td class="n">23,000</td><td class="n">23,000</td><td>○ 一致</td></tr>
+<tr><td>iDeCo上限 2026 公務員</td><td class="n">20,000</td><td class="n">20,000</td><td>○ 一致</td></tr>
+<tr><td>iDeCo上限 2027 会社員（企業年金なし）</td><td class="n">62,000</td><td class="n">62,000</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k4">住宅ローン控除（2件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>住宅ローン控除 残高2,000万</td><td class="n">140,000</td><td class="n">140,000</td><td>○ 一致</td></tr>
+<tr><td>住宅ローン控除 残高4,000万・限度3,000万</td><td class="n">210,000</td><td class="n">210,000</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k5">ふるさと納税（総務省）（9件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>ふるさと納税 年収3000000 上限で負担2,500円以内</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収3000000 上限+1万で負担がふえる</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収3000000 2万円寄付で1.8万円前後もどる</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収5000000 上限で負担2,500円以内</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収5000000 上限+1万で負担がふえる</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収5000000 2万円寄付で1.8万円前後もどる</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収8000000 上限で負担2,500円以内</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収8000000 上限+1万で負担がふえる</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ふるさと納税 年収8000000 2万円寄付で1.8万円前後もどる</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k6">ページに載せている早見表・計算例（25件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>早見表 iDeCoなし上限 3000000</td><td class="n">28,000</td><td class="n">28,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の上限 3000000</td><td class="n">22,000</td><td class="n">22,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の節税 3000000</td><td class="n">41,700</td><td class="n">41,700</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の上限 3000000</td><td class="n">11,000</td><td class="n">11,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の節税 3000000</td><td class="n">101,400</td><td class="n">101,400</td><td>○ 一致</td></tr>
+<tr><td>早見表 iDeCoなし上限 5000000</td><td class="n">58,000</td><td class="n">58,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の上限 5000000</td><td class="n">51,000</td><td class="n">51,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の節税 5000000</td><td class="n">41,700</td><td class="n">41,700</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の上限 5000000</td><td class="n">40,000</td><td class="n">40,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の節税 5000000</td><td class="n">112,400</td><td class="n">112,400</td><td>○ 一致</td></tr>
+<tr><td>早見表 iDeCoなし上限 7000000</td><td class="n">108,000</td><td class="n">108,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の上限 7000000</td><td class="n">88,000</td><td class="n">88,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の節税 7000000</td><td class="n">74,200</td><td class="n">74,200</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の上限 7000000</td><td class="n">76,000</td><td class="n">76,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の節税 7000000</td><td class="n">168,800</td><td class="n">168,800</td><td>○ 一致</td></tr>
+<tr><td>早見表 iDeCoなし上限 10000000</td><td class="n">177,000</td><td class="n">177,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の上限 10000000</td><td class="n">169,000</td><td class="n">169,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月2.3万の節税 10000000</td><td class="n">84,000</td><td class="n">84,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の上限 10000000</td><td class="n">156,000</td><td class="n">156,000</td><td>○ 一致</td></tr>
+<tr><td>早見表 月6.2万の節税 10000000</td><td class="n">226,300</td><td class="n">226,300</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 iDeCo×ふるさと 年収500万</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>計算例 住宅ローン×ふるさと 確定申告 4000000</td><td class="n">6,000</td><td class="n">6,000</td><td>○ 一致</td></tr>
+<tr><td>計算例 住宅ローン×ふるさと 確定申告 5000000</td><td class="n">8,100</td><td class="n">8,100</td><td>○ 一致</td></tr>
+<tr><td>計算例 住宅ローン×ふるさと 確定申告 6000000</td><td class="n">2,100</td><td class="n">2,100</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 住宅ローン×ふるさと 500万</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k7">FXの税金（国税庁 No.1521）（7件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>FX 所得税 100万</td><td class="n">153,100</td><td class="n">153,100</td><td>○ 一致</td></tr>
+<tr><td>FX 住民税 100万</td><td class="n">50,000</td><td class="n">50,000</td><td>○ 一致</td></tr>
+<tr><td>FX 基礎控除の段階 変わらず</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>FX 繰越後の課税</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>FX 残る繰越</td><td class="n">300,000</td><td class="n">300,000</td><td>○ 一致</td></tr>
+<tr><td>FX 損失は繰越に足す</td><td class="n">400,000</td><td class="n">400,000</td><td>○ 一致</td></tr>
+<tr><td>FX 基礎控除が減る分 150万</td><td class="n">28,600</td><td class="n">28,600</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k8">暗号資産の税金（国税庁 No.1524）（3件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>暗号資産 年収300万 20万</td><td class="n">30,200</td><td class="n">30,200</td><td>○ 一致</td></tr>
+<tr><td>暗号資産 年収1000万 50万</td><td class="n">152,100</td><td class="n">152,100</td><td>○ 一致</td></tr>
+<tr><td>暗号資産 分離 年収700万 100万</td><td class="n">203,100</td><td class="n">203,100</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k9">医療費控除・セルフメディケーション税制（国税庁 No.1120・No.1129）（7件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>医療費控除 年収300万 30万</td><td class="n">30,200</td><td class="n">30,200</td><td>○ 一致</td></tr>
+<tr><td>医療費控除 足切り 5%（給与所得126万）</td><td class="n">63,000</td><td class="n">63,000</td><td>○ 一致</td></tr>
+<tr><td>医療費控除 足切り 10万</td><td class="n">100,000</td><td class="n">100,000</td><td>○ 一致</td></tr>
+<tr><td>医療費控除 上限200万</td><td class="n">2,000,000</td><td class="n">2,000,000</td><td>○ 一致</td></tr>
+<tr><td>セルフメディケーション 6万→4.8万</td><td class="n">48,000</td><td class="n">48,000</td><td>○ 一致</td></tr>
+<tr><td>セルフメディケーション 上限8.8万</td><td class="n">88,000</td><td class="n">88,000</td><td>○ 一致</td></tr>
+<tr><td>副業＝雑所得の総合課税</td><td class="n">192,900</td><td class="n">192,900</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k10">生命保険料控除・地震保険料控除（国税庁 No.1140・No.1145）（10件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>生命保険 所得税 10万/5万/3万</td><td class="n">97,500</td><td class="n">97,500</td><td>○ 一致</td></tr>
+<tr><td>生命保険 住民税 上限7万</td><td class="n">70,000</td><td class="n">70,000</td><td>○ 一致</td></tr>
+<tr><td>生命保険 所得税 上限12万</td><td class="n">120,000</td><td class="n">120,000</td><td>○ 一致</td></tr>
+<tr><td>生命保険 2万以下は全額</td><td class="n">18,000</td><td class="n">18,000</td><td>○ 一致</td></tr>
+<tr><td>生命保険 23歳未満の特例 上限6万</td><td class="n">60,000</td><td class="n">60,000</td><td>○ 一致</td></tr>
+<tr><td>生命保険 23歳未満の特例 10万</td><td class="n">55,000</td><td class="n">55,000</td><td>○ 一致</td></tr>
+<tr><td>生命保険 23歳未満の特例でも合計12万</td><td class="n">120,000</td><td class="n">120,000</td><td>○ 一致</td></tr>
+<tr><td>地震保険 所得税 上限5万</td><td class="n">50,000</td><td class="n">50,000</td><td>○ 一致</td></tr>
+<tr><td>地震保険 住民税 半額 上限2.5万</td><td class="n">20,000</td><td class="n">20,000</td><td>○ 一致</td></tr>
+<tr><td>年末調整 iDeCo 27.6万 所得税</td><td class="n">14,100</td><td class="n">14,100</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k11">出産・育児でもらえるお金（厚生労働省・協会けんぽ）（12件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>出産手当金 月28万→日額6,220円×98日（協会けんぽの例）</td><td class="n">609,560</td><td class="n">609,560</td><td>○ 一致</td></tr>
+<tr><td>育児休業給付 賃金日額9,333円×180日×67%</td><td class="n">1,125,559</td><td class="n">1,125,559</td><td>○ 一致</td></tr>
+<tr><td>育児休業給付 181日目から50%（1歳まで129日）</td><td class="n">601,978</td><td class="n">601,978</td><td>○ 一致</td></tr>
+<tr><td>出生後休業支援給付 13%×28日</td><td class="n">33,972</td><td class="n">33,972</td><td>○ 一致</td></tr>
+<tr><td>出生後休業支援 上限 60,205円（2026年8月〜）</td><td class="n">60,205</td><td class="n">60,205</td><td>○ 一致</td></tr>
+<tr><td>出生時育児休業給付 上限 310,290円（28日）</td><td class="n">310,290</td><td class="n">310,290</td><td>○ 一致</td></tr>
+<tr><td>育児休業給付 67% 30日の上限 332,454円</td><td class="n">332,454</td><td class="n">332,454</td><td>○ 一致</td></tr>
+<tr><td>配偶者が育休を取らない会社員なら13%なし</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>配偶者が自営業なら配偶者の育休なしで13%あり</td><td class="n">33,972</td><td class="n">33,972</td><td>○ 一致</td></tr>
+<tr><td>扶養の人は一時金50万＋妊婦給付10万＋配偶者の給付</td><td class="n">712,000</td><td class="n">712,000</td><td>○ 一致</td></tr>
+<tr><td>配偶者が公務員で14日以上育休なら13%あり</td><td class="n">33,972</td><td class="n">33,972</td><td>○ 一致</td></tr>
+<tr><td>夫婦とも自営業：国民年金の免除 母13か月＋父12か月（月17,920円）</td><td class="n">448,000</td><td class="n">448,000</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k12">遺族年金（日本年金機構）（16件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>遺族厚生年金 平均標準報酬額40万円・300月→報酬比例×3/4</td><td class="n">493,290</td><td class="n">493,290</td><td>○ 一致</td></tr>
+<tr><td>300月みなし 120月でも300月で計算</td><td class="n">493,290</td><td class="n">493,290</td><td>○ 一致</td></tr>
+<tr><td>2003年3月以前は7.125/1000（賞与なし）</td><td class="n">480,938</td><td class="n">480,938</td><td>○ 一致</td></tr>
+<tr><td>標準報酬月額の上限65万円</td><td class="n">801,596</td><td class="n">801,596</td><td>○ 一致</td></tr>
+<tr><td>標準賞与額は1回150万円まで（年2回400万→300万）</td><td class="n">801,596</td><td class="n">801,596</td><td>○ 一致</td></tr>
+<tr><td>18歳到達年度末：2010年5月生まれ→2029年3月</td><td class="n">24,351</td><td class="n">24,351</td><td>○ 一致</td></tr>
+<tr><td>18歳到達年度末：2010年2月生まれ→2028年3月</td><td class="n">24,339</td><td class="n">24,339</td><td>○ 一致</td></tr>
+<tr><td>遺族基礎年金 子1人 847,300＋243,800</td><td class="n">1,091,100</td><td class="n">1,091,100</td><td>○ 一致</td></tr>
+<tr><td>子2人 847,300＋243,800×2</td><td class="n">1,334,900</td><td class="n">1,334,900</td><td>○ 一致</td></tr>
+<tr><td>子3人 3人目は81,300</td><td class="n">1,416,200</td><td class="n">1,416,200</td><td>○ 一致</td></tr>
+<tr><td>子が18歳年度末をこえたとき40歳以上で40歳時に基礎年金を受けていた妻→中高齢寡婦加算635,500円</td><td class="n">635,500</td><td class="n">635,500</td><td>○ 一致</td></tr>
+<tr><td>妻を亡くした40歳の夫：子の間は子が受給、そのあと遺族厚生年金なし</td><td class="n">子/0</td><td class="n">子/0</td><td>○ 一致</td></tr>
+<tr><td>30歳未満で子のない妻は遺族厚生年金5年（60か月）</td><td class="n">60</td><td class="n">60</td><td>○ 一致</td></tr>
+<tr><td>子のいた妻が30歳前に基礎年金を失うと、そこから5年で遺族厚生年金も終わる</td><td class="n">60</td><td class="n">60</td><td>○ 一致</td></tr>
+<tr><td>55歳以上の夫は60歳から遺族厚生年金</td><td class="n">0/60</td><td class="n">0/60</td><td>○ 一致</td></tr>
+<tr><td>40歳になる前に子が対象外になった妻は中高齢寡婦加算なし</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k13">相続した家を売るときの税金（国税庁）（20件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>譲渡所得1,000万円 長期 20.315%</td><td class="n">2,031,500</td><td class="n">2,031,500</td><td>○ 一致</td></tr>
+<tr><td>譲渡所得1,000万円 短期 39.63%</td><td class="n">3,963,000</td><td class="n">3,963,000</td><td>○ 一致</td></tr>
+<tr><td>仲介手数料 2,500万円→(3%+6万)×1.1</td><td class="n">891,000</td><td class="n">891,000</td><td>○ 一致</td></tr>
+<tr><td>仲介手数料 500万円 通常の上限 (3%+6万)×1.1</td><td class="n">231,000</td><td class="n">231,000</td><td>○ 一致</td></tr>
+<tr><td>仲介手数料 800万円以下の特例 33万円</td><td class="n">330,000</td><td class="n">330,000</td><td>○ 一致</td></tr>
+<tr><td>仲介手数料 300万円 (4%+2万)×1.1</td><td class="n">154,000</td><td class="n">154,000</td><td>○ 一致</td></tr>
+<tr><td>仲介手数料 150万円 5%×1.1</td><td class="n">82,500</td><td class="n">82,500</td><td>○ 一致</td></tr>
+<tr><td>金属造3mm以下 0.036</td><td class="n">3,240,000</td><td class="n">3,240,000</td><td>○ 一致</td></tr>
+<tr><td>木造1,000万円 36年→95%まで</td><td class="n">9,500,000</td><td class="n">9,500,000</td><td>○ 一致</td></tr>
+<tr><td>木造1,000万円 10年→0.9×0.031×10</td><td class="n">2,790,000</td><td class="n">2,790,000</td><td>○ 一致</td></tr>
+<tr><td>取得費不明は5%</td><td class="n">1,250,000</td><td class="n">1,250,000</td><td>○ 一致</td></tr>
+<tr><td>相続は取得時期を引き継ぐ 1980年取得→長期</td><td class="n">1</td><td class="n">1</td><td>○ 一致</td></tr>
+<tr><td>2021年取得→2026年売却は短期</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>2020年取得→2026年売却は長期</td><td class="n">1</td><td class="n">1</td><td>○ 一致</td></tr>
+<tr><td>空き家特例 3,000万円控除で税0</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>相続人3人以上は2,000万円</td><td class="n">20,000,000</td><td class="n">20,000,000</td><td>○ 一致</td></tr>
+<tr><td>1億円こえは空き家特例なし</td><td class="n"></td><td class="n"></td><td>○ 一致</td></tr>
+<tr><td>取得費加算 800万×3000万/6000万</td><td class="n">4,000,000</td><td class="n">4,000,000</td><td>○ 一致</td></tr>
+<tr><td>期限後は取得費加算なし</td><td class="n"></td><td class="n"></td><td>○ 一致</td></tr>
+<tr><td>ページの数字 相続した家ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k14">不動産投資の損益通算・減価償却（国税庁）（13件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>定額法の償却率 47年→0.022</td><td class="n">0.022</td><td class="n">0.022</td><td>○ 一致</td></tr>
+<tr><td>定額法の償却率 22年→0.046</td><td class="n">0.046</td><td class="n">0.046</td><td>○ 一致</td></tr>
+<tr><td>定額法の償却率 10年→0.100</td><td class="n">0.1</td><td class="n">0.1</td><td>○ 一致</td></tr>
+<tr><td>中古の簡便法 RC築20年→(47-20)+20×0.2=31年</td><td class="n">31</td><td class="n">31</td><td>○ 一致</td></tr>
+<tr><td>中古の簡便法 木造築30年→22×0.2=4年</td><td class="n">4</td><td class="n">4</td><td>○ 一致</td></tr>
+<tr><td>中古の簡便法 木造築10年→12+2=14年</td><td class="n">14</td><td class="n">14</td><td>○ 一致</td></tr>
+<tr><td>減価償却 2,000万×0.022</td><td class="n">440,000</td><td class="n">440,000</td><td>○ 一致</td></tr>
+<tr><td>土地の利息 40万×(2,500万-2,000万)/2,500万</td><td class="n">80,000</td><td class="n">80,000</td><td>○ 一致</td></tr>
+<tr><td>損益通算できる赤字は土地の利息を除く</td><td class="n">-130,000</td><td class="n">-130,000</td><td>○ 一致</td></tr>
+<tr><td>赤字100万円（土地の利息なし）で減る税金＝給与だけとの差</td><td class="n">258,300</td><td class="n">258,300</td><td>○ 一致</td></tr>
+<tr><td>黒字なら損益通算なし（税金は増える）</td><td class="n">1</td><td class="n">1</td><td>○ 一致</td></tr>
+<tr><td>貸した月数で減価償却を月割り</td><td class="n">132,000</td><td class="n">132,000</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 不動産投資ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k15">転職と手取り（8件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>転職：手取りの差＝手取り(600万)−手取り(500万)</td><td class="n">727,800</td><td class="n">727,800</td><td>○ 一致</td></tr>
+<tr><td>年収が上がると、転職直後（住民税が前の年収のまま）の月の手取りは切り替わり後より多い</td><td class="n">1</td><td class="n">1</td><td>○ 一致</td></tr>
+<tr><td>空白1か月の国民年金 17,920円</td><td class="n">17,920</td><td class="n">17,920</td><td>○ 一致</td></tr>
+<tr><td>空白なしは保険料0</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>国保の上限（渋谷区2026年度）113万円</td><td class="n">1,130,000</td><td class="n">1,130,000</td><td>○ 一致</td></tr>
+<tr><td>家族の扶養に入るときは保険料なし</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>60歳以上は国民年金なし</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 転職ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k16">看護師・薬剤師の働き方と手取り（12件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>看護：常勤の年収＝(月給＋夜勤手当×回数)×12＋賞与</td><td class="n">4,980,000</td><td class="n">4,980,000</td><td>○ 一致</td></tr>
+<tr><td>看護：パート週30時間は人数に関係なく勤め先の社会保険</td><td class="n">emp</td><td class="n">emp</td><td>○ 一致</td></tr>
+<tr><td>看護：パート週20時間・51人以上は勤め先の社会保険</td><td class="n">emp</td><td class="n">emp</td><td>○ 一致</td></tr>
+<tr><td>看護：パート週20時間・50人以下は入らない（扶養なしなら国保）</td><td class="n">kokuho</td><td class="n">kokuho</td><td>○ 一致</td></tr>
+<tr><td>看護：年収130万円未満で扶養に入れるなら保険料0</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>看護：年収130万円以上は扶養に入れない</td><td class="n">kokuho</td><td class="n">kokuho</td><td>○ 一致</td></tr>
+<tr><td>看護：夜勤（2交替14時間×月2回）は週の時間に足す</td><td class="n">25.5</td><td class="n">25.5</td><td>○ 一致</td></tr>
+<tr><td>看護：手取り＝年収−保険料−所得税−住民税</td><td class="n">2,876,160</td><td class="n">2,876,160</td><td>○ 一致</td></tr>
+<tr><td>看護：月給31.5万は標準報酬32万</td><td class="n">320,000</td><td class="n">320,000</td><td>○ 一致</td></tr>
+<tr><td>看護：健康保険の標準報酬の上限139万</td><td class="n">1,390,000</td><td class="n">1,390,000</td><td>○ 一致</td></tr>
+<tr><td>看護：厚生年金は9.15%（月30万）</td><td class="n">329,400</td><td class="n">329,400</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 看護師・薬剤師ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k17">高額療養費（厚生労働省）（9件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>高額療養費：区分ウ 医療費100万円の上限 92,940円</td><td class="n">92,940</td><td class="n">92,940</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：区分エは61,500円</td><td class="n">61,500</td><td class="n">61,500</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：区分オは36,900円</td><td class="n">36,900</td><td class="n">36,900</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：区分ア 医療費100万円</td><td class="n">271,290</td><td class="n">271,290</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：多数回該当（ウ）44,400円</td><td class="n">44,400</td><td class="n">44,400</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：4か月目から多数回該当</td><td class="n">44,400</td><td class="n">44,400</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：区分ウの年間上限で自己負担は53万円まで</td><td class="n">530,000</td><td class="n">530,000</td><td>○ 一致</td></tr>
+<tr><td>高額療養費：上限より少なければ戻らない</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 高額療養費ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k18">退職金の税金（国税庁 No.1420）（11件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>退職金：勤続10年2か月は11年で440万円</td><td class="n">4,400,000</td><td class="n">4,400,000</td><td>○ 一致</td></tr>
+<tr><td>退職金：勤続38年の控除 2,060万円</td><td class="n">20,600,000</td><td class="n">20,600,000</td><td>○ 一致</td></tr>
+<tr><td>退職金：勤続1年でも控除80万円</td><td class="n">800,000</td><td class="n">800,000</td><td>○ 一致</td></tr>
+<tr><td>退職金：障害退職は100万円を足す</td><td class="n">5,000,000</td><td class="n">5,000,000</td><td>○ 一致</td></tr>
+<tr><td>退職金：課税退職所得＝(1,000万−440万)÷2</td><td class="n">2,800,000</td><td class="n">2,800,000</td><td>○ 一致</td></tr>
+<tr><td>退職金：短期退職手当等は300万円をこえる部分は2分の1にしない</td><td class="n">6,500,000</td><td class="n">6,500,000</td><td>○ 一致</td></tr>
+<tr><td>退職金：特定役員退職手当等は2分の1にしない</td><td class="n">8,000,000</td><td class="n">8,000,000</td><td>○ 一致</td></tr>
+<tr><td>退職金とiDeCoを同じ年：課税退職所得 157万円</td><td class="n">1,570,000</td><td class="n">1,570,000</td><td>○ 一致</td></tr>
+<tr><td>iDeCoを10年以上あけて先に：どちらも控除内で税金0</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>退職金を先に・19年以内：iDeCoの控除は重なる15年分を引くと0だが下限80万円</td><td class="n">800,000</td><td class="n">800,000</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 退職金ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k19">退職後の健康保険・国民年金（5件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>任意継続：標準報酬月額は上限32万円</td><td class="n">320,000</td><td class="n">320,000</td><td>○ 一致</td></tr>
+<tr><td>任意継続：東京40〜64歳 11.70%で月37,440円</td><td class="n">37,440</td><td class="n">37,440</td><td>○ 一致</td></tr>
+<tr><td>国保：会社都合の軽減は給与所得を30%に</td><td class="n">1,308,000</td><td class="n">1,308,000</td><td>○ 一致</td></tr>
+<tr><td>国保：上限（40〜64歳）113万円</td><td class="n">1,130,000</td><td class="n">1,130,000</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 退職後の健康保険ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k20">年金の繰り上げ・繰り下げ（日本年金機構）（10件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>年金：60歳から（1962年4月2日以後生まれ）は24%減</td><td class="n">-240</td><td class="n">-240</td><td>○ 一致</td></tr>
+<tr><td>年金：60歳から（1962年4月1日以前生まれ）は30%減</td><td class="n">-300</td><td class="n">-300</td><td>○ 一致</td></tr>
+<tr><td>年金：70歳からは42%増</td><td class="n">420</td><td class="n">420</td><td>○ 一致</td></tr>
+<tr><td>年金：75歳からは84%増</td><td class="n">840</td><td class="n">840</td><td>○ 一致</td></tr>
+<tr><td>年金：65歳6か月からは繰り下げできない（増えない）</td><td class="n">0</td><td class="n">0</td><td>○ 一致</td></tr>
+<tr><td>年金：70歳からは81歳11か月で65歳からと並ぶ</td><td class="n">983</td><td class="n">983</td><td>○ 一致</td></tr>
+<tr><td>年金：60歳からは80歳10か月で65歳からと並ぶ</td><td class="n">970</td><td class="n">970</td><td>○ 一致</td></tr>
+<tr><td>在職老齢年金：厚生年金月8.3万＋月給60万→65万をこえた分の半分が止まる</td><td class="n">16,667</td><td class="n">16,667</td><td>○ 一致</td></tr>
+<tr><td>在職老齢年金：止まる額は老齢厚生年金の月額が上限（月給150万円）</td><td class="n">83,333</td><td class="n">83,333</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 年金の繰り上げ・繰り下げページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h3 id="k21">退職した年の確定申告（国税庁）（9件）</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">確かめたこと</th><th scope="col">計算機の答え</th><th scope="col">基準</th><th scope="col">結果</th></tr></thead><tbody>
+<tr><td>退職後の確定申告：給与300万の給与所得 202万円</td><td class="n">2,020,000</td><td class="n">2,020,000</td><td>○ 一致</td></tr>
+<tr><td>退職後の確定申告：医療費15万−10万＝控除5万円</td><td class="n">50,000</td><td class="n">50,000</td><td>○ 一致</td></tr>
+<tr><td>退職後の確定申告：還付＝源泉6万−所得税</td><td class="n">41,700</td><td class="n">41,700</td><td>○ 一致</td></tr>
+<tr><td>退職後の確定申告：退職後の保険料も社会保険料控除</td><td class="n">570,000</td><td class="n">570,000</td><td>○ 一致</td></tr>
+<tr><td>退職後の確定申告：寄附は2,000円を引いて控除</td><td class="n">28,000</td><td class="n">28,000</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 退職した年の確定申告ページ</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 医療費控除 早見表 年収300万 30万</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 FX 早見表 年収400万 100万</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+<tr><td>ページの数字 暗号資産 早見表 年収300万 20万</td><td class="n"></td><td class="n">条件を満たすこと</td><td>○ 一致</td></tr>
+</tbody></table></div>
+<h2>関連する計算</h2>
+<a class="card rel" href="/about/"><b>運営者について</b><br><small>だれが どんな考えで作っているか</small></a>
+<a class="card rel" href="/"><b>せいどラガのトップ</b><br><small>制度ごと・組み合わせの計算の一覧</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>税理士や社労士の監修は受けていますか？</h3>
+<p>受けていません。そのかわり、国が公表している計算式・計算例とサイトの計算機の答えを、公開のたびに自動で照らし合わせています。その全件をこのページに載せています。</p>
+<h3>まちがいを見つけたらどうすればいいですか？</h3>
+<p>運営者ページのお問い合わせフォームから教えてください。確かめて直し、この照らし合わせにもその例を足します。</p>
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/index2.htm" rel="noopener">国税庁「タックスアンサー」</a></li>
+  <li><a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/deduction.html" rel="noopener">総務省「ふるさと納税ポータルサイト」</a></li>
+  <li><a href="https://www.nenkin.go.jp/" rel="noopener">日本年金機構</a></li>
+  <li><a href="https://www.mhlw.go.jp/" rel="noopener">厚生労働省</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "税理士や社労士の監修は受けていますか？", "acceptedAnswer": {"@type": "Answer", "text": "受けていません。そのかわり、国が公表している計算式・計算例とサイトの計算機の答えを、公開のたびに自動で照らし合わせています。その全件をこのページに載せています。"}}, {"@type": "Question", "name": "まちがいを見つけたらどうすればいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "運営者ページのお問い合わせフォームから教えてください。確かめて直し、この照らし合わせにもその例を足します。"}}]}</script>
+<!--seo--><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://seidoraga.jp/"}, {"@type": "ListItem", "position": 2, "name": "計算の確かめ方と照らし合わせの結果"}]}, {"@type": "WebPage", "name": "計算の確かめ方と照らし合わせの結果（全件公開）", "url": "https://seidoraga.jp/kakunin/", "inLanguage": "ja", "image": "https://seidoraga.jp/assets/og/kakunin.png", "isPartOf": {"@type": "WebSite", "name": "せいどラガ", "url": "https://seidoraga.jp/"}, "author": {"@type": "Person", "name": "たかぎつとむ", "url": "https://seidoraga.jp/about/#unei"}, "publisher": {"@type": "Organization", "name": "せいどラガ", "url": "https://seidoraga.jp/", "logo": "https://seidoraga.jp/assets/icon-512.png"}, "description": "せいどラガの計算機の答えを、国税庁・総務省・日本年金機構などの計算式・計算例と照らし合わせた結果を全件（202件）公開しています。", "dateModified": "2026-11-19"}]}</script><!--/seo-->
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>
