@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}var tg=function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="px.a8.net"]');if(!a||a.getAttribute('data-tg'))return;var p=location.pathname.replace(/[^a-zA-Z0-9]/g,'').slice(0,40)||'top';a.href+='&id1='+p+'&id2='+(off?'self':'guest');a.setAttribute('data-tg','1');};['mousedown','touchstart','keydown','click'].forEach(function(t){document.addEventListener(t,tg,true);});})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>パートの年収でふるさと納税はいくらできる？130万・150万・200万円の上限と早見表｜せいどラガ</title>
+<meta name="description" content="パートで働く本人が、自分の給料でふるさと納税をいくらまでできるかを計算します。年収100万〜200万円の早見表つき。2026年分は年収119万円以下（独身・扶養なし・社会保険料なし）だと税金は減りません。">
+<link rel="canonical" href="https://seidoraga.jp/part-furusato/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="パートの年収でふるさと納税はいくらできる？">
+<meta property="og:description" content="パートで働く本人が、自分の給料でふるさと納税をいくらまでできるかを計算します。年収100万〜200万円の早見表つき。2026年分は年収119万円以下（独身・扶養なし・社会保険料なし）だと税金は減りません。">
+<meta property="og:url" content="https://seidoraga.jp/part-furusato/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=9a7d937d"></script>
+<!--seo--><meta property="og:image" content="https://seidoraga.jp/assets/og/part-furusato.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://seidoraga.jp/assets/og/part-furusato.png">
+<!--/seo-->
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › <a href="/#zeikin">税金・控除</a> › パートの年収でふるさと納税はいくらできる？</nav><!--/seo-->
+<span class="badge">2026年分のルール・パートで働く本人</span>
+<h1>パートの年収でふるさと納税はいくらできる？<br>130万・150万・200万円の上限と早見表</h1>
+<p class="lead">パートで働く人も、住民税がかかっていればふるさと納税で税金を減らせます。ただ、年収が少ないと上限は数千円〜2万円くらいで、年収によっては税金がまったく減りません。パートの年収と社会保険料を入れると、自己負担2,000円で済む上限がわかります。</p>
+<div class="card" style="margin:12px 0">
+  <p style="margin:0 0 6px"><b>どちらを知りたいですか？</b></p>
+  <p style="margin:0">・<a href="#calc">パートで働く<b>自分の給料</b>で、ふるさと納税はいくらできる？</a> → このページ</p>
+  <p style="margin:0">・<a href="/kabe-furusato/">妻（夫）のパート年収で、<b>夫（妻）の</b>ふるさと納税の上限はどう変わる？</a> → 別のページ</p>
+</div>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="inc">2026年のパートの年収（手取りではなく、税金や保険料が引かれる前の額）</label>
+  <div class="row"><input type="range" id="inc" min="1000000" max="2500000" step="10000" value="1500000"><output id="incOut" for="inc"></output></div>
+  <div class="hint">源泉徴収票の「支払金額」にあたる額です。12月までの見込みで入れてください。税金のかからない通勤手当（月15万円まで）はふくめません。</div>
+  <label for="sh">社会保険料</label>
+  <select id="sh"><option value="0">払っていない（家族の扶養の内など）</option><option value="r">勤め先の健康保険・厚生年金に入っている（年収の約15%）</option><option value="a">金額を入れる（国民年金・国民健康保険を自分で払っている など）</option></select>
+  <div class="hint">勤め先の保険の「年収の約15%」は目安です。源泉徴収票の「社会保険料等の金額」がわかる人は「金額を入れる」を選ぶと正確になります。</div>
+  <div id="amtBox" hidden><label for="amt">1年に払う社会保険料の合計</label><div class="row"><input type="range" id="amt" min="0" max="500000" step="1000" value="300000"><output id="amtOut" for="amt"></output></div></div>
+  <label for="fm">申告のしかた</label>
+  <select id="fm"><option value="one">ワンストップ特例（確定申告をしない）</option><option value="kakutei">確定申告をする</option></select>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>ふるさと納税の上限（自己負担2,000円で済む額）</span><b id="lim">-</b><small id="limN"></small></div>
+    <div><span>あなたの住民税（所得割）</span><b id="jt">-</b><small>翌年度に払う額。上限はこの額で決まります</small></div>
+    <div><span>あなたの所得税</span><b id="it">-</b><small id="itN"></small></div>
+  </div>
+  <div class="hint" id="next" style="margin-top:10px"></div>
+  <p class="note">※独身か、配偶者や子どもを扶養していない人として計算しています（扶養している家族がいると上限は下がります）。ほかの所得・医療費控除・iDeCo・生命保険料控除はない場合です。端数の切り捨てで数百円ずれることがあるので、上限ぎりぎりではなく少し余裕を残すと安心です。</p>
+</section>
+<h2>パートの年収別 上限の早見表（2026年分）</h2>
+<p>独身か、家族を扶養していないパートの人が、自分の給料でふるさと納税をする場合の上限の目安です。</p>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">パートの年収</th><th scope="col">社会保険料を払っていない<br><small>（扶養の内など）</small></th><th scope="col">勤め先の社会保険に入っている<br><small>（保険料は年収の約15%）</small></th></tr></thead><tbody><tr><th scope="row">100万円</th><td><small>なし</small></td><td><small>なし</small></td></tr><tr><th scope="row">110万円</th><td><small>なし</small></td><td><small>なし</small></td></tr><tr><th scope="row">120万円</th><td><small>なし</small></td><td><small>なし</small></td></tr><tr><th scope="row">130万円</th><td>4,000円</td><td><small>なし</small></td></tr><tr><th scope="row">140万円</th><td>6,000円</td><td><small>なし</small></td></tr><tr><th scope="row">150万円</th><td>8,000円</td><td>3,000円</td></tr><tr><th scope="row">160万円</th><td>11,000円</td><td>5,000円</td></tr><tr><th scope="row">170万円</th><td>13,000円</td><td>7,000円</td></tr><tr><th scope="row">180万円</th><td>16,000円</td><td>9,000円</td></tr><tr><th scope="row">190万円</th><td>18,000円</td><td>11,000円</td></tr><tr><th scope="row">200万円</th><td>20,000円</td><td>13,000円</td></tr></tbody></table></div>
+<p class="note">※上限は、自己負担がちょうど2,000円になる寄付額（総務省の計算式）の1,000円未満を切り捨てた額です。「なし」は、1,000円単位で見ると自己負担2,000円で済む寄付がない（上限が3,000円に届かない）年収です。ワンストップ特例を使う場合です。2026年分の所得税と、2027年度（2026年の収入にかかる）住民税のルールで計算。ほかの所得や控除はない場合。</p>
+<h2>年収によって3つに分かれます</h2>
+<table><thead><tr><th scope="col">年収（社会保険料を払っていない場合）</th><th scope="col">ふるさと納税をすると</th></tr></thead><tbody>
+<tr><th scope="row">119万円まで</th><td><b>税金は減りません。</b>住民税の所得割も所得税もかからないので、寄付した額はそのまま自己負担になります（独身・扶養なしの場合）。</td></tr>
+<tr><th scope="row">119万円をこえて178万円まで</th><td>所得税はかからず、住民税だけがかかります。上限は住民税の所得割で決まり、数千円〜1.5万円くらいです。控除はすべて翌年度の住民税から引かれます。</td></tr>
+<tr><th scope="row">178万円をこえる</th><td>このあたりから所得税がかかりはじめます（目安）。年収が上がるほど上限も上がります。</td></tr>
+</tbody></table>
+<p class="note">※119万円・178万円は目安です。2026年分の給与所得控除（最低74万円）と基礎控除（住民税43万円・所得税104万円）で、独身・扶養なし・社会保険料なし・給与だけの場合です。住民税の所得割がかからない基準（合計所得45万円以下）は全国同じですが、扶養している家族がいると基準が上がります。住民税の均等割（1人年5,000円ほど）がかからない基準は市区町村によって少しちがいますが、均等割はふるさと納税の上限には関係しません。社会保険料を払っている人は、そのぶん境目の年収が上がります。</p>
+<h2>パートの人がふるさと納税で気をつけること</h2>
+<table><thead><tr><th scope="col">ポイント</th><th scope="col">中身</th></tr></thead><tbody>
+<tr><th scope="row">寄付は年収の壁に影響しない</th><td>ふるさと納税の寄付そのものは、あなたの年収（給与収入）を変えません。夫（妻）の配偶者控除や、健康保険の扶養の判定も、寄付では変わりません（働く時間を変えて年収が変われば、そちらは影響します）。</td></tr>
+<tr><th scope="row">寄付は本人の税金から引かれる</th><td>あなたの名前で寄付すると、引かれるのはあなたの住民税と所得税だけです。夫（妻）の税金から引いてもらうことはできません。</td></tr>
+<tr><th scope="row">上限が小さい</th><td>1年の寄付の合計が上限の中なら、自己負担は上限が小さくても2,000円です。上限が数千円のときは、寄付額に対して自己負担の割合が大きくなります。上限をこえた分は自己負担がふえます。</td></tr>
+<tr><th scope="row">ワンストップ特例と確定申告</th><td>寄付先が5団体以下で確定申告をしない人は、ワンストップ特例を使えます。確定申告をすると、ワンストップ特例の申請は無効になり、すべての寄付を確定申告に書きます。年収178万円前後で所得税がほとんどない人は、確定申告にすると所得税から引ききれず、上限が下がることがあります（上の計算で申告のしかたを切りかえて確かめてください）。</td></tr>
+<tr><th scope="row">年収の見込み</th><td>上限は12月までの年収で決まります。シフトが減って年収が見込みより少なくなりそうなら、少し低めに見ておきます。</td></tr>
+</tbody></table>
+<h2>関連する計算</h2>
+<a class="card rel" href="/kabe-furusato/"><b>配偶者のパート年収で、ふるさと納税の上限はどう変わる？</b><br><small>夫（妻）の側の計算</small></a>
+<a class="card rel" href="/part-shaho/"><b>パートで厚生年金に入ると何年で元が取れる？</b><br><small>手取りの減り方と将来の年金の目安</small></a>
+<a class="card rel" href="/kabe/"><b>パートの年収の壁で世帯の手取りはどうなる？</b><br><small>106万・130万・160万の壁</small></a>
+<a class="card rel" href="/furusato/"><b>ふるさと納税はいくらまで？</b><br><small>年収と家族で上限を計算・早見表つき</small></a>
+<a class="card rel" href="/furusato-nokori/"><b>12月31日までのふるさと納税、あといくら？</b><br><small>年収と寄付した額から</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>パートでもふるさと納税はできますか？</h3>
+<p>寄付はだれでもできます。税金が減るのは、住民税の所得割がかかっている人です。独身・扶養なし・社会保険料なしなら、2026年分は年収119万円をこえると住民税の所得割がかかります。</p>
+<h3>ふるさと納税をすると、夫の扶養や年収の壁に影響しますか？</h3>
+<p>寄付そのものは影響しません。ふるさと納税はあなたの年収を変えないので、配偶者控除や健康保険の扶養の判定は寄付では変わりません。</p>
+<h3>年収130万円のパートだと、上限はいくらですか？</h3>
+<p>社会保険料を払っていない独身・扶養なしの人なら、2026年分の上限は約4,000円です。勤め先の社会保険に入っていると、住民税の所得割がかからないので、ふるさと納税で税金は減りません。</p>
+<h3>ワンストップ特例は使えますか？</h3>
+<p>使えます。寄付先が5団体以下で確定申告をしない人が対象です。年収178万円前後で所得税がほとんどない人は、確定申告よりワンストップ特例のほうが、2,000円で済む上限が高くなることがあります。</p>
+<h2>寄付するサイトを選ぶとき</h2>
+<div class="pr" id="pr-furusato">
+  <p><span class="tag">PR</span>上限額がわかったら寄付するサイトを選びます。返礼品の数と申し込みのしやすさが選ぶときのポイントです。</p>
+  <p><a class="btn" href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3787555&amp;pid=892747587" target="_blank" rel="nofollow sponsored noopener"><img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3787555&amp;pid=892747587" height="1" width="1" border="0" alt="">さとふるで返礼品を探す</a></p>
+  <p class="note">返礼品の配送をさとふるがまとめて管理しています。</p>
+  <p><a class="btn" href="https://hb.afl.rakuten.co.jp/hgc/02ef6247.8e91778e.0a78aa89.62140d38/?pc=https%3A%2F%2Fevent.rakuten.co.jp%2Ffurusato%2F&amp;link_type=hybrid_url&amp;ut=eyJwYWdlIjoidXJsIiwidHlwZSI6Imh5YnJpZF91cmwiLCJjb2wiOjF9" target="_blank" rel="nofollow sponsored noopener">楽天ふるさと納税で返礼品を探す</a></p>
+  <p class="note">楽天市場の買い物と同じIDで申し込めます。</p>
+  <p class="note">並び順は五十音順です。紹介料の高さで順番は変えていません。</p>
+</div>
+
+<!--theme--><h2>「税金・控除」のほかの計算</h2>
+<a class="card rel" href="/ideco/"><b>iDeCoの上限アップでいくら節税？</b><br><small>働き方と年収で節税額を計算</small></a>
+<a class="card rel" href="/jutaku-loan/"><b>住宅ローン控除でいくら戻る？</b><br><small>2026年入居のルールで13年の合計</small></a>
+<a class="card rel" href="/iryohi-kojo/"><b>医療費控除でいくら戻る？</b><br><small>年収と医療費から、戻る税金と市販薬の特例との比較</small></a>
+<!--/theme-->
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/deduction.html" rel="noopener">総務省 ふるさと納税ポータルサイト「税金の控除について」</a></li>
+  <li><a href="https://www.city.kumamoto.jp/kiji00373630/index.html" rel="noopener">熊本市「令和8年度税制改正概要（令和9年度以降から適用される個人住民税の主な改正）」</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm" rel="noopener">国税庁 No.1410 給与所得控除</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1199.htm" rel="noopener">国税庁 No.1199 基礎控除</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const inc=+$('inc').value, mode=$('sh').value, amt=+$('amt').value;
+  $('incOut').textContent=man(inc); $('amtOut').textContent=yen(amt); $('amtBox').hidden=mode!=='a';
+  const shr=mode==='0'?0:mode==='r'?0.15:amt/inc;
+  const st={inc,kou:0,dai:0,gw:null,gs:null,ideco:0,bal:0,capB:30000000,fmode:$('fm').value,shr};
+  const c=SEIDO.core(st,0), lim=SEIDO.furuLimit(st);
+  $('lim').textContent=lim?yen(lim):'0円';
+  $('limN').textContent=lim?($('fm').value==='one'?'ワンストップ特例を使う場合':'確定申告をする場合'):c.JT?'1,000円単位では、自己負担2,000円で済む寄付はありません（住民税が少ないため）':'この条件では、ふるさと納税で税金は減りません';
+  $('jt').textContent=yen(c.JT); $('it').textContent=yen(c.IT);
+  $('itN').textContent=c.IT?'寄付の一部は所得税からも引かれます（確定申告の場合）':'所得税はかかっていません';
+  $('next').innerHTML=lim?'<b>'+yen(lim)+'までなら、自己負担は2,000円で済みます。</b>12月31日までに支払いが終わった寄付が2026年分です。':c.JT?'<b>住民税の所得割が少ないので、寄付で減る税金はわずかです。</b>1,000円単位で寄付すると、自己負担は2,000円より多くなります。':'<b>住民税の所得割がかからないので、寄付をしても税金は戻りません。</b>寄付した額はそのまま自己負担になります。';
+}
+['inc','sh','amt','fm'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "パートでもふるさと納税はできますか？", "acceptedAnswer": {"@type": "Answer", "text": "寄付はだれでもできます。税金が減るのは、住民税の所得割がかかっている人です。独身・扶養なし・社会保険料なしなら、2026年分は年収119万円をこえると住民税の所得割がかかります。"}}, {"@type": "Question", "name": "ふるさと納税をすると、夫の扶養や年収の壁に影響しますか？", "acceptedAnswer": {"@type": "Answer", "text": "寄付そのものは影響しません。ふるさと納税はあなたの年収を変えないので、配偶者控除や健康保険の扶養の判定は寄付では変わりません。"}}, {"@type": "Question", "name": "年収130万円のパートだと、上限はいくらですか？", "acceptedAnswer": {"@type": "Answer", "text": "社会保険料を払っていない独身・扶養なしの人なら、2026年分の上限は約4,000円です。勤め先の社会保険に入っていると、住民税の所得割がかからないので、ふるさと納税で税金は減りません。"}}, {"@type": "Question", "name": "ワンストップ特例は使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "使えます。寄付先が5団体以下で確定申告をしない人が対象です。年収178万円前後で所得税がほとんどない人は、確定申告よりワンストップ特例のほうが、2,000円で済む上限が高くなることがあります。"}}]}</script>
+<!--seo--><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://seidoraga.jp/"}, {"@type": "ListItem", "position": 2, "name": "税金・控除", "item": "https://seidoraga.jp/#zeikin"}, {"@type": "ListItem", "position": 3, "name": "パートの年収でふるさと納税はいくらできる？"}]}, {"@type": "WebPage", "name": "パートの年収でふるさと納税はいくらできる？130万・150万・200万円の上限と早見表", "url": "https://seidoraga.jp/part-furusato/", "inLanguage": "ja", "image": "https://seidoraga.jp/assets/og/part-furusato.png", "isPartOf": {"@type": "WebSite", "name": "せいどラガ", "url": "https://seidoraga.jp/"}, "author": {"@type": "Person", "name": "たかぎつとむ", "url": "https://seidoraga.jp/about/#unei"}, "publisher": {"@type": "Organization", "name": "せいどラガ", "url": "https://seidoraga.jp/", "logo": "https://seidoraga.jp/assets/icon-512.png"}, "description": "パートで働く本人が、自分の給料でふるさと納税をいくらまでできるかを計算します。年収100万〜200万円の早見表つき。2026年分は年収119万円以下（独身・扶養なし・社会保険料なし）だと税金は減りません。", "dateModified": "2026-11-20"}]}</script><!--/seo-->
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>

@@ -40,7 +40,7 @@ function core(st,D){
   const inc=st.inc, kids=st.kou+st.dai+(st.gs!=null?1:0);
   let g=Math.max(0,inc-kyuyo(inc));
   if(inc>8500000&&kids>0) g=Math.max(0,g-(Math.min(inc,10000000)-8500000)*0.10); // 所得金額調整控除
-  const sh=inc*0.15;
+  const sh=inc*(st.shr!=null?st.shr:0.15); // 社会保険料（ふだんは年収の約15%。扶養の内で保険料がない人は shr:0）
   let spI=0,spJ=0,sa=50000;
   if(st.gw!=null){ spI=spDed(SPI,g,st.gw); spJ=spDed(SPJ,g,st.gw); if(st.gw<=620000&&g<=10000000) sa+=g<=9000000?50000:g<=9500000?40000:20000; }
   let dI=st.kou*380000+st.dai*630000, dJ=st.kou*330000+st.dai*450000; sa+=st.kou*50000+st.dai*180000;
@@ -53,20 +53,24 @@ function core(st,D){
   const IT=Math.floor((bt-hlI)*1.021/100)*100;
   const hlJ=Math.min(C-hlI,Math.floor(TI*0.05),97500);
   const JB=fl1000(g-sh-430000-spJ-dJ-ide);
-  const S=Math.max(0,JB*0.10-chosei(JB,sa)); // 住民税の所得割（調整控除のあと）
-  const r=rate(JB-sa-Math.max(kisoI(g)-480000,0));
+  const nP=1+(st.gw!=null?1:0)+kids; // 所得割がかからない基準（総所得 35万×人数＋10万＋扶養がいれば32万。1人なら45万）
+  const S=g<=(nP===1?450000:350000*nP+100000+320000)?0:Math.max(0,JB*0.10-chosei(JB,sa)); // 住民税の所得割（調整控除のあと）
+  const rt=JB-sa-Math.max(kisoI(g)-480000,0), r=rt<0?0:rate(rt); // 0円を下回るときは特例分の割合90%（地方税法37条の2）
   const kihon=don*0.10, tokurei=Math.min(don*(0.90-r*1.021),S*0.20);
   const shinkoku=st.fmode==='kakutei'?0:tokurei*(r*1.021)/(0.90-r*1.021);
   const JT=Math.floor(Math.max(0,Math.max(0,S-hlJ)-kihon-tokurei-shinkoku)/100)*100;
-  return {IT,JT,total:IT+JT,C,g,sh,TI,JB};
+  return {IT,JT,total:IT+JT,C,g,sh,TI,JB,S,r};
 }
 function net(st){ const c=core(st,0); return st.inc-c.sh-c.total-5000; } // 本人の手取り（住民税の均等割5,000円をふくむ）
 function burden(st,D){ return D-(core(st,0).total-core(st,D).total); }
-function furuLimit(st){ // 自己負担2,000円で済む寄付の上限（端数の切り捨てで数百円ぶれるので2,500円までを目安）
-  if(burden(st,3000)>2500) return 0;
-  let lo=3, hi=Math.ceil(Math.max(150000,st.inc*0.09)/1000);
-  while(lo<hi){ const m=Math.ceil((lo+hi)/2); if(burden(st,m*1000)<=2500) lo=m; else hi=m-1; }
-  return lo*1000;
+function furuLimit(st){ // 自己負担2,000円で済む寄付の上限（1,000円未満は切り捨て。2,000円で済む寄付が3,000円に届かないときは0）
+  const c=core(st,0); if(c.S<=0) return 0;
+  const F=Math.floor(c.S*0.20/(0.90-c.r*1.021))+2000; // 特例分が住民税の所得割の20%に届く寄付額（総務省の計算式）
+  // 確定申告で所得税から引ききれない・住宅ローン控除で住民税が足りないときに備えて、実際の負担でも確かめる（100円未満の切り捨てのぶれは200円まで見る）
+  let lo=0, hi=Math.floor(F/1000);
+  while(lo<hi){ const m=Math.ceil((lo+hi)/2); if(burden(st,m*1000)<=2200) lo=m; else hi=m-1; }
+  const L=Math.min(F,lo*1000);
+  return L<3000?0:Math.floor(L/1000)*1000;
 }
 function hlUsed(st){ return st.bal>0? core(Object.assign({},st,{bal:0}),0).total-core(st,0).total : 0; }
 function idecoSave(st){ return st.ideco>0? core(Object.assign({},st,{ideco:0}),0).total-core(st,0).total : 0; }
