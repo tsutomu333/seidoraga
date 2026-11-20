@@ -629,7 +629,7 @@ function init(){
     const r=evaluate(inp,mods), msg=[];
     if(has('furusato')){
       set('oLim',r.lim>2000?'約'+yen1(r.lim):'ほぼ0円',r.lim>2000?'このうち'+yen1(r.lim-2000)+'が税金から引かれ、自己負担は2,000円です':'税金がほとんどかからないため、ふるさと納税で得になる額はほぼありません');
-      set('oSafe',r.lim>2000?'約'+yen1(Math.floor(r.lim*0.9/1000)*1000):'-','上限の9割。見込みがずれても安心な額');
+      set('oSafe',r.lim>2000?'約'+yen1(Math.floor(r.lim*0.9/1000)*1000):'-','上限の9割。余裕を見た目安で、こえない保証はありません');
       set('oBase',yen(r.c.total+5000),'所得税 '+yen(r.c.IT)+'＋住民税 '+yen(r.c.JT+5000));
     }
     if(has('ideco')){

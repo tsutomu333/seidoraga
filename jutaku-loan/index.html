@@ -214,7 +214,7 @@ footer a{color:var(--sub);margin-right:12px}
     return {IT,JT,total:IT+JT,C,hlI,hlJ,used:hlI*1.021+hlJ,TI};
   }
   function burden(p,bal,capB,D,mode){ const a=taxes(p,bal,capB,0,mode), b=taxes(p,bal,capB,D,mode); return D-(a.total-b.total); }
-  function furuLimit(p,bal,capB,mode){ const a=taxes(p,bal,capB,0,mode); let lo=0; const max=Math.min(3000000,200000+p.inc*0.08); for(let D=10000;D<=max;D+=1000){ if(D-(a.total-taxes(p,bal,capB,D,mode).total)<=2500) lo=D; } return lo; } // 端数の切り捨てで数百円ぶれるので、負担2,500円までを目安とする
+  function furuLimit(p,bal,capB,mode){ const a=taxes(p,bal,capB,0,mode); let lo=0; const max=Math.min(3000000,200000+p.inc*0.08); for(let D=10000;D<=max;D+=1000){ if(D-(a.total-taxes(p,bal,capB,D,mode).total)<=2200) lo=D; } return lo; } // 自己負担2,000円で済む額（100円未満の切り捨てのぶれを200円まで見る）
   // ローン残高（元利均等・借入は1月とする）
   function balances(amount,ratePct,years,n){ const i=ratePct/100/12, N=years*12; const pay=i>0?amount*i/(1-Math.pow(1+i,-N)):amount/N; const out=[]; let b=amount; for(let m=1;m<=n*12;m++){ b=Math.max(0,b*(1+i)-pay); if(m%12===0) out.push(b); } return {out,pay}; }
   window._hl={taxes,burden,furuLimit,balances,LIM};
