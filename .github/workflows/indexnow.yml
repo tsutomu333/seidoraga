@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 2
       - name: 変わったページをIndexNowに送る
         run: |
-          KEY=777bd60a41a615f6c043b26e894eff5e
+          KEY=cd58cde4ae596340b0319102f7ac7a79
           if git log -1 --pretty=%B | grep -q 'indexnow-all'; then
             URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's#<loc>##' -e 's#</loc>##')
           else
