@@ -92,9 +92,11 @@ footer a{color:var(--sub);margin-right:12px}
 <p class="lead">相続した実家が売れないまま空き家になると 毎年 固定資産税や見回りのお金がかかり続けます。管理が足りないと市区町村から勧告を受けて 土地の固定資産税が上がることもあります。持ち続けたときの合計と 買取業者に売る場合 国に引き取ってもらう場合（相続土地国庫帰属制度）をくらべられます。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
-  <label for="lt">土地の固定資産税・都市計画税（1年）</label>
+  <label for="lt">土地の固定資産税（1年）</label>
   <div class="hint">毎年4〜6月ごろに届く納税通知書の 土地の分です。</div>
-  <div class="row"><input type="range" id="lt" min="0" max="300000" step="1000" value="30000"><output id="ltOut" for="lt"></output></div>
+  <div class="row"><input type="range" id="lt" min="0" max="300000" step="1000" value="25000"><output id="ltOut" for="lt"></output></div>
+  <label for="lc">土地の都市計画税（1年・かからない地域は0円）</label>
+  <div class="row"><input type="range" id="lc" min="0" max="100000" step="500" value="5000"><output id="lcOut" for="lc"></output></div>
   <label for="bt">建物の固定資産税・都市計画税（1年）</label>
   <div class="row"><input type="range" id="bt" min="0" max="200000" step="1000" value="15000"><output id="btOut" for="bt"></output></div>
   <label for="kn">見回り・草刈り・交通費・水道光熱の基本料金（1年）</label>
@@ -102,7 +104,8 @@ footer a{color:var(--sub);margin-right:12px}
   <label for="hk">火災保険（1年）</label>
   <div class="row"><input type="range" id="hk" min="0" max="200000" step="1000" value="30000"><output id="hkOut" for="hk"></output></div>
   <label for="tk">市区町村からの勧告</label>
-  <select id="tk"><option value="0">受けていない（住宅用地の特例あり）</option><option value="1">勧告を受けた（特例が外れる・土地の税を最大の6倍で計算）</option></select>
+  <select id="tk"><option value="0">受けていない（いまの税額のまま）</option><option value="1">勧告を受けた（特例が外れる・固定資産税は6倍 都市計画税は3倍で計算）</option></select>
+  <div class="hint">いま住宅用地の特例が使われている土地を考えています。特例が使われているかは 納税通知書や市区町村で確かめてください。</div>
   <label for="yr">持ち続ける年数</label>
   <div class="row"><input type="range" id="yr" min="1" max="30" step="1" value="10"><output id="yrOut" for="yr"></output></div>
   <label for="kai">いま買取業者に売った場合の額（見積もりがあれば）</label>
@@ -116,21 +119,21 @@ footer a{color:var(--sub);margin-right:12px}
     <div><span>いま手放すのと同じになる 売る値段</span><b id="cmp">-</b><small id="cmpN"></small></div>
     <div><span>国に引き取ってもらうときの費用の目安</span><b id="kk">-</b><small id="kkN"></small></div>
   </div>
-  <p class="note">※目安です。勧告を受けたときの土地の固定資産税は 住宅用地の特例（課税標準が最大6分の1）が外れるので 最大の6倍で計算しています。実際は負担を少しずつ上げる調整があるので これより少ないことがあります。税額や物価の変化 修理代 売るときの税金は入れていません。</p>
+  <p class="note">※目安です。勧告を受けたときは 住宅用地の特例（200㎡までの部分は 固定資産税の課税標準が6分の1 都市計画税が3分の1）が外れるものとして 固定資産税を6倍 都市計画税を3倍にした粗い計算です。200㎡をこえる部分は軽くなる割合がちがい 負担を少しずつ上げる調整もあるので 実際はこれより少ないことが多いです。税額や物価の変化 修理代 売るときの税金は入れていません。</p>
 </section>
 <h2 id="hoho">売れない実家の手放し方は4つ</h2>
 <table><thead><tr><th scope="col">方法</th><th scope="col">手元に残るお金</th><th scope="col">向いている家</th></tr></thead><tbody>
-<tr><th scope="row">不動産会社の仲介で売る</th><td>いちばん多くなりやすい</td><td>買う人が見つかりそうな場所・状態の家</td></tr>
+<tr><th scope="row">不動産会社の仲介で売る</th><td>売る値段は買取より高くなることが多い（仲介手数料がかかる）</td><td>買う人が見つかりそうな場所・状態の家</td></tr>
 <tr><th scope="row">買取業者に売る</th><td>仲介より安いことが多い</td><td>古い・遠い・荷物が残っているなど 仲介で売れにくい家</td></tr>
 <tr><th scope="row">国に引き取ってもらう（相続土地国庫帰属制度）</th><td>マイナス（解体費＋負担金）</td><td>買い手がまったくいない土地。建物は解体が必要</td></tr>
-<tr><th scope="row">持ち続ける</th><td>毎年マイナス</td><td>近いうちに使う予定がある家</td></tr>
+<tr><th scope="row">持ち続ける</th><td>毎年 維持費がかかる（家と土地は手元に残る）</td><td>近いうちに使う予定がある家</td></tr>
 </tbody></table>
 <h2>相続土地国庫帰属制度とは</h2>
-<p>相続した土地を 国に引き取ってもらう制度です（2023年4月から）。申請のときに1筆ごとに審査手数料14,000円 承認されたら10年分の管理費にあたる負担金を納めます。負担金は原則20万円ですが 市街化区域などの宅地は面積で決まり たとえば100㎡で約55万円です。建物がある土地 担保が付いている土地などは申請できません。</p>
+<p>相続した土地を 国に引き取ってもらう制度です（2023年4月から）。申請のときに1筆ごとに審査手数料14,000円 承認されたら10年分の管理費にあたる負担金を納めます。負担金は原則20万円ですが 市街化区域などの宅地は面積で決まり たとえば100㎡で約55万円です。建物がある土地 担保が付いている土地などは申請できません。境界がはっきりしない土地や 管理にお金がかかりすぎる土地は 解体しても承認されないことがあります。申請の前に 土地のある地域の法務局で相談できます。</p>
 <h2>空き家を放っておくと固定資産税が上がる</h2>
 <p>住宅が建っている土地は 固定資産税の計算のもとになる額が200㎡までの部分で6分の1になる特例があります。管理されていない空き家として市区町村から勧告を受けると この特例が外れます。2023年12月からは 倒れそうな「特定空家」だけでなく その手前の「管理不全空家」も対象になりました。</p>
 <h2>売るなら3,000万円の特別控除も確かめる</h2>
-<p>亡くなった人が1人で住んでいた家を相続して売ると 売った利益から最大3,000万円を差し引ける特例があります。条件や税金の計算は <a href="/souzoku-ie-uru/">相続した家を売ると税金はいくら？</a> で確かめられます。</p>
+<p>亡くなった人が1人で住んでいた家を相続して売るときは 売る期限 売る値段 建物の耐震や解体などの条件を満たせば 売った利益から最大3,000万円を差し引ける特例があります。条件や税金の計算は <a href="/souzoku-ie-uru/">相続した家を売ると税金はいくら？</a> で確かめられます。</p>
 <h2 id="kaitori">買取業者に見てもらうとき</h2>
 <p>買取の値段は業者でちがいます。何社かに見てもらい 解体や荷物の片づけを業者がしてくれるか 費用がいくら引かれるかも くらべてください。</p>
 <h2>関連する計算</h2>
@@ -161,17 +164,17 @@ const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(
 const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
 function update(){
   const v=id=>+$(id).value;
-  ['lt','bt','kn','hk','yr','kai','kaitai'].forEach(id=>{ if($(id+'Out')) $(id+'Out').textContent=id==='yr'?v(id)+'年':yen(v(id)); });
-  const lt=v('lt')*($('tk').value==='1'?6:1);
+  ['lt','lc','bt','kn','hk','yr','kai','kaitai'].forEach(id=>{ if($(id+'Out')) $(id+'Out').textContent=id==='yr'?v(id)+'年':yen(v(id)); });
+  const kk1=$('tk').value==='1'; const lt=v('lt')*(kk1?6:1)+v('lc')*(kk1?3:1);
   const year=lt+v('bt')+v('kn')+v('hk'), n=v('yr'), total=year*n;
   $('y1').textContent=yen(year); $('y1N').textContent='固定資産税など '+yen(lt+v('bt'))+'＋見回り・草刈り '+yen(v('kn'))+'＋保険 '+yen(v('hk'));
   $('tn').textContent=yen(total); $('tnN').textContent=n+'年持ち続けたときの合計（物価や税額の変化は入れていません）';
   const kokko=v('kaitai')+14000+200000;
-  $('kk').textContent=yen(kokko); $('kkN').textContent='建物の解体 '+yen(v('kaitai'))+'＋審査手数料 14,000円＋負担金 200,000円（市街化区域の外の宅地で1筆の例）';
+  $('kk').textContent=yen(kokko); $('kkN').textContent='建物の解体 '+yen(v('kaitai'))+'＋審査手数料 14,000円＋負担金 200,000円（市街化区域の外の宅地で1筆の例）。解体しても引き取ってもらえない土地もあります。境界の確認などの費用は入れていません';
   const diff=v('kai')+total;
-  $('cmp').textContent=yen(diff); $('cmpN').textContent='いま買い取ってもらう額 '+yen(v('kai'))+' と '+n+'年分の維持費をあわせた額。'+n+'年後にこれより高く売れないなら いま手放すほうが手元に残ります';
+  $('cmp').textContent=yen(diff); $('cmpN').textContent='いま買い取ってもらう額 '+yen(v('kai'))+' と '+n+'年分の維持費をあわせた額。'+n+'年後にこれより高く売れないなら いま手放すほうが手元に残ります（売るときの手数料や税金 お金の運用は入れない単純な比較です）';
 }
-['lt','bt','kn','hk','yr','tk','kai','kaitai'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+['lt','lc','bt','kn','hk','yr','tk','kai','kaitai'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
 })();
 </script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "売れない実家を持ち続けると1年いくらかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "固定資産税・都市計画税に 見回りや草刈りの交通費 火災保険などが加わります。このページで 納税通知書の額と自分の費用を入れると 1年と何年分かの合計がわかります。"}}, {"@type": "Question", "name": "空き家の固定資産税は6倍になるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "管理されていない空き家として市区町村から勧告を受けると 住宅用地の特例（最大6分の1）が外れるので 土地の固定資産税は最大で6倍の計算になります。実際は負担を少しずつ上げる調整があります。勧告を受けなければ特例はそのままです。"}}, {"@type": "Question", "name": "相続した土地を国に引き取ってもらうにはいくらかかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "審査手数料が1筆14,000円 承認後の負担金が原則20万円です。市街化区域などの宅地は面積で決まり 100㎡で約55万円です。建物がある土地は申請できないので 解体費もかかります。"}}, {"@type": "Question", "name": "売れない家は買取業者に売るほうがいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "仲介より値段は下がることが多いですが 古い家や遠い家でも買ってもらえることがあります。持ち続ける費用の合計とくらべて決めてください。どの方法を選ぶかはご自身の判断です。"}}]}</script>
