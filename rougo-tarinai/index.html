@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}var tg=function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="px.a8.net"]');if(!a||a.getAttribute('data-tg'))return;var p=location.pathname.replace(/[^a-zA-Z0-9]/g,'').slice(0,40)||'top';a.href+='&id1='+p+'&id2='+(off?'self':'guest');a.setAttribute('data-tg','1');};['mousedown','touchstart','keydown','click'].forEach(function(t){document.addEventListener(t,tg,true);});})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>年金生活で毎月いくら足りない？貯金は何歳までもつ？かんたん計算【2025年家計調査】｜せいどラガ</title>
+<meta name="description" content="年金の手取りと毎月の生活費 貯金の額から 毎月の不足額と貯金がなくなる年齢を計算します。65歳以上の無職の世帯は毎月約4.2万円足りない（2025年家計調査）。不足額と貯金ごとの早見表つき。">
+<link rel="canonical" href="https://seidoraga.jp/rougo-tarinai/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="年金生活で毎月いくら足りない？貯金は何歳までもつ？">
+<meta property="og:description" content="年金の手取りと毎月の生活費 貯金の額から 毎月の不足額と貯金がなくなる年齢を計算します。65歳以上の無職の世帯は毎月約4.2万円足りない（2025年家計調査）。不足額と貯金ごとの早見表つき。">
+<meta property="og:url" content="https://seidoraga.jp/rougo-tarinai/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=f517c00c"></script>
+<!--seo--><meta property="og:image" content="https://seidoraga.jp/assets/og/rougo-tarinai.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://seidoraga.jp/assets/og/rougo-tarinai.png">
+<!--/seo-->
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › <a href="/#taishoku">退職・失業</a> › 年金生活で毎月いくら足りない？貯金は何歳までもつ？</nav><!--/seo-->
+<span class="badge">2025年の家計調査</span>
+<h1>年金生活で毎月いくら足りない？<br>貯金は何歳までもつ？</h1>
+<p class="lead">年金の手取りと毎月の生活費 貯金の額を入れると 毎月いくら足りないか 貯金が何歳でなくなるかがわかります。総務省の家計調査（2025年）では 65歳以上の夫婦だけの無職の世帯は 毎月 約4.2万円が足りず 貯金をくずしています。最初の数字はこの平均です。ご自分の額に変えてください。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="hh">世帯</label>
+  <select id="hh"><option value="2">夫婦2人</option><option value="1">1人</option></select>
+  <label for="pen">年金の手取り（月額・夫婦は2人の合計）</label>
+  <div class="hint">年金振込通知書の「振込額」は2か月分です。2で割った額を入れてください。税金・介護保険料・健康保険料が引かれたあとの額です。</div>
+  <div class="row"><input type="range" id="pen" min="0" max="500000" step="1000" value="221000"><output id="penOut" for="pen"></output></div>
+  <label for="oth">ほかの収入（月額・パートや家賃収入など手取り）</label>
+  <div class="row"><input type="range" id="oth" min="0" max="300000" step="1000" value="0"><output id="othOut" for="oth"></output></div>
+  <label for="cost">毎月の生活費（税金・保険料をのぞく）</label>
+  <div class="row"><input type="range" id="cost" min="50000" max="600000" step="1000" value="264000"><output id="costOut" for="cost"></output></div>
+  <label for="big">年に1回の大きな出費（年額・旅行・家電・車・冠婚葬祭など）</label>
+  <div class="row"><input type="range" id="big" min="0" max="2000000" step="10000" value="0"><output id="bigOut" for="big"></output></div>
+  <label for="sav">いまの貯金（預金・投資信託・株などの合計）</label>
+  <div class="row"><input type="range" id="sav" min="0" max="50000000" step="100000" value="15000000"><output id="savOut" for="sav"></output></div>
+  <label for="age">いまの年齢</label>
+  <select id="age"><option value="55">55歳</option><option value="56">56歳</option><option value="57">57歳</option><option value="58">58歳</option><option value="59">59歳</option><option value="60">60歳</option><option value="61">61歳</option><option value="62">62歳</option><option value="63">63歳</option><option value="64">64歳</option><option value="65" selected>65歳</option><option value="66">66歳</option><option value="67">67歳</option><option value="68">68歳</option><option value="69">69歳</option><option value="70">70歳</option><option value="71">71歳</option><option value="72">72歳</option><option value="73">73歳</option><option value="74">74歳</option><option value="75">75歳</option><option value="76">76歳</option><option value="77">77歳</option><option value="78">78歳</option><option value="79">79歳</option><option value="80">80歳</option><option value="81">81歳</option><option value="82">82歳</option><option value="83">83歳</option><option value="84">84歳</option><option value="85">85歳</option><option value="86">86歳</option><option value="87">87歳</option><option value="88">88歳</option><option value="89">89歳</option><option value="90">90歳</option></select>
+  <label for="to">何歳までの暮らしを考えるか</label>
+  <select id="to"><option value="80">80歳まで</option><option value="85">85歳まで</option><option value="90">90歳まで</option><option value="95" selected>95歳まで</option><option value="100">100歳まで</option></select>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>毎月の不足</span><b id="mo">-</b><small id="moN"></small></div>
+    <div><span>貯金がなくなる年齢</span><b id="ea">-</b><small id="eaN"></small></div>
+    <div><span>この年齢まで暮らすのに足りない額</span><b id="nd">-</b><small id="ndN"></small></div>
+  </div>
+  <p class="note">※毎月同じ額が足りないものとした目安です。物価の上がり方 年金額の改定 貯金の運用益 医療や介護の大きな出費 家のリフォームは入れていません。夫婦のどちらかが亡くなると 年金と生活費の両方が変わります（<a href="/izoku-nenkin/">遺族年金はいくら？</a>）。</p>
+</section>
+<h2 id="heikin">65歳以上の無職の世帯は毎月いくら足りない？（2025年）</h2>
+<table><thead><tr><th scope="col"></th><th scope="col">夫婦2人</th><th scope="col">1人</th></tr></thead><tbody>
+<tr><th scope="row">収入（うち年金など）</th><td>254,395円（228,614円）</td><td>131,456円（120,212円）</td></tr>
+<tr><th scope="row">税金・社会保険料</th><td>32,850円</td><td>12,990円</td></tr>
+<tr><th scope="row">手取り</th><td>221,545円</td><td>118,466円</td></tr>
+<tr><th scope="row">生活費（消費支出）</th><td>263,979円</td><td>148,445円</td></tr>
+<tr><th scope="row">毎月の不足</th><td>約4.2万円</td><td>約3.0万円</td></tr>
+</tbody></table>
+<p class="note">総務省「家計調査（家計収支編）2025年平均」の65歳以上の夫婦のみの無職世帯と 65歳以上の単身無職世帯です。平均なので 持ち家か賃貸か 住んでいる地域で大きく変わります。</p>
+<h2 id="hayami">早見表：65歳からの毎月の不足と貯金で 何歳までもつ？</h2>
+<table><thead><tr><th scope="col">毎月の不足</th><th scope="col">貯金500万円</th><th scope="col">貯金1,000万円</th><th scope="col">貯金1,500万円</th><th scope="col">貯金2,000万円</th><th scope="col">貯金3,000万円</th></tr></thead><tbody><tr><th scope="row">1万円</th><td>100歳でも残る</td><td>100歳でも残る</td><td>100歳でも残る</td><td>100歳でも残る</td><td>100歳でも残る</td></tr><tr><th scope="row">2万円</th><td>85歳</td><td>100歳でも残る</td><td>100歳でも残る</td><td>100歳でも残る</td><td>100歳でも残る</td></tr><tr><th scope="row">3万円</th><td>78歳</td><td>92歳</td><td>100歳でも残る</td><td>100歳でも残る</td><td>100歳でも残る</td></tr><tr><th scope="row">4.2万円</th><td>74歳</td><td>84歳</td><td>94歳</td><td>100歳でも残る</td><td>100歳でも残る</td></tr><tr><th scope="row">5万円</th><td>73歳</td><td>81歳</td><td>90歳</td><td>98歳</td><td>100歳でも残る</td></tr><tr><th scope="row">8万円</th><td>70歳</td><td>75歳</td><td>80歳</td><td>85歳</td><td>96歳</td></tr><tr><th scope="row">10万円</th><td>69歳</td><td>73歳</td><td>77歳</td><td>81歳</td><td>90歳</td></tr></tbody></table>
+<p class="note">65歳から毎月同じ額をくずすとき 貯金がなくなる年齢です。運用益と物価の変化は入れていません。</p>
+<h2>足りないときに見直せること</h2>
+<ul>
+<li><b>生活費</b>：通信費・保険料・車の費用など 毎月決まって出ていくお金は 1度見直すと効果が続きます。</li>
+<li><b>年金をふやす</b>：年金を受け取り始める年齢を遅らせると 1か月ごとに0.7%ふえます（<a href="/nenkin-kuriage-kurisage/">繰り上げ・繰り下げでいくら変わる？</a>）。</li>
+<li><b>働く</b>：月に数万円でも 貯金がもつ年数は大きく変わります。厚生年金に入って働くと 年金も少しふえます（<a href="/part-shaho/">パートで社会保険に入るといくら引かれる？</a>）。</li>
+<li><b>医療費</b>：1か月の医療費には上限があります（<a href="/kougaku-ryouyouhi/">高額療養費でいくら戻る？</a>）。</li>
+</ul>
+<h2 id="soudan">老後のお金を相談したいとき</h2>
+<p>年金の受け取り方 貯金のくずし方 保険の見直しを まとめて相談したいときは ファイナンシャルプランナー（FP）に聞く方法もあります。</p>
+<div class="pr" id="pr-fp">
+  <p><span class="tag">PR</span>以下はお金の相談サービスの広告です。相談先のファイナンシャルプランナーから 保険商品などの提案・勧誘を受けることがあります。せいどラガは紹介料を受け取ることがありますが 保険の募集・販売や個別の相談はしておらず 特定の保険や金融商品をすすめるものではありません。相談するかどうかは任意で 相談しても契約する義務はありません。</p>
+  <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGLSA+5YXI5U+5MAS+5YJRM" target="_blank" rel="nofollow sponsored noopener"><img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4BGLSA+5YXI5U+5MAS+5YJRM" alt="">FPに相談！（ファイナンシャルプランナーの無料相談）を見る</a></p>
+  <p class="note">保険や家計 老後の準備などをファイナンシャルプランナーに無料で相談できるサービスです（運営：ファインドイット株式会社）。対象となる条件や相談の方法は公式サイトで確かめてください。</p>
+</div>
+<h2>関連する計算</h2>
+<a class="card rel" href="/nenkin-kuriage-kurisage/"><b>年金は繰り上げ・繰り下げでいくら変わる？</b><br><small>受け取る合計が並ぶ年齢</small></a>
+<a class="card rel" href="/izoku-nenkin/"><b>遺族年金はいくら？足りない分はいくら？</b><br><small>家族の年齢と年収から</small></a>
+<a class="card rel" href="/taishokukin-zeikin/"><b>退職金の税金と手取りはいくら？</b><br><small>iDeCoの一時金と受け取る順番も</small></a>
+<a class="card rel" href="/kougaku-ryouyouhi/"><b>高額療養費でいくら戻る？</b><br><small>2026年8月からの上限と年間上限</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>年金生活の夫婦は毎月いくら足りませんか？</h3>
+<p>総務省の家計調査（2025年）では 65歳以上の夫婦だけの無職の世帯は 手取り約22.2万円に対して生活費が約26.4万円で 毎月約4.2万円が足りません。1人の世帯は約3.0万円です。平均なので 家計によって大きくちがいます。</p>
+<h3>貯金は何歳までもちますか？</h3>
+<p>貯金を毎月の不足で割ると何か月もつかがわかります。たとえば貯金1,500万円で毎月4.2万円足りないと 約29年でなくなり 65歳からなら94歳ごろです。このページで自分の額を入れて計算できます。</p>
+<h3>年金の手取りはどこでわかりますか？</h3>
+<p>毎年6月ごろに届く年金振込通知書に 2か月ごとの振込額がのっています。税金・介護保険料・健康保険料が引かれたあとの額なので 2で割ると毎月の手取りです。</p>
+<h3>老後2000万円問題とは何ですか？</h3>
+<p>2019年の金融庁の報告書で 毎月約5.5万円足りない状態が30年続くと約2,000万円になる という試算が話題になったことです。必要な額は暮らし方で変わるので 自分の不足額と年数で計算するのが大切です。</p>
+<h3>この計算で出た額だけ用意すれば大丈夫ですか？</h3>
+<p>このページは 毎月同じ額が足りないものとした目安です。物価の上がり方 医療や介護 家の修理などの出費は入っていません。余裕を持って考えてください。</p>
+<!--theme--><h2>「退職・失業」のほかの計算</h2>
+<a class="card rel" href="/taishoku-juminzei/"><b>退職後の住民税はいくら？</b><br><small>退職する月で払う額と時期がわかる</small></a>
+<a class="card rel" href="/taishoku-furusato/"><b>退職した年のふるさと納税はいくらまで？</b><br><small>退職する月で上限と翌年の住民税がどう変わるか</small></a>
+<a class="card rel" href="/taishoku-kenpo/"><b>退職後の健康保険はどれが安い？</b><br><small>任意継続・国保・家族の扶養を比較</small></a>
+<a class="card rel" href="/taishoku-kakutei-shinkoku/"><b>年の途中で退職した人の確定申告でいくら戻る？</b><br><small>源泉徴収票と退職後の保険料から</small></a>
+<a class="card rel" href="/shitsugyo-taiken/"><b>退職してから失業保険をもらうまでに知ったこと</b><br><small>運営者が2026年に実際にやった手続きの記録</small></a>
+<!--/theme-->
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.stat.go.jp/data/kakei/sokuhou/nen/index.html" rel="noopener">総務省統計局 家計調査報告（家計収支編）2025年（令和7年）平均結果の概要</a></li>
+  <li><a href="https://www.fsa.go.jp/singi/singi_kinyu/tosin/20190603.html" rel="noopener">金融庁 金融審議会 市場ワーキング・グループ報告書「高齢社会における資産形成・管理」（2019年）</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const v=id=>+$(id).value;
+  ['pen','oth','cost','big','sav'].forEach(id=>{ $(id+'Out').textContent=yen(v(id)); });
+  const age=v('age'), month=v('cost')+v('big')/12-v('pen')-v('oth');
+  $('mo').textContent=month>0?yen(month):'足りています';
+  $('moN').textContent=month>0?'年に1回の大きな出費を12で割って足した額です。1年では '+yen(month*12)+' です':'年金とほかの収入で、毎月 '+yen(-month)+' 残ります';
+  let endAge='-', endN='';
+  if(month<=0){ endAge='減りません'; endN='このままなら貯金は減りません'; }
+  else { const m=Math.floor(v('sav')/month), a=age+m/12;
+    if(a>=100){ endAge='100歳でも残ります'; endN='100歳のとき '+yen(v('sav')-month*(100-age)*12)+' 残ります'; }
+    else { endAge=Math.floor(a)+'歳'+(m%12?(m%12)+'か月':''); endN='貯金 '+yen(v('sav'))+' ÷ 毎月の不足 '+yen(month)+' ＝ '+Math.floor(m/12)+'年'+(m%12)+'か月分'; } }
+  $('ea').textContent=endAge; $('eaN').textContent=endN;
+  const need=Math.max(0,month*(v('to')-age)*12-v('sav'));
+  $('nd').textContent=month<=0?'0円':(need>0?yen(need):'足りています');
+  $('ndN').textContent=v('to')+'歳まで同じ暮らしをするときの不足の合計は '+yen(Math.max(0,month)*(v('to')-age)*12)+' です';
+}
+function preset(){ const c=$('hh').value==='1';
+  $('pen').value=c?118000:221000; $('cost').value=c?148000:264000; update(); }
+$('hh').addEventListener('change',preset);
+['pen','oth','cost','big','sav','age','to'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "年金生活の夫婦は毎月いくら足りませんか？", "acceptedAnswer": {"@type": "Answer", "text": "総務省の家計調査（2025年）では 65歳以上の夫婦だけの無職の世帯は 手取り約22.2万円に対して生活費が約26.4万円で 毎月約4.2万円が足りません。1人の世帯は約3.0万円です。平均なので 家計によって大きくちがいます。"}}, {"@type": "Question", "name": "貯金は何歳までもちますか？", "acceptedAnswer": {"@type": "Answer", "text": "貯金を毎月の不足で割ると何か月もつかがわかります。たとえば貯金1,500万円で毎月4.2万円足りないと 約29年でなくなり 65歳からなら94歳ごろです。このページで自分の額を入れて計算できます。"}}, {"@type": "Question", "name": "年金の手取りはどこでわかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "毎年6月ごろに届く年金振込通知書に 2か月ごとの振込額がのっています。税金・介護保険料・健康保険料が引かれたあとの額なので 2で割ると毎月の手取りです。"}}, {"@type": "Question", "name": "老後2000万円問題とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "2019年の金融庁の報告書で 毎月約5.5万円足りない状態が30年続くと約2,000万円になる という試算が話題になったことです。必要な額は暮らし方で変わるので 自分の不足額と年数で計算するのが大切です。"}}, {"@type": "Question", "name": "この計算で出た額だけ用意すれば大丈夫ですか？", "acceptedAnswer": {"@type": "Answer", "text": "このページは 毎月同じ額が足りないものとした目安です。物価の上がり方 医療や介護 家の修理などの出費は入っていません。余裕を持って考えてください。"}}]}</script>
+<!--seo--><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://seidoraga.jp/"}, {"@type": "ListItem", "position": 2, "name": "退職・失業", "item": "https://seidoraga.jp/#taishoku"}, {"@type": "ListItem", "position": 3, "name": "年金生活で毎月いくら足りない？貯金は何歳までもつ？"}]}, {"@type": "WebPage", "name": "年金生活で毎月いくら足りない？貯金は何歳までもつ？かんたん計算【2025年家計調査】", "url": "https://seidoraga.jp/rougo-tarinai/", "inLanguage": "ja", "image": "https://seidoraga.jp/assets/og/rougo-tarinai.png", "isPartOf": {"@type": "WebSite", "name": "せいどラガ", "url": "https://seidoraga.jp/"}, "author": {"@type": "Person", "name": "たかぎつとむ", "url": "https://seidoraga.jp/about/#unei"}, "publisher": {"@type": "Organization", "name": "せいどラガ", "url": "https://seidoraga.jp/", "logo": "https://seidoraga.jp/assets/icon-512.png"}, "description": "年金の手取りと毎月の生活費 貯金の額から 毎月の不足額と貯金がなくなる年齢を計算します。65歳以上の無職の世帯は毎月約4.2万円足りない（2025年家計調査）。不足額と貯金ごとの早見表つき。", "dateModified": "2026-11-23"}]}</script><!--/seo-->
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：A&amp;T Works）</div>
+</div></footer>
+</body>
+</html>
