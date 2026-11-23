@@ -89,17 +89,18 @@ footer a{color:var(--sub);margin-right:12px}
 <!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › <a href="/#taishoku">退職・失業</a> › 年金生活で毎月いくら足りない？貯金は何歳までもつ？</nav><!--/seo-->
 <span class="badge">2025年の家計調査</span>
 <h1>年金生活で毎月いくら足りない？<br>貯金は何歳までもつ？</h1>
-<p class="lead">年金の手取りと毎月の生活費 貯金の額を入れると 毎月いくら足りないか 貯金が何歳でなくなるかがわかります。総務省の家計調査（2025年）では 65歳以上の夫婦だけの無職の世帯は 毎月 約4.2万円が足りず 貯金をくずしています。最初の数字はこの平均です。ご自分の額に変えてください。</p>
+<p class="lead">年金の手取りと毎月の生活費 貯金の額を入れると 毎月いくら足りないか 貯金が何歳でなくなるかがわかります。総務省の家計調査（2025年）では 65歳以上の夫婦だけの無職の世帯は 毎月 約4.2万円が足りず 貯金をくずしています。最初の数字はこの平均です（年金の欄は 年金とほかの収入をあわせた手取りの平均です）。ご自分の額に変えてください。</p>
 <section class="card calc" id="calc" aria-labelledby="calcTitle">
   <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
   <label for="hh">世帯</label>
   <select id="hh"><option value="2">夫婦2人</option><option value="1">1人</option></select>
   <label for="pen">年金の手取り（月額・夫婦は2人の合計）</label>
-  <div class="hint">年金振込通知書の「振込額」は2か月分です。2で割った額を入れてください。税金・介護保険料・健康保険料が引かれたあとの額です。</div>
+  <div class="hint">年金振込通知書の「振込額」は2か月分です。2で割った額が月額の目安です。税金・介護保険料・健康保険料が引かれたあとの額です。天引きや年金額が変わったら 新しい通知書で確かめてください。</div>
   <div class="row"><input type="range" id="pen" min="0" max="500000" step="1000" value="221000"><output id="penOut" for="pen"></output></div>
   <label for="oth">ほかの収入（月額・パートや家賃収入など手取り）</label>
   <div class="row"><input type="range" id="oth" min="0" max="300000" step="1000" value="0"><output id="othOut" for="oth"></output></div>
-  <label for="cost">毎月の生活費（税金・保険料をのぞく）</label>
+  <label for="cost">毎月の生活費</label>
+  <div class="hint">年金から引かれている税金・保険料は入れません。自分で払う固定資産税や国民健康保険料などは入れてください。年に1回の大きな出費とは重ねないでください。</div>
   <div class="row"><input type="range" id="cost" min="50000" max="600000" step="1000" value="264000"><output id="costOut" for="cost"></output></div>
   <label for="big">年に1回の大きな出費（年額・旅行・家電・車・冠婚葬祭など）</label>
   <div class="row"><input type="range" id="big" min="0" max="2000000" step="10000" value="0"><output id="bigOut" for="big"></output></div>
@@ -131,8 +132,8 @@ footer a{color:var(--sub);margin-right:12px}
 <h2>足りないときに見直せること</h2>
 <ul>
 <li><b>生活費</b>：通信費・保険料・車の費用など 毎月決まって出ていくお金は 1度見直すと効果が続きます。</li>
-<li><b>年金をふやす</b>：年金を受け取り始める年齢を遅らせると 1か月ごとに0.7%ふえます（<a href="/nenkin-kuriage-kurisage/">繰り上げ・繰り下げでいくら変わる？</a>）。</li>
-<li><b>働く</b>：月に数万円でも 貯金がもつ年数は大きく変わります。厚生年金に入って働くと 年金も少しふえます（<a href="/part-shaho/">パートで社会保険に入るといくら引かれる？</a>）。</li>
+<li><b>年金をふやす</b>：まだ受け取っていない人は 受け取り始める年齢を遅らせると 1か月ごとに0.7%ふえます。加給年金がふえないなどの条件があります（<a href="/nenkin-kuriage-kurisage/">繰り上げ・繰り下げでいくら変わる？</a>）。</li>
+<li><b>働く</b>：月に数万円でも 貯金がもつ年数は大きく変わります。厚生年金に入って働くと 年金も少しふえます。給料が多いと 受け取り中の年金が一部止まることもあります（<a href="/part-shaho/">パートで社会保険に入るといくら引かれる？</a>）。</li>
 <li><b>医療費</b>：1か月の医療費には上限があります（<a href="/kougaku-ryouyouhi/">高額療養費でいくら戻る？</a>）。</li>
 </ul>
 <h2 id="soudan">老後のお金を相談したいとき</h2>
