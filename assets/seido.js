@@ -496,7 +496,27 @@ function taiShinkoku(p){
   const noAdd=incomeTax(fl1000(g-(p.sha||0)-ded.kiso-spI)); // 退職後の保険料などを入れない場合（源泉徴収票の分だけ）
   return {g,ded,TI:Math.max(0,TI),tax,wh,refund:wh-tax,noAdd};
 }
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross,taiShinkoku};
+
+// 国民年金の免除の損得（2026年度）
+const NK_MON=17920, NK_MON2=18290, NK_FULL=847300;
+const NK_MJ={full:{pay:0,cr:1/2},q3:{pay:1/4,cr:5/8},half:{pay:1/2,cr:6/8},q1:{pay:3/4,cr:7/8}};
+function nkMenjo(p){ // p:{type,months,rate(税金の率・0〜)}
+  const t=NK_MJ[p.type]||NK_MJ.q3, n=p.months||0, r=p.rate||0;
+  const payM=Math.round(NK_MON*t.pay), fullPay=NK_MON*n, exPay=payM*n;
+  const fullCost=Math.round(fullPay*(1-r)), exCost=Math.round(exPay*(1-r)), saved=fullCost-exCost;
+  const loss=Math.round(NK_FULL*n/480*(1-t.cr)); // 65歳からの年金が1年で減る額
+  const years=loss?saved/loss:0;
+  return {payM,fullPay,exPay,fullCost,exCost,saved,loss,years,age:65+years,cr:t.cr};
+}
+// 国民年金・国保を12月までに払うと税金はいくら減る？
+function nkZenno(p){ // p:{nk(国民年金を前納する月数・来年1月から),kh(国保を今年中に払う額),r1(今年の率),r2(来年の率)}
+  const n=Math.max(0,p.nk||0), a=Math.min(n,3)*NK_MON+Math.max(0,n-3)*NK_MON2;
+  const amt=a+(p.kh||0), r1=p.r1||0, r2=p.r2||0;
+  const now=Math.round(amt*r1), later=Math.round(amt*r2);
+  return {nkAmt:a,amt,now,later,diff:now-later};
+}
+
+const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross,taiShinkoku,nkMenjo,nkZenno};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;

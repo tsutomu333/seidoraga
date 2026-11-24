@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}var tg=function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="px.a8.net"]');if(!a||a.getAttribute('data-tg'))return;var p=location.pathname.replace(/[^a-zA-Z0-9]/g,'').slice(0,40)||'top';a.href+='&id1='+p+'&id2='+(off?'self':'guest');a.setAttribute('data-tg','1');};['mousedown','touchstart','keydown','click'].forEach(function(t){document.addEventListener(t,tg,true);});})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>国民年金を免除するといくら得？何歳まで生きると損になる？全額・4分の3・半額・4分の1をかんたん計算【2026年度】｜せいどラガ</title>
+<meta name="description" content="国民年金の保険料を免除したときに浮くお金と、65歳からの年金が減る額をくらべて、何歳より長生きすると損になるかを計算します。全額・4分の3・半額・4分の1免除、社会保険料控除の税金の減りもふくめた実質で。未納とのちがい・追納も。">
+<link rel="canonical" href="https://seidoraga.jp/nenkin-menjo/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="国民年金を免除するといくら得？何歳で損になる？">
+<meta property="og:description" content="国民年金の保険料を免除したときに浮くお金と、65歳からの年金が減る額をくらべて、何歳より長生きすると損になるかを計算します。全額・4分の3・半額・4分の1免除、社会保険料控除の税金の減りもふくめた実質で。未納とのちがい・追納も。">
+<meta property="og:url" content="https://seidoraga.jp/nenkin-menjo/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=627981b8"></script>
+<!--seo--><meta property="og:image" content="https://seidoraga.jp/assets/og/nenkin-menjo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://seidoraga.jp/assets/og/nenkin-menjo.png">
+<!--/seo-->
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › <a href="/#taishoku">退職・失業</a> › 国民年金を免除するといくら得？何歳で損になる？</nav><!--/seo-->
+<span class="badge">2026年度の保険料と年金額</span>
+<h1>国民年金を免除するといくら得？<br>何歳まで生きると損になる？</h1>
+<p class="lead">会社をやめた年や 収入が少ない年は 国民年金の保険料を全額・4分の3・半額・4分の1 免除してもらえます。免除で払わずにすむお金と 将来の年金が減る額をくらべて 何歳より長生きすると損になるかを計算します。免除された期間も 年金の計算に半分以上数えられるので 払わずにいる「未納」とは大きくちがいます。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="type">免除の種類</label>
+  <select id="type"><option value="full">全額免除（払う額 0円）</option><option value="q3" selected>4分の3免除（月4,480円を払う）</option><option value="half">半額免除（月8,960円を払う）</option><option value="q1">4分の1免除（月13,440円を払う）</option></select>
+  <label for="mon">免除してもらう月数</label>
+  <div class="row"><input type="range" id="mon" min="1" max="24" step="1" value="12"><output id="monOut" for="mon"></output></div>
+  <div class="hint">免除は7月から翌年6月までを1年として申請します。退職した人は 退職した月の前の月から申請できます。</div>
+  <label for="rate">保険料を払う年の あなたの税金の率</label>
+  <select id="rate"><option value="0">税金はかからない（所得がない）</option><option value="0.10">住民税だけ（所得税0%・住民税10%）</option><option value="0.15105" selected>所得税5%・住民税10%</option><option value="0.2021">所得税10%・住民税10%</option><option value="0.3042">所得税20%・住民税10%</option><option value="0.33483">所得税23%・住民税10%</option></select>
+  <div class="hint">払った国民年金の保険料は 全額が社会保険料控除になり 所得税と住民税が減ります。所得がない年は 税金が減らないので 払う負担がそのままかかります。</div>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>免除で浮くお金（税金の減りを引いた実質）</span><b id="sv">-</b><small id="svN"></small></div>
+    <div><span>65歳からの年金が減る額</span><b id="ls">-</b><small id="lsN"></small></div>
+    <div><span>損になる年齢（65歳から受け取る場合）</span><b id="ag">-</b><small id="agN"></small></div>
+  </div>
+  <p class="note">※2026年度の保険料（月17,920円）と 老齢基礎年金の満額（年847,300円・40年＝480か月で満額）で計算した目安です。年金額は毎年 改定されます。免除の期間が年金の計算に数えられる割合は 全額免除が2分の1・4分の3免除が8分の5・半額免除が8分の6・4分の1免除が8分の7です（2009年4月以降の期間）。浮いたお金の運用益や 物価の変化は入れていません。</p>
+</section>
+<h2 id="hayami">早見表：1年（12か月）免除したとき</h2>
+<table><thead><tr><th scope="col">免除の種類</th><th scope="col">払う保険料（月）</th><th scope="col">1年で浮くお金</th><th scope="col">年金が減る額（1年あたり）</th><th scope="col">損になる年齢</th></tr></thead><tbody><tr><th scope="row">全額免除</th><td>0円</td><td>215,040円<br><small>税金15%の人は182,558円</small></td><td>10,591円</td><td>85歳<br><small>税金15%の人は82歳</small></td></tr><tr><th scope="row">4分の3免除</th><td>4,480円</td><td>161,280円<br><small>税金15%の人は136,918円</small></td><td>7,943円</td><td>85歳<br><small>税金15%の人は82歳</small></td></tr><tr><th scope="row">半額免除</th><td>8,960円</td><td>107,520円<br><small>税金15%の人は91,279円</small></td><td>5,296円</td><td>85歳<br><small>税金15%の人は82歳</small></td></tr><tr><th scope="row">4分の1免除</th><td>13,440円</td><td>53,760円<br><small>税金15%の人は45,639円</small></td><td>2,648円</td><td>85歳<br><small>税金15%の人は82歳</small></td></tr></tbody></table>
+<p class="note">「税金15%の人」は 所得税5%・住民税10%の人です。損になる年齢は 65歳から年金を受け取る場合です。</p>
+<h2>免除と未納のちがい</h2>
+<ul>
+<li><b>免除</b>：年金の計算に半分以上数えられます。免除の期間中に けがや病気で障害が残ったときは 障害基礎年金を受け取れます。亡くなったときの遺族基礎年金も同じです。</li>
+<li><b>未納</b>：年金の計算に数えられません。障害年金や遺族年金を受け取れないことがあります。2年をすぎると あとから払えなくなります。</li>
+</ul>
+<p>払えないときは 未納にせず 免除を申請するのが先です。所得の基準は 本人・配偶者・世帯主のそれぞれで見ます。会社をやめた人は 失業を理由にした特例で 本人の所得はないものとして見てもらえます（雇用保険受給資格者証などで確認）。</p>
+<h2>あとから払う「追納」</h2>
+<p>免除された保険料は 10年以内なら あとから払えます（追納）。追納すると 年金は全部払った人と同じになり 払った年の社会保険料控除にもなります。免除を受けた年度の翌年度から数えて3年度目以降は 少し上乗せされた額になります。収入が戻った年に追納すると 税金の減る額も大きくなります。</p>
+<h2>一部免除は 残りを払わないと未納になる</h2>
+<p>4分の3免除・半額免除・4分の1免除は 残りの保険料を払ってはじめて 免除の期間として数えられます。払わないと その月は未納と同じ扱いになります。払い忘れのない口座振替がおすすめです。</p>
+<h2>運営者の場合</h2>
+<p>運営者は 会社をやめて失業手当をもらっている年に 4分の3免除を申請しました。配偶者の所得で 全額免除の基準には届かなかったためです。6か月分で計算すると 払う額は月4,480円で 手元に残るお金は 税金の減りを引いて約6.8万円。65歳からの年金は 年に約4,000円減り 損になるのは82歳すぎでした。「将来の得より今の得」を選びましたが 収入が戻ったら追納も考えます（<a href="/shitsugyo-taiken/">退職してから失業保険をもらうまでに知ったこと</a>）。</p>
+<h2>関連する計算</h2>
+<a class="card rel" href="/kokuho-nenkin-zenno/"><b>国民年金・国保を12月までに払うと税金はいくら減る？</b><br><small>前納と社会保険料控除</small></a>
+<a class="card rel" href="/taishoku-kenpo/"><b>退職後の健康保険はどれが安い？</b><br><small>任意継続・国保・家族の扶養を比較</small></a>
+<a class="card rel" href="/nenkin-kuriage-kurisage/"><b>年金は繰り上げ・繰り下げでいくら変わる？</b><br><small>受け取る合計が並ぶ年齢</small></a>
+<a class="card rel" href="/shitsugyo-taiken/"><b>退職してから失業保険をもらうまでに知ったこと</b><br><small>運営者の手続きの記録</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>免除してもらうと 年金はもらえなくなりますか？</h3>
+<p>もらえます。免除された期間は 年金の計算に2分の1から8分の7として数えられます。年金を受け取るのに必要な10年（受給資格期間）にも数えられます。</p>
+<h3>全額免除と4分の3免除は どちらが得ですか？</h3>
+<p>所得の基準でどちらになるかが決まるので 自分では選べません（申請書でどの免除を希望するかは選べます）。払う額が少ないほど 将来の年金も減ります。損になる年齢は 免除の種類によらず ほぼ同じになります。</p>
+<h3>免除を申請するとき 配偶者の所得も見られますか？</h3>
+<p>見られます。本人・配偶者・世帯主のそれぞれが基準以下であることが必要です。会社をやめた人は 失業の特例で本人の所得はないものとして見てもらえますが 配偶者や世帯主の所得はそのまま見られます。</p>
+<h3>免除の期間を あとから払いたいときは？</h3>
+<p>10年以内なら追納できます。年金事務所で申し込みます。追納した額は その年の社会保険料控除になります。</p>
+<!--theme--><h2>「退職・失業」のほかの計算</h2>
+<a class="card rel" href="/taishoku-juminzei/"><b>退職後の住民税はいくら？</b><br><small>退職する月で払う額と時期がわかる</small></a>
+<a class="card rel" href="/taishoku-furusato/"><b>退職した年のふるさと納税はいくらまで？</b><br><small>退職する月で上限と翌年の住民税がどう変わるか</small></a>
+<a class="card rel" href="/taishokukin-zeikin/"><b>退職金の税金と手取りはいくら？</b><br><small>iDeCoの一時金と受け取る順番も</small></a>
+<a class="card rel" href="/rougo-tarinai/"><b>年金生活で毎月いくら足りない？貯金は何歳までもつ？</b><br><small>年金の手取り・生活費・貯金から</small></a>
+<a class="card rel" href="/taishoku-kakutei-shinkoku/"><b>年の途中で退職した人の確定申告でいくら戻る？</b><br><small>源泉徴収票と退職後の保険料から</small></a>
+<!--/theme-->
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html" rel="noopener">日本年金機構 国民年金保険料の免除制度・納付猶予制度</a></li>
+  <li><a href="https://www.nenkin.go.jp/service/kokunen/menjo/20150331.html" rel="noopener">日本年金機構 国民年金保険料の追納制度</a></li>
+  <li><a href="https://www.nenkin.go.jp/service/kokunen/menjo/20150518.html" rel="noopener">日本年金機構 失業等による保険料免除・猶予の特例</a></li>
+  <li><a href="https://www.mhlw.go.jp/content/12502000/001639615.pdf" rel="noopener">厚生労働省 令和8年度の年金額改定について</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>・<a id="teisei" href="https://docs.google.com/forms/d/e/1FAIpQLSc89t4nIM-5lcqKhp2FJTKWalBx4ToP_X_oH5SPz84pczPhbg/viewform" target="_blank" rel="noopener">まちがいの連絡</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const t=$('type').value, n=+$('mon').value, r=+$('rate').value;
+  $('monOut').textContent=n+'か月';
+  const x=SEIDO.nkMenjo({type:t,months:n,rate:r});
+  $('sv').textContent=yen(x.saved);
+  $('svN').textContent='全部払うと 実質 '+yen(x.fullCost)+'／免除で払うのは月 '+yen(x.payM)+'（実質 '+yen(x.exCost)+'）。払った保険料は社会保険料控除で税金が減るので その分を引いた額です';
+  $('ls').textContent=yen(x.loss)+'／年';
+  $('lsN').textContent='免除の期間は 年金の計算で '+(Math.round(x.cr*1000)/10)+'% として数えられます（国が半分を出すため）。65歳から一生この額が減ります';
+  $('ag').textContent=Math.floor(x.age)+'歳'+(Math.round((x.age%1)*12)?Math.round((x.age%1)*12)+'か月':'');
+  $('agN').textContent='この年齢より長生きすると 全部払ったほうが合計で多くもらえます（'+yen(x.saved)+' ÷ '+yen(x.loss)+' ＝ 約'+(Math.round(x.years*10)/10)+'年）';
+}
+['type','mon','rate'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "免除してもらうと 年金はもらえなくなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "もらえます。免除された期間は 年金の計算に2分の1から8分の7として数えられます。年金を受け取るのに必要な10年（受給資格期間）にも数えられます。"}}, {"@type": "Question", "name": "全額免除と4分の3免除は どちらが得ですか？", "acceptedAnswer": {"@type": "Answer", "text": "所得の基準でどちらになるかが決まるので 自分では選べません（申請書でどの免除を希望するかは選べます）。払う額が少ないほど 将来の年金も減ります。損になる年齢は 免除の種類によらず ほぼ同じになります。"}}, {"@type": "Question", "name": "免除を申請するとき 配偶者の所得も見られますか？", "acceptedAnswer": {"@type": "Answer", "text": "見られます。本人・配偶者・世帯主のそれぞれが基準以下であることが必要です。会社をやめた人は 失業の特例で本人の所得はないものとして見てもらえますが 配偶者や世帯主の所得はそのまま見られます。"}}, {"@type": "Question", "name": "免除の期間を あとから払いたいときは？", "acceptedAnswer": {"@type": "Answer", "text": "10年以内なら追納できます。年金事務所で申し込みます。追納した額は その年の社会保険料控除になります。"}}]}</script>
+<!--seo--><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://seidoraga.jp/"}, {"@type": "ListItem", "position": 2, "name": "退職・失業", "item": "https://seidoraga.jp/#taishoku"}, {"@type": "ListItem", "position": 3, "name": "国民年金を免除するといくら得？何歳で損になる？"}]}, {"@type": "WebPage", "name": "国民年金を免除するといくら得？何歳まで生きると損になる？全額・4分の3・半額・4分の1をかんたん計算【2026年度】", "url": "https://seidoraga.jp/nenkin-menjo/", "inLanguage": "ja", "image": "https://seidoraga.jp/assets/og/nenkin-menjo.png", "isPartOf": {"@type": "WebSite", "name": "せいどラガ", "url": "https://seidoraga.jp/"}, "author": {"@type": "Person", "name": "たかぎつとむ", "url": "https://seidoraga.jp/about/#unei"}, "publisher": {"@type": "Organization", "name": "せいどラガ", "url": "https://seidoraga.jp/", "logo": "https://seidoraga.jp/assets/icon-512.png"}, "description": "国民年金の保険料を免除したときに浮くお金と、65歳からの年金が減る額をくらべて、何歳より長生きすると損になるかを計算します。全額・4分の3・半額・4分の1免除、社会保険料控除の税金の減りもふくめた実質で。未納とのちがい・追納も。", "dateModified": "2026-11-24"}]}</script><!--/seo-->
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：<a href="https://at-works.mendomilab.com/">A&amp;T Works</a>）</div>
+</div></footer>
+</body>
+</html>

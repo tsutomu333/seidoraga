@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}var tg=function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="px.a8.net"]');if(!a||a.getAttribute('data-tg'))return;var p=location.pathname.replace(/[^a-zA-Z0-9]/g,'').slice(0,40)||'top';a.href+='&id1='+p+'&id2='+(off?'self':'guest');a.setAttribute('data-tg','1');};['mousedown','touchstart','keydown','click'].forEach(function(t){document.addEventListener(t,tg,true);});})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>国民年金・国保を12月までに払うと税金はいくら減る？前納と社会保険料控除をかんたん計算【2026年度】｜せいどラガ</title>
+<meta name="description" content="来年に払う国民年金・国民健康保険の保険料を12月31日までに前納すると、今年の社会保険料控除で税金がいくら減るかを計算します。退職して来年の収入が少ない人向け。2026年度の前納の割引額と、2年前納の控除の年の選び方も。">
+<link rel="canonical" href="https://seidoraga.jp/kokuho-nenkin-zenno/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="国民年金・国保を12月までに払うと税金はいくら減る？">
+<meta property="og:description" content="来年に払う国民年金・国民健康保険の保険料を12月31日までに前納すると、今年の社会保険料控除で税金がいくら減るかを計算します。退職して来年の収入が少ない人向け。2026年度の前納の割引額と、2年前納の控除の年の選び方も。">
+<meta property="og:url" content="https://seidoraga.jp/kokuho-nenkin-zenno/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=627981b8"></script>
+<!--seo--><meta property="og:image" content="https://seidoraga.jp/assets/og/kokuho-nenkin-zenno.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://seidoraga.jp/assets/og/kokuho-nenkin-zenno.png">
+<!--/seo-->
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › <a href="/#taishoku">退職・失業</a> › 国民年金・国保を12月までに払うと税金はいくら減る？</nav><!--/seo-->
+<span class="badge">2026年度の保険料と割引</span>
+<h1>国民年金・国保を12月までに払うと<br>税金はいくら減る？</h1>
+<p class="lead">国民年金と国民健康保険の保険料は 払った年の社会保険料控除になります。来年に払う予定の保険料を 12月31日までに前納すると 今年の税金が減ります。会社をやめて来年は収入が少ない人ほど 今年のうちに払ったほうが得になります。国民年金は まとめて払うと保険料そのものの割引もあります。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="nk">国民年金を12月に前納する月数（来年1月分から）</label>
+  <div class="row"><input type="range" id="nk" min="0" max="15" step="1" value="3"><output id="nkOut" for="nk"></output></div>
+  <div class="hint">3か月分なら来年3月分（今年度の終わり）まで。15か月分なら再来年の3月分（来年度の終わり）までです。前納の納付書は 年金事務所に頼むと出してもらえます。免除を受けている月は前納できません。</div>
+  <label for="kh">国民健康保険料のうち 今年中に払う来年の分（来年1〜3月が納期の分）</label>
+  <div class="row"><input type="range" id="kh" min="0" max="300000" step="1000" value="0"><output id="khOut" for="kh"></output></div>
+  <div class="hint">国民健康保険料は 今年度の残りの期の分なら 早めにまとめて払える市区町村が多いです。来年度の分は前納できません。</div>
+  <label for="r1">今年の あなたの税金の率</label>
+  <select id="r1"><option value="0">税金はかからない（所得がない）</option><option value="0.10">住民税だけ（所得税0%・住民税10%）</option><option value="0.15105" selected>所得税5%・住民税10%</option><option value="0.2021">所得税10%・住民税10%</option><option value="0.3042">所得税20%・住民税10%</option><option value="0.33483">所得税23%・住民税10%</option></select>
+  <label for="r2">来年の あなたの税金の率</label>
+  <select id="r2"><option value="0" selected>税金はかからない（所得がない）</option><option value="0.10">住民税だけ（所得税0%・住民税10%）</option><option value="0.15105">所得税5%・住民税10%</option><option value="0.2021">所得税10%・住民税10%</option><option value="0.3042">所得税20%・住民税10%</option><option value="0.33483">所得税23%・住民税10%</option></select>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>今年に払うと 来年に払うより税金が減る額</span><b id="df">-</b><small id="dfN"></small></div>
+    <div><span>今年に払う保険料</span><b id="am">-</b><small id="amN"></small></div>
+  </div>
+  <p class="note">※国民年金の保険料は 2026年度が月17,920円 2027年度が月18,290円で計算しています（割引の前）。税金の率は 所得税（復興特別所得税をふくむ）と住民税の合計の目安です。控除がふえて 税金の率の区分が変わる人は 実際の額が少しちがいます。</p>
+</section>
+<h2 id="waribiki">国民年金の前納の割引（2026年度・4月から払う場合）</h2>
+<table><thead><tr><th scope="col">払い方</th><th scope="col">口座振替</th><th scope="col">納付書・クレジットカード</th></tr></thead><tbody>
+<tr><th scope="row">2年前納（2026年4月〜2028年3月分）</th><td>417,150円（17,370円の割引）</td><td>418,510円（16,010円の割引）</td></tr>
+<tr><th scope="row">1年前納</th><td>210,530円（4,510円の割引）</td><td>211,220円（3,820円の割引）</td></tr>
+<tr><th scope="row">6か月前納</th><td>106,300円（1,220円の割引）</td><td>106,650円（870円の割引）</td></tr>
+<tr><th scope="row">早割（その月の末に口座振替）</th><td>17,860円（月60円の割引）</td><td>—</td></tr>
+</tbody></table>
+<p class="note">日本年金機構の2026年度の額です。年度の途中から前納するときも 月数に応じて少し割引されます。実際の額は 年金事務所で出してもらう納付書で確かめてください。</p>
+<h2>2年前納は 控除の年を選べる</h2>
+<p>2年分をまとめて払ったときは 払った年に全額を控除するか 各年の分に分けて控除するかを選べます。今年の収入が多く 来年が少ない人は 払った年に全額を控除すると 税金がより減ります。</p>
+<h2>12月に前納するときの注意</h2>
+<ul>
+<li><b>12月31日までに払う</b>：控除は払った日で決まります。口座振替やクレジットカードは 引き落としや立て替えの日がいつになるかを確かめてください。</li>
+<li><b>年末調整に間に合わないとき</b>：会社員の家族の分を払った人や 年末調整のあとに払った人は 確定申告をすると控除を受けられます。証明書か領収書をとっておきます。</li>
+<li><b>家族の分</b>：生計を一にする家族（配偶者や子）の国民年金を払ったときも 払った人の控除になります。</li>
+<li><b>来年 会社に入る予定があるとき</b>：厚生年金に入った月からの国民年金は 前納していても還付されます。</li>
+</ul>
+<h2>運営者の場合</h2>
+<p>運営者は 会社をやめた年は給与の収入があり 次の年は収入がほとんどない見込みです。来年の分の保険料を12月のうちに払っておくと 今年の税金が減り 来年は もともと税金がかからないので損がありません。免除を申請している月は前納できないので 免除の結果を見てから払う月を決めます（<a href="/nenkin-menjo/">国民年金を免除するといくら得？</a>）。</p>
+<h2>関連する計算</h2>
+<a class="card rel" href="/nenkin-menjo/"><b>国民年金を免除するといくら得？</b><br><small>何歳まで生きると損になるか</small></a>
+<a class="card rel" href="/taishoku-kenpo/"><b>退職後の健康保険はどれが安い？</b><br><small>任意継続・国保・家族の扶養を比較</small></a>
+<a class="card rel" href="/taishoku-kakutei-shinkoku/"><b>退職した年の確定申告でいくら戻る？</b><br><small>源泉徴収票と保険料から</small></a>
+<a class="card rel" href="/nenmatsu-chosei/"><b>年末調整でいくら戻る？</b><br><small>控除の書き方と戻る額</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>国民年金は 何か月分まで前納できますか？</h3>
+<p>最大で来年度の終わり（2028年3月分）までです。年度の途中からでも 年金事務所に頼むと前納の納付書を出してもらえます。</p>
+<h3>国民健康保険料も前納できますか？</h3>
+<p>今年度の残りの期の分は 早めにまとめて払える市区町村が多いです。来年度の分は 保険料が決まっていないので前納できません。払い方は市区町村に確かめてください。</p>
+<h3>前納したあとで会社に入ったら？</h3>
+<p>厚生年金に入った月からの国民年金の保険料は 還付されます。国民健康保険料も やめた月からの分が戻ります。</p>
+<h3>免除を申請中ですが 前納してもいいですか？</h3>
+<p>免除を受ける月は前納できません。免除の結果が出てから 払う月を決めると安心です。</p>
+<!--theme--><h2>「退職・失業」のほかの計算</h2>
+<a class="card rel" href="/taishoku-juminzei/"><b>退職後の住民税はいくら？</b><br><small>退職する月で払う額と時期がわかる</small></a>
+<a class="card rel" href="/taishoku-furusato/"><b>退職した年のふるさと納税はいくらまで？</b><br><small>退職する月で上限と翌年の住民税がどう変わるか</small></a>
+<a class="card rel" href="/taishokukin-zeikin/"><b>退職金の税金と手取りはいくら？</b><br><small>iDeCoの一時金と受け取る順番も</small></a>
+<a class="card rel" href="/nenkin-kuriage-kurisage/"><b>年金は繰り上げ・繰り下げでいくら変わる？</b><br><small>受け取る合計が並ぶ年齢</small></a>
+<a class="card rel" href="/rougo-tarinai/"><b>年金生活で毎月いくら足りない？貯金は何歳までもつ？</b><br><small>年金の手取り・生活費・貯金から</small></a>
+<a class="card rel" href="/shitsugyo-taiken/"><b>退職してから失業保険をもらうまでに知ったこと</b><br><small>運営者が2026年に実際にやった手続きの記録</small></a>
+<!--/theme-->
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html" rel="noopener">日本年金機構 国民年金保険料の前納</a></li>
+  <li><a href="https://www.nenkin.go.jp/service/kokunen/hokenryo/ninenzenno.html" rel="noopener">日本年金機構 国民年金保険料の「2年前納」制度</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1130.htm" rel="noopener">国税庁 No.1130 社会保険料控除</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>・<a id="teisei" href="https://docs.google.com/forms/d/e/1FAIpQLSc89t4nIM-5lcqKhp2FJTKWalBx4ToP_X_oH5SPz84pczPhbg/viewform" target="_blank" rel="noopener">まちがいの連絡</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function update(){
+  const n=+$('nk').value, kh=+$('kh').value, r1=+$('r1').value, r2=+$('r2').value;
+  $('nkOut').textContent=n?n+'か月分':'前納しない'; $('khOut').textContent=yen(kh);
+  const x=SEIDO.nkZenno({nk:n,kh,r1,r2});
+  $('df').textContent=yen(x.diff);
+  $('dfN').textContent=x.diff>0?'今年に払うと税金が '+yen(x.now)+' 減ります。来年に払うと '+yen(x.later)+' です':x.diff<0?'来年に払ったほうが 税金が '+yen(-x.diff)+' 多く減ります':'今年と来年で 税金の減り方は同じです';
+  $('am').textContent=yen(x.amt);
+  $('amN').textContent='国民年金 '+yen(x.nkAmt)+'（割引の前）＋国民健康保険 '+yen(kh)+'。前納の割引は別にあります（下の表）';
+}
+['nk','kh','r1','r2'].forEach(id=>{$(id).addEventListener('input',update);$(id).addEventListener('change',update);}); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "国民年金は 何か月分まで前納できますか？", "acceptedAnswer": {"@type": "Answer", "text": "最大で来年度の終わり（2028年3月分）までです。年度の途中からでも 年金事務所に頼むと前納の納付書を出してもらえます。"}}, {"@type": "Question", "name": "国民健康保険料も前納できますか？", "acceptedAnswer": {"@type": "Answer", "text": "今年度の残りの期の分は 早めにまとめて払える市区町村が多いです。来年度の分は 保険料が決まっていないので前納できません。払い方は市区町村に確かめてください。"}}, {"@type": "Question", "name": "前納したあとで会社に入ったら？", "acceptedAnswer": {"@type": "Answer", "text": "厚生年金に入った月からの国民年金の保険料は 還付されます。国民健康保険料も やめた月からの分が戻ります。"}}, {"@type": "Question", "name": "免除を申請中ですが 前納してもいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "免除を受ける月は前納できません。免除の結果が出てから 払う月を決めると安心です。"}}]}</script>
+<!--seo--><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://seidoraga.jp/"}, {"@type": "ListItem", "position": 2, "name": "退職・失業", "item": "https://seidoraga.jp/#taishoku"}, {"@type": "ListItem", "position": 3, "name": "国民年金・国保を12月までに払うと税金はいくら減る？"}]}, {"@type": "WebPage", "name": "国民年金・国保を12月までに払うと税金はいくら減る？前納と社会保険料控除をかんたん計算【2026年度】", "url": "https://seidoraga.jp/kokuho-nenkin-zenno/", "inLanguage": "ja", "image": "https://seidoraga.jp/assets/og/kokuho-nenkin-zenno.png", "isPartOf": {"@type": "WebSite", "name": "せいどラガ", "url": "https://seidoraga.jp/"}, "author": {"@type": "Person", "name": "たかぎつとむ", "url": "https://seidoraga.jp/about/#unei"}, "publisher": {"@type": "Organization", "name": "せいどラガ", "url": "https://seidoraga.jp/", "logo": "https://seidoraga.jp/assets/icon-512.png"}, "description": "来年に払う国民年金・国民健康保険の保険料を12月31日までに前納すると、今年の社会保険料控除で税金がいくら減るかを計算します。退職して来年の収入が少ない人向け。2026年度の前納の割引額と、2年前納の控除の年の選び方も。", "dateModified": "2026-11-24"}]}</script><!--/seo-->
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：<a href="https://at-works.mendomilab.com/">A&amp;T Works</a>）</div>
+</div></footer>
+</body>
+</html>
