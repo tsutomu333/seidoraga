@@ -196,6 +196,17 @@ function fukugyo(inc,side){
   return {it:s1.it-s0.it,jt:s1.jt-s0.jt,total:(s1.it-s0.it)+(s1.jt-s0.jt)};
 }
 
+/* ダブルワーク（給与2か所）：本業（年末調整あり）の年収 A に、ほかの勤め先の給与 B を足したとき
+ * 給与は合計して給与所得控除を計算し直す。社会保険料は本業の年収の約15%（単発・短時間のバイトは社会保険に入らないものとする）
+ * wh：バイト先で天引きされた所得税の合計 */
+function wwork(A,B,wh){
+  A=Math.max(0,A); B=Math.max(0,B); wh=Math.max(0,wh||0);
+  const sh=A*0.15;
+  const f=T=>{ const g=Math.max(0,T-kyuyo(T)); const it=incomeTax(g-sh-kisoI(g)); const jb=fl1000(g-sh-430000); const jt=g<=450000?0:Math.max(0,Math.floor((jb*0.10-chosei(jb,50000))/100)*100); return {g,it,jt}; };
+  const a=f(A), b=f(A+B), it=b.it-a.it, jt=b.jt-a.jt;
+  return {it,jt,total:it+jt,net:B-it-jt,need:B>200000,pay:it-wh,g0:a.g,g1:b.g};
+}
+
 /* 年末調整：生命保険料控除（新制度）・地震保険料控除・iDeCo（小規模企業共済等掛金控除）で減る税金 */
 function lifeDed(ip,kg,nk,u23){
   // 一般生命保険料：23歳未満の扶養親族がいる場合は2026・2027年分の所得税で上限6万円（合計12万円は同じ）
@@ -516,7 +527,7 @@ function nkZenno(p){ // p:{nk(国民年金を前納する月数・来年1月か�
   return {nkAmt:a,amt,now,later,diff:now-later};
 }
 
-const API={kyuyo,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross,taiShinkoku,nkMenjo,nkZenno};
+const API={kyuyo,wwork,core,net,burden,furuLimit,hlUsed,idecoSave,spouse,student,idecoCap,evaluate,MODS,ORDER,HOUSE,kisoI,incomeTax,fx,crypto,iryo,fukugyo,lifeDed,nencho,shussan,shussanWd,izoku,izokuKosei,izokuKidEnd,sozokuUri,sozokuTax,sozokuDepr,sozokuChukai,fudosan,fdLife,fdRate,tenshoku,tenKokuho,iryoWork,hyojunK,kogaku,kgLimit,taishoku,tkKojo,tkTax,tkRaw,taiKenpo,kokuhoG,nenkin,nkRate,nkCross,taiShinkoku,nkMenjo,nkZenno};
 if(typeof module!=='undefined'&&module.exports){ module.exports=API; }
 root.SEIDO=API;
 if(typeof document==='undefined') return;

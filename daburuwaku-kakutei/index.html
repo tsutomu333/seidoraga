@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google tag -->
+<script>
+  // ?notrack=1 を一度開いたブラウザは計測しない（運営者の閲覧を数字に混ぜないため）。?notrack=0 で元に戻る
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){var off=false;try{if(/[?&]notrack=1/.test(location.search))localStorage.setItem('notrack','1');if(/[?&]notrack=0/.test(location.search))localStorage.removeItem('notrack');off=localStorage.getItem('notrack')==='1';}catch(e){}
+  if(!off){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-MLVDJ7VL';document.head.appendChild(s);}var tg=function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="px.a8.net"]');if(!a||a.getAttribute('data-tg'))return;var p=location.pathname.replace(/[^a-zA-Z0-9]/g,'').slice(0,40)||'top';a.href+='&id1='+p+'&id2='+(off?'self':'guest');a.setAttribute('data-tg','1');};['mousedown','touchstart','keydown','click'].forEach(function(t){document.addEventListener(t,tg,true);});})();
+</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<title>ダブルワーク・単発バイトの確定申告はいくらから？追加で払う税金をかんたん計算【2026年】｜せいどラガ</title>
+<meta name="description" content="本業の年収とバイトの給料を入れると 確定申告が要るか・追加で払う所得税・ふえる住民税・バイトで手元に残るお金がわかります。給料が2か所のときの20万円ルールと 住民税で勤め先にわかるかもまとめています。">
+<link rel="canonical" href="https://seidoraga.jp/daburuwaku-kakutei/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="せいどラガ">
+<meta property="og:title" content="ダブルワーク・単発バイトの確定申告はいくらから？">
+<meta property="og:description" content="本業の年収とバイトの給料を入れると 確定申告が要るか・追加で払う所得税・ふえる住民税・バイトで手元に残るお金がわかります。給料が2か所のときの20万円ルールと 住民税で勤め先にわかるかもまとめています。">
+<meta property="og:url" content="https://seidoraga.jp/daburuwaku-kakutei/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--g:#1F6B47;--g2:#E3F2EA;--g3:#A9D5BE;--ink:#1C2420;--sub:#4E5A53;--bg:#F7FAF8;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Meiryo",sans-serif}
+a{color:var(--g)}
+header.site{background:var(--g);color:#fff}
+header.site .in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+header.site a{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+header.site small{opacity:.9;font-size:12px}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:24px;line-height:1.4;margin:16px 0 8px}
+h2{font-size:20px;border-left:6px solid var(--g);padding-left:10px;margin:36px 0 12px}
+h3{font-size:17px;margin:20px 0 6px}
+.lead{color:var(--sub)}
+.badge{display:inline-block;background:var(--g2);color:var(--g);border-radius:4px;padding:0 8px;font-size:13px;font-weight:700}
+.card{background:var(--card);border:1px solid var(--g3);border-radius:12px;padding:16px;margin:12px 0}
+.calc label{display:block;font-weight:700;margin:14px 0 4px}
+.calc .row{display:flex;gap:10px;align-items:center}
+.calc input[type=range]{flex:1;accent-color:var(--g)}
+.calc output{min-width:96px;text-align:right;font-weight:700}
+.calc select,.calc input[type=number]{font:inherit;padding:6px 8px;border:1px solid var(--g3);border-radius:6px;background:#fff;max-width:100%}
+.calc input[type=number]{width:140px}
+.calc .hint{font-size:13px;color:var(--sub)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.res>div{background:var(--g2);border-radius:10px;padding:10px}
+.res span{display:block;font-size:13px;color:var(--sub)}
+.res b{font-size:22px}
+.res small{display:block;font-size:12px;color:var(--sub);line-height:1.5}
+.res .big{grid-column:1/-1;background:var(--g);color:#fff}
+.res .big span,.res .big small{color:#e6f4ec}
+.res .big b{font-size:30px}
+.note{font-size:13px;color:var(--sub)}
+.alert{background:#FFF7E6;border:1px solid #F1D19A;border-radius:10px;padding:10px 12px;margin-top:12px;font-size:14px}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:15px}
+th,td{border:1px solid var(--g3);padding:8px;text-align:left;vertical-align:top}
+th{background:var(--g2)}
+td.n{text-align:right;white-space:nowrap}
+.pr{border:1px dashed var(--g3);border-radius:12px;padding:14px;background:#fff}
+.pr .tag{font-size:12px;color:var(--sub);border:1px solid var(--sub);border-radius:3px;padding:0 4px;margin-right:6px}
+.soon{display:block;text-align:center;background:#EEF2EF;color:#3A4540;border:1px solid #c9d3cd;border-radius:999px;padding:12px;font-weight:700;margin-top:10px}
+.src{font-size:13px}
+.card.rel{display:block;text-decoration:none;color:var(--ink)}
+.card.rel b{color:var(--g)}
+.card.rel small{color:var(--sub)}
+.btn{display:block;text-align:center;background:#BF0000;color:#fff;text-decoration:none;font-weight:700;border-radius:999px;padding:12px;margin:8px 0}
+.btn:hover{opacity:.9}
+.prnote{font-size:12px;color:var(--sub);margin:4px 0 0}
+footer{margin-top:40px;background:#fff;border-top:1px solid var(--g3)}
+footer .in{max-width:760px;margin:0 auto;padding:16px;font-size:13px;color:var(--sub)}
+footer a{color:var(--sub);margin-right:12px}
+@media (max-width:480px){h1{font-size:21px}.res b{font-size:19px}.res .big b{font-size:26px}table{font-size:13px}}
+</style>
+<script src="/assets/seido.js?v=6207d283"></script>
+<!--seo--><meta property="og:image" content="https://seidoraga.jp/assets/og/daburuwaku-kakutei.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://seidoraga.jp/assets/og/daburuwaku-kakutei.png">
+<!--/seo-->
+</head>
+<body>
+<header class="site"><div class="in"><a href="/" style="white-space:nowrap">せいどラガ</a><small>暮らしのお金の制度を組み合わせて あなたの場合の答えをまとめて出す計算研究所</small></div></header><p class="adnote" style="margin:0;padding:4px 16px;font-size:12px;color:#5B6760;background:#F4F7F5;text-align:center">このサイトにはアフィリエイト広告（PR）が含まれ、紹介料を受け取ることがあります。紹介料の額で 計算結果・説明・広告の並び順は変えません。</p>
+<main>
+<!--seo--><nav class="bc" aria-label="パンくずリスト" style="font-size:12px;color:#5B6760;margin:4px 0 0"><a href="/">トップ</a> › <a href="/#kyuyo">給料・働き方</a> › ダブルワーク・単発バイトの確定申告はいくらから？</nav><!--/seo-->
+<span class="badge">2026年の給料の税金</span>
+<h1>ダブルワーク・単発バイトの確定申告はいくらから？<br>追加で払う所得税と住民税をかんたん計算</h1>
+<p class="lead">本業の勤め先で年末調整を受けて ほかにアルバイトや単発バイトの給料もある人の計算です。給料は2か所の分を合計して税金を計算し直すので 確定申告で所得税を追加で払うことがよくあります。本業の年収とバイトの給料を入れると 確定申告が要るか・追加で払う所得税・ふえる住民税・バイトで手元に残るお金がわかります。</p>
+<section class="card calc" id="calc" aria-labelledby="calcTitle">
+  <h2 id="calcTitle" style="margin-top:0">計算してみる</h2>
+  <label for="a">本業の年収（年末調整を受ける勤め先・税金や保険料が引かれる前の額）</label>
+  <div class="row"><input type="range" id="a" min="0" max="15000000" step="100000" value="4000000"><output id="aOut" for="a"></output></div>
+  <label for="b">2026年のバイトの給料の合計（交通費をのぞく）</label>
+  <div class="row"><input type="range" id="b" min="0" max="3000000" step="10000" value="500000"><output id="bOut" for="b"></output></div>
+  <label for="wh">バイト先で天引きされた所得税の合計（給与明細や源泉徴収票の「所得税」・わからなければ0円）</label>
+  <div class="row"><input type="range" id="wh" min="0" max="200000" step="500" value="0"><output id="whOut" for="wh"></output></div>
+  <div class="res" aria-live="polite">
+    <div class="big"><span>バイトで手元に残るお金（1年）</span><b id="net">-</b><small id="netN"></small></div>
+    <div><span>確定申告</span><b id="need">-</b><small id="needN"></small></div>
+    <div><span>ふえる所得税（復興特別所得税をふくむ）</span><b id="it">-</b><small id="itN"></small></div>
+    <div><span>確定申告で払う額</span><b id="pay">-</b><small id="payN"></small></div>
+    <div><span>ふえる住民税</span><b id="jt">-</b><small id="jtN"></small></div>
+  </div>
+  <p class="note">※本業の社会保険料は年収の約15%とした目安です。バイト先では社会保険に入らない（単発や短い時間の働き方）ものとしています。扶養している家族・iDeCo・医療費控除などは入れていません。ほかに給与以外の所得（副業の売上・FXなど）があるときは <a href="/fukugyo-zeikin/">副業の税金はいくら？</a> もあわせて見てください。</p>
+</section>
+<h2 id="hayami">早見表：バイトの給料でふえる税金（所得税＋住民税）</h2>
+<table><thead><tr><th scope="col">本業の年収＼バイトの給料</th><th scope="col">20万円</th><th scope="col">50万円</th><th scope="col">100万円</th><th scope="col">200万円</th></tr></thead><tbody><tr><th scope="row">300万円</th><td>14,000円<br><small>住民税だけ・申告いらない</small></td><td>52,900円<br><small>所得税17,900円・住民税35,000円</small></td><td>111,800円<br><small>所得税37,800円・住民税74,000円</small></td><td>238,700円<br><small>所得税84,700円・住民税154,000円</small></td></tr><tr><th scope="row">400万円</th><td>16,000円<br><small>住民税だけ・申告いらない</small></td><td>60,400円<br><small>所得税20,400円・住民税40,000円</small></td><td>120,900円<br><small>所得税40,900円・住民税80,000円</small></td><td>281,000円<br><small>所得税121,000円・住民税160,000円</small></td></tr><tr><th scope="row">500万円</th><td>16,000円<br><small>住民税だけ・申告いらない</small></td><td>71,700円<br><small>所得税31,700円・住民税40,000円</small></td><td>152,500円<br><small>所得税72,500円・住民税80,000円</small></td><td>409,000円<br><small>所得税245,000円・住民税164,000円</small></td></tr><tr><th scope="row">700万円</th><td>18,000円<br><small>住民税だけ・申告いらない</small></td><td>136,900円<br><small>所得税91,900円・住民税45,000円</small></td><td>273,800円<br><small>所得税183,800円・住民税90,000円</small></td><td>573,000円<br><small>所得税388,000円・住民税185,000円</small></td></tr></tbody></table>
+<p class="note">天引きされた所得税を引く前の額です。バイトの給料が20万円以下のときは 所得税の確定申告がいらないので 住民税の増え分だけを出しています。</p>
+<h2 id="iru">確定申告が要るのはどんなとき？</h2>
+<p>勤め先が2か所以上あるとき 年末調整をしない勤め先（バイト先）の給料の<b>収入</b>と 給与以外の所得の合計が<b>20万円をこえる</b>と 確定申告が要ります。副業の20万円ルールとちがって 給料は経費を引かない「収入」で判定します。</p>
+<table><thead><tr><th scope="col">よくある思いこみ</th><th scope="col">実際</th></tr></thead><tbody>
+<tr><th scope="row">単発バイトなら税金は天引きで終わり</th><td>単発バイトの天引きは少なめです。2か所の給料を合計すると税率が上がることが多いので 確定申告で追加で払うことがよくあります。</td></tr>
+<tr><th scope="row">20万円以下なら税金はかからない</th><td>所得税の確定申告がいらないだけです。住民税は バイト先から市区町村に届く給料の報告で 本業と合計されます。</td></tr>
+<tr><th scope="row">バイト先でも年末調整をしてもらえる</th><td>年末調整は1か所（ふつうは本業）だけです。バイト先の給料は 確定申告で合計します。</td></tr>
+<tr><th scope="row">確定申告をしなくてもわからない</th><td>バイト先は給料の額を市区町村や税務署に届けています。申告がいるのにしないと あとから延滞税や無申告加算税がかかることがあります。</td></tr>
+</tbody></table>
+<h2 id="naze">なぜ追加で払うの？</h2>
+<p>本業の年末調整では 本業の給料だけで1年の所得税を決めています。バイト先の天引きは その仕事だけを見た少なめの額です。2つを合計すると 給与所得控除の増え方が小さくなり 税率の段も上がることがあるので その差を確定申告で払います。天引きが多すぎたときは 確定申告で戻ります。</p>
+<h2 id="juminzei">住民税で本業の勤め先にわかる？</h2>
+<p>給料の住民税は ふつう本業の給料から引かれる形（特別徴収）で 2か所の給料を合計した額で決まります。本業の勤め先には住民税の額が届くので 額が大きく上がると気づかれることがあります。給料の分の住民税を自分で払う形（普通徴収）にできるかは 市区町村によってちがい できないことが多いです。勤め先の副業の決まりを先に確かめておくと安心です。</p>
+<h2 id="shinkoku">確定申告の準備</h2>
+<p>確定申告書は、国税庁の「確定申告書等作成コーナー」で無料で作れます。売上や経費が多くて記録をつけるのがたいへんなときは、会計ソフトを使う方法もあります。ソフトを選ぶときは、次の点を各社の公式サイトで比べられます。</p>
+<ul><li>料金（無料で使える範囲と、有料プランの年額）</li><li>白色申告と青色申告のどちらに対応しているか</li><li>銀行口座やクレジットカードの明細を取りこめるか</li><li>スマホだけで申告まで終えられるか</li></ul>
+<p><a href="https://www.keisan.nta.go.jp/" rel="noopener" target="_blank">国税庁 確定申告書等作成コーナー（無料）</a></p>
+<div class="pr" id="pr-soft">
+  <p><span class="tag">PR</span>会計ソフトは、売上や経費の記録から確定申告書づくりまでを手伝ってくれます。入力した内容の正しさは自分で確かめます。</p>
+  <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGLSB+7N2A9E+4JGQ+BWVTE" target="_blank" rel="nofollow sponsored noopener"><img border="0" width="1" height="1" src="https://www11.a8.net/0.gif?a8mat=4BGLSB+7N2A9E+4JGQ+BWVTE" alt="">マネーフォワード クラウド確定申告を見る</a></p>
+  <p class="note">対応する銀行口座やクレジットカードなどの明細を取りこみ、帳簿づけや確定申告書づくりを手伝います。</p>
+  <p><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BGLSB+7U7HIQ+35XE+6DZBM" target="_blank" rel="nofollow sponsored noopener"><img border="0" width="1" height="1" src="https://www15.a8.net/0.gif?a8mat=4BGLSB+7U7HIQ+35XE+6DZBM" alt="">やよいの白色申告・青色申告 オンラインを見る</a></p>
+  <p class="note">白色申告・青色申告に対応したサービスがあります。申告のしかたや必要な機能に合わせて選べます。</p>
+  <p class="note">並び順は五十音順です。紹介料の高さで順番は変えていません。</p>
+</div>
+<h2>関連する計算</h2>
+<a class="card rel" href="/kango-baito-zeikin/"><b>看護師の夜勤バイト・単発バイトは手取りいくら？</b><br><small>1回の金額と月の回数で 確定申告と住民税も</small></a>
+<a class="card rel" href="/fukugyo-zeikin/"><b>副業の税金はいくら？</b><br><small>給与以外の副業の20万円ルールと住民税</small></a>
+<a class="card rel" href="/gakusei-baito/"><b>大学生のバイト代はいくらまで？</b><br><small>本人の税金・健康保険と手取り</small></a>
+<a class="card rel" href="/iryohi-kojo/"><b>医療費控除でいくら戻る？</b><br><small>確定申告をするときにあわせて</small></a>
+<a class="card rel" href="/furusato/"><b>ふるさと納税はいくらまで？</b><br><small>確定申告をする年の上限</small></a>
+<h2 id="faq">よくある質問</h2>
+<h3>単発バイトの確定申告はいくらからですか？</h3>
+<p>本業で年末調整を受けている人は バイト先の給料（交通費をのぞく収入）と給与以外の所得の合計が20万円をこえると確定申告が要ります。20万円以下でも 医療費控除やふるさと納税で確定申告をするときは バイトの給料も書きます。</p>
+<h3>ダブルワークで確定申告をすると いくら払いますか？</h3>
+<p>2か所の給料を合計して計算した所得税から 本業の年末調整で決まった所得税と バイト先で天引きされた所得税を引いた額です。本業の年収400万円でバイトの給料が50万円なら 所得税は約2万円（20,400円）ふえるので 天引きされた分を引いた残りを払います。</p>
+<h3>確定申告をしないとどうなりますか？</h3>
+<p>申告が要るのにしないと 本来の税金に加えて 延滞税や無申告加算税がかかることがあります。バイト先は給料の額を届けているので 後から連絡が来ることがあります。</p>
+<h3>住民税の申告は別に要りますか？</h3>
+<p>バイト先が市区町村に給料の報告を出していれば 住民税は自動で合計されます。確定申告をすれば住民税の申告はいりません。</p>
+<h3>本業の年収が低い人や 扶養に入っているパートの人もこの計算でいいですか？</h3>
+<p>このページは本業で年末調整を受ける人の目安です。2か所の給料の合計が少ない人は 確定申告がいらない例外もあります。扶養の判定は 2か所の給料を合計した額で行います。</p>
+<!--theme--><h2>「給料・働き方」のほかの計算</h2>
+<a class="card rel" href="/tenshoku-tedori/"><b>転職すると手取りはいくら変わる？</b><br><small>年収の差・住民税のずれ・空白期間の保険料</small></a>
+<a class="card rel" href="/kango-yakuzai-tedori/"><b>看護師・薬剤師の働き方で手取りはどう変わる？</b><br><small>常勤・パート・派遣・夜勤の回数で比べる</small></a>
+<a class="card rel" href="/iryo-part-tedori/"><b>薬剤師・看護師のパートは時給3,000円で手取りいくら？</b><br><small>時給と週の日数で 手取りと入る保険</small></a>
+<a class="card rel" href="/kabe/"><b>パートの年収の壁で世帯の手取りはどうなる？</b><br><small>配偶者のパート年収で、夫婦の手取りはどう変わる？</small></a>
+<a class="card rel" href="/part-shaho/"><b>パートで社会保険に入るといくら引かれる？</b><br><small>年収別の引かれる額と、厚生年金が何年で元が取れるか</small></a>
+<a class="card rel" href="/tedori-2027/"><b>2027年1月から手取りはいくら増える？</b><br><small>所得税の基礎控除アップで、天引きがどう変わるか</small></a>
+<a class="card rel" href="/nenmatsu-chosei/"><b>年末調整でいくら戻る？</b><br><small>生命保険料・地震保険料・iDeCoで</small></a>
+<!--/theme-->
+<h2>このページの出典</h2>
+<ul class="src">
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" rel="noopener">国税庁 No.1900 給与所得者で確定申告が必要な人</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm" rel="noopener">国税庁 No.1410 給与所得控除</a></li>
+  <li><a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2260.htm" rel="noopener">国税庁 No.2260 所得税の税率</a></li>
+</ul>
+<p class="note">最終確認日：2026年11月15日／作成：<a href="/about/#unei">たかぎつとむ</a>（せいどラガ運営・A&amp;T Works）／計算は国税庁などの資料の計算式と自動で照らし合わせています（<a href="/about/#kakunin">確かめ方</a>・<a id="teisei" href="https://docs.google.com/forms/d/e/1FAIpQLSc89t4nIM-5lcqKhp2FJTKWalBx4ToP_X_oH5SPz84pczPhbg/viewform" target="_blank" rel="noopener">まちがいの連絡</a>）<br>このページは公表されている情報をもとに作った目安です。どれを選ぶかを決めるのはあなたです。このページは売る・買う・始める・やめるをすすめるものではありません。正確な額は税務署やお住まいの市区町村の案内でご確認ください。</p>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const man=v=>{const m=v/10000;return (Math.abs(m)>=100?Math.round(m):Math.round(m*10)/10).toLocaleString('ja-JP')+'万円';};
+const yen=v=>Math.round(v).toLocaleString('ja-JP')+'円';
+function show(B,A,wh){
+  const r=SEIDO.wwork(A,B,wh);
+  const it=r.need?r.it:Math.min(wh,r.it);
+  const net=B-(r.need?r.it:wh)-r.jt;
+  $('need').textContent=B<=0?'-':(r.need?'要ります':'いらない見込み');
+  $('needN').textContent=B<=0?'':(r.need?'バイトの給料 '+man(B)+' が20万円をこえるので 2027年2月16日〜3月15日に確定申告をします':'バイトの給料が20万円以下なので 所得税の確定申告はいりません（住民税は合計されます）');
+  $('it').textContent=yen(r.need?r.it:0); $('itN').textContent=r.need?'2か所の給料を合計して計算し直した所得税の増え分':'確定申告をしないので 天引きされた分で終わります';
+  $('pay').textContent=r.need?(r.pay>=0?yen(r.pay):yen(-r.pay)+' 戻る'):'-'; $('payN').textContent=r.need?'所得税の増え分 − バイト先で天引きされた所得税 '+yen(wh):'';
+  $('jt').textContent=yen(r.jt); $('jtN').textContent='2027年6月からの住民税にのります（本業の給料から引かれることが多い）';
+  $('net').textContent=yen(net); $('netN').textContent=B>0?'バイトの給料の約'+Math.round(net/B*100)+'%が残ります':'';
+}
+
+function update(){
+  const A=+$('a').value, B=+$('b').value, wh=+$('wh').value;
+  $('aOut').textContent=man(A); $('bOut').textContent=man(B); $('whOut').textContent=yen(wh);
+  show(B,A,wh);
+}
+['a','b','wh'].forEach(id=>$(id).addEventListener('input',update)); update();
+})();
+</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "単発バイトの確定申告はいくらからですか？", "acceptedAnswer": {"@type": "Answer", "text": "本業で年末調整を受けている人は バイト先の給料（交通費をのぞく収入）と給与以外の所得の合計が20万円をこえると確定申告が要ります。20万円以下でも 医療費控除やふるさと納税で確定申告をするときは バイトの給料も書きます。"}}, {"@type": "Question", "name": "ダブルワークで確定申告をすると いくら払いますか？", "acceptedAnswer": {"@type": "Answer", "text": "2か所の給料を合計して計算した所得税から 本業の年末調整で決まった所得税と バイト先で天引きされた所得税を引いた額です。本業の年収400万円でバイトの給料が50万円なら 所得税は約2万円（20,400円）ふえるので 天引きされた分を引いた残りを払います。"}}, {"@type": "Question", "name": "確定申告をしないとどうなりますか？", "acceptedAnswer": {"@type": "Answer", "text": "申告が要るのにしないと 本来の税金に加えて 延滞税や無申告加算税がかかることがあります。バイト先は給料の額を届けているので 後から連絡が来ることがあります。"}}, {"@type": "Question", "name": "住民税の申告は別に要りますか？", "acceptedAnswer": {"@type": "Answer", "text": "バイト先が市区町村に給料の報告を出していれば 住民税は自動で合計されます。確定申告をすれば住民税の申告はいりません。"}}, {"@type": "Question", "name": "本業の年収が低い人や 扶養に入っているパートの人もこの計算でいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "このページは本業で年末調整を受ける人の目安です。2か所の給料の合計が少ない人は 確定申告がいらない例外もあります。扶養の判定は 2か所の給料を合計した額で行います。"}}]}</script>
+<!--seo--><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://seidoraga.jp/"}, {"@type": "ListItem", "position": 2, "name": "給料・働き方", "item": "https://seidoraga.jp/#kyuyo"}, {"@type": "ListItem", "position": 3, "name": "ダブルワーク・単発バイトの確定申告はいくらから？"}]}, {"@type": "WebPage", "name": "ダブルワーク・単発バイトの確定申告はいくらから？追加で払う税金をかんたん計算【2026年】", "url": "https://seidoraga.jp/daburuwaku-kakutei/", "inLanguage": "ja", "image": "https://seidoraga.jp/assets/og/daburuwaku-kakutei.png", "isPartOf": {"@type": "WebSite", "name": "せいどラガ", "url": "https://seidoraga.jp/"}, "author": {"@type": "Person", "name": "たかぎつとむ", "url": "https://seidoraga.jp/about/#unei"}, "publisher": {"@type": "Organization", "name": "せいどラガ", "url": "https://seidoraga.jp/", "logo": "https://seidoraga.jp/assets/icon-512.png"}, "description": "本業の年収とバイトの給料を入れると 確定申告が要るか・追加で払う所得税・ふえる住民税・バイトで手元に残るお金がわかります。給料が2か所のときの20万円ルールと 住民税で勤め先にわかるかもまとめています。", "dateModified": "2026-11-27"}]}</script><!--/seo-->
+</main>
+<footer><div class="in">
+  <a href="/">トップ</a><a href="/privacy/">プライバシーポリシー</a><a href="/terms/">利用規約</a><a href="/about/">運営者について</a>
+  <div>© 2026 せいどラガ（運営：<a href="https://at-works.mendomilab.com/">A&amp;T Works</a>）</div>
+</div></footer>
+</body>
+</html>
